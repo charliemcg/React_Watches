@@ -32,10 +32,10 @@ module.exports = function validateSignUp(data) {
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
-  if (Validator.isEmpty(data.address, data.address)) {
+  if (Validator.isEmpty(data.address)) {
     errors.address = "Address field is required";
   }
-  if (Validator.isEmpty(data.phone, data.phone)) {
+  if (Validator.isEmpty(data.phone)) {
     errors.phone = "Phone is required";
   }
   return {
