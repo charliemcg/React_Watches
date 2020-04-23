@@ -10,26 +10,26 @@ class Landing extends Component {
             <br />
             <div>
               <Link
-                to="/register"
+                to="/signUp"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                 }}
               >
-                Register
+                Sign Up
               </Link>
             </div>
             <div>
               <Link
-                to="/login"
+                to="/signIn"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
                   letterSpacing: "1.5px",
                 }}
               >
-                Log In
+                Sign In
               </Link>
             </div>
           </div>
