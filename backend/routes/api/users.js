@@ -6,7 +6,7 @@ const keys = require("../../config/constants");
 const validateSignUp = require("../../validation/signUp");
 const validateSignIn = require("../../validation/signIn");
 const User = require("../../models/User");
-// @route POST api/users/register
+// @route POST api/users/signUp
 // @desc Register user
 // @access Public
 router.post("/signUp", (req, res) => {
@@ -39,10 +39,10 @@ router.post("/signUp", (req, res) => {
     }
   });
 });
-// @route POST api/users/login
+// @route POST api/users/signIn
 // @desc Login user and return JWT token
 // @access Public
-router.post("/signIn", (req, res) => {
+router.get("/signIn", (req, res) => {
   const { errors, isValid } = validateSignIn(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
