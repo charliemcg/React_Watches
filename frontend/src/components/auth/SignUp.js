@@ -44,7 +44,7 @@ class SignUp extends Component {
       address: this.state.address,
       phone: this.state.phone,
     };
-    this.props.registerUser(newUser, this.props.history);
+    this.props.signUpUser(newUser, this.props.history);
   };
   render() {
     const { errors } = this.state;
@@ -147,7 +147,7 @@ class SignUp extends Component {
               }}
               type="submit"
             >
-              Sign up
+              Sign Up
             </button>
           </div>
         </form>

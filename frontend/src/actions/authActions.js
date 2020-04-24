@@ -6,7 +6,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const signUpUser = (userData, history) => (dispatch) => {
   axios
     .post("/api/users/signUp", userData)
-    .then((res) => history.push("/signIn"))
+    .then((res) => history.push("/signUpSuccess"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -24,12 +24,13 @@ export const signInUser = (userData) => (dispatch) => {
       const decoded = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
     })
-    .catch((err) =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data,
-      })
-    );
+    .catch((err) => {
+      console.log(err);
+      // dispatch({
+      //   type: GET_ERRORS,
+      //   payload: err.response.data,
+      // });
+    });
 };
 export const setCurrentUser = (decoded) => {
   return {

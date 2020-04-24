@@ -8,6 +8,7 @@ import store from "./store";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import SignUp from "./components/auth/SignUp";
+import SignUpSuccess from "./components/auth/SignUpSuccess";
 import SignIn from "./components/auth/SignIn";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -31,6 +32,7 @@ class App extends Component {
             <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/signUp" component={SignUp} />
+            <Route exact path="/signUpSuccess" component={SignUpSuccess} />
             <Route exact path="/signIn" component={SignIn} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />

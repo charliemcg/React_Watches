@@ -16,11 +16,7 @@ class Dashboard extends Component {
         <div>
           <div>
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p>
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
+              <b>Hey there,</b> {user.firstname.split(" ")[0]}
             </h4>
             <button
               style={{

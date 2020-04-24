@@ -39,10 +39,10 @@ router.post("/signUp", (req, res) => {
     }
   });
 });
-// @route POST api/users/signIn
+// @route GET api/users/signIn
 // @desc Login user and return JWT token
 // @access Public
-router.get("/signIn", (req, res) => {
+router.post("/signIn", (req, res) => {
   const { errors, isValid } = validateSignIn(req.body);
   if (!isValid) {
     return res.status(400).json(errors);

@@ -37,7 +37,7 @@ class SignIn extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props.loginUser(userData);
+    this.props.signInUser(userData);
   };
   render() {
     const { errors } = this.state;
@@ -92,7 +92,7 @@ class SignIn extends Component {
                 }}
                 type="submit"
               >
-                Login
+                Sign In
               </button>
             </div>
           </form>

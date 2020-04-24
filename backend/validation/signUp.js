@@ -10,10 +10,10 @@ module.exports = function validateSignUp(data) {
   data.address = !isEmpty(data.address) ? data.address : "";
   data.phone = !isEmpty(data.phone) ? data.phone : "";
   if (Validator.isEmpty(data.firstname)) {
-    errors.name = "First name is required";
+    errors.firstname = "First name is required";
   }
   if (Validator.isEmpty(data.lastname)) {
-    errors.name = "Last name is required";
+    errors.lastname = "Last name is required";
   }
   if (Validator.isEmpty(data.email)) {
     errors.email = "Email is required";
@@ -34,9 +34,6 @@ module.exports = function validateSignUp(data) {
   }
   if (Validator.isEmpty(data.address)) {
     errors.address = "Address field is required";
-  }
-  if (Validator.isEmpty(data.phone)) {
-    errors.phone = "Phone is required";
   }
   return {
     errors,
