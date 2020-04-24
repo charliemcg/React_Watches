@@ -11,8 +11,7 @@ import SignUp from "./components/auth/SignUp";
 import SignUpSuccess from "./components/auth/SignUpSuccess";
 import SignIn from "./components/auth/SignIn";
 import Brands from "./components/brands/Brands";
-import Rolex from "./components/brands/Rolex";
-import Cartier from "./components/brands/Cartier";
+import DynamicBrand from "./components/brands/DynamicBrand";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 if (localStorage.jwtToken) {
@@ -38,8 +37,7 @@ class App extends Component {
             <Route exact path="/signUpSuccess" component={SignUpSuccess} />
             <Route exact path="/signIn" component={SignIn} />
             <Route exact path="/brands" component={Brands} />
-            <Route exact path="/rolex" component={Rolex} />
-            <Route exact path="/cartier" component={Cartier} />
+            <Route path="/dynamicBrand/:brand" component={DynamicBrand} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Rolex extends Component {
+export default class Cartier extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,7 +10,7 @@ export default class Rolex extends Component {
   }
   componentDidMount() {
     axios
-      .get("/api/watches/" + "Rolex")
+      .get("/api/watches/" + this.props.match.params.brand)
       .then((res) => {
         this.setState({ watches: res.data });
       })
@@ -28,7 +28,7 @@ export default class Rolex extends Component {
     });
     return (
       <div>
-        <p>Rolex</p>
+        <p>{this.props.match.params.brand}</p>
         {watches}
       </div>
     );
