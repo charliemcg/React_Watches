@@ -6,14 +6,8 @@ class Navbar extends Component {
       <div>
         <nav>
           <div>
-            <Link
-              to="/"
-              style={{
-                fontFamily: "monospace",
-              }}
-            >
-              MERN
-            </Link>
+            <Link to="/">MERN</Link>
+            <Link to="/brands">Watches</Link>
           </div>
         </nav>
       </div>
