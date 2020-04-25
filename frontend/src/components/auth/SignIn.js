@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { signInUser } from "../../actions/authActions";
+import constants from "../../constants";
+import strings from "./strings";
 
 class SignIn extends Component {
   constructor() {
@@ -15,12 +17,12 @@ class SignIn extends Component {
   }
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push(constants.routes.DASHBOARD);
     }
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push(constants.routes.DASHBOARD);
     }
     if (nextProps.errors) {
       this.setState({
@@ -43,14 +45,15 @@ class SignIn extends Component {
     const { errors } = this.state;
     return (
       <div>
-        <div style={{ marginTop: "4rem" }}>
-          <Link to="/">Back to home</Link>
-          <div style={{ paddingLeft: "11.250px" }}>
+        <div>
+          <Link to={constants.routes.HOME}>{strings.backToHome}</Link>
+          <div>
             <h4>
-              <b>Login</b> below
+              <b>{strings.signIn}</b> {strings.below}
             </h4>
             <p>
-              Don't have an account? <Link to="/signUp">Sign Up</Link>
+              {strings.dontHaveAnAccount}{" "}
+              <Link to={constants.routes.SIGN_UP}>{strings.signUp}</Link>
             </p>
           </div>
           <form noValidate onSubmit={this.onSubmit}>
@@ -62,7 +65,7 @@ class SignIn extends Component {
                 id="email"
                 type="email"
               />
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{strings.email}</label>
               <span>
                 {errors.email}
                 {errors.emailnotfound}
@@ -76,24 +79,14 @@ class SignIn extends Component {
                 id="password"
                 type="password"
               />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">{strings.password}</label>
               <span>
                 {errors.password}
                 {errors.passwordincorrect}
               </span>
             </div>
-            <div style={{ paddingLeft: "11.250px" }}>
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem",
-                }}
-                type="submit"
-              >
-                Sign In
-              </button>
+            <div>
+              <button type="submit">{strings.signInCapitalized}</button>
             </div>
           </form>
         </div>

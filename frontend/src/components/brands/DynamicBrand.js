@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import constants from "../../constants";
 
 export default class Cartier extends Component {
   constructor() {
@@ -10,7 +11,7 @@ export default class Cartier extends Component {
   }
   componentDidMount() {
     axios
-      .get("/api/watches/" + this.props.match.params.brand)
+      .get(constants.api.WATCHES + this.props.match.params.brand)
       .then((res) => {
         this.setState({ watches: res.data });
       })

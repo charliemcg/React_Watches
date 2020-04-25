@@ -2,11 +2,12 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import constants from "../constants";
 
 export const signUpUser = (userData, history) => (dispatch) => {
   axios
-    .post("/api/users/signUp", userData)
-    .then((res) => history.push("/signUpSuccess"))
+    .post(constants.api.SIGN_UP, userData)
+    .then((res) => history.push(constants.routes.SIGN_UP_SUCCESS))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -16,10 +17,10 @@ export const signUpUser = (userData, history) => (dispatch) => {
 };
 export const signInUser = (userData) => (dispatch) => {
   axios
-    .post("/api/users/signIn", userData)
+    .post(constants.api.SIGN_IN, userData)
     .then((res) => {
       const { token } = res.data;
-      localStorage.setItem("jwtToken", token);
+      localStorage.setItem(constants.JWT_TOKEN, token);
       setAuthToken(token);
       const decoded = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
@@ -44,7 +45,7 @@ export const setUserLoading = () => {
   };
 };
 export const logoutUser = () => (dispatch) => {
-  localStorage.removeItem("jwtToken");
+  localStorage.removeItem(constants.JWT_TOKEN);
   setAuthToken(false);
   dispatch(setCurrentUser({}));
 };

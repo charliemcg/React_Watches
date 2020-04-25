@@ -15,8 +15,8 @@ class Dashboard extends Component {
       <div style={{ height: "75vh" }}>
         <div>
           <div>
-            <h4>
-              <b>Hey there,</b> {user.firstname.split(" ")[0]}
+            <h4 style={{ color: "pink" }}>
+              <b>Hey there,</b> {user.firstname}
             </h4>
             <button
               style={{
@@ -24,6 +24,7 @@ class Dashboard extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem",
+                color: "pink",
               }}
               onClick={this.onLogoutClick}
             >

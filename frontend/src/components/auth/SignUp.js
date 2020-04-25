@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { signUpUser } from "../../actions/authActions";
+import constants from "../../constants";
+import strings from "./strings";
 
 class SignUp extends Component {
   constructor() {
@@ -20,7 +22,7 @@ class SignUp extends Component {
   }
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push(constants.routes.DASHBOARD);
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -50,13 +52,14 @@ class SignUp extends Component {
     const { errors } = this.state;
     return (
       <div>
-        <Link to="/">Back to home</Link>
-        <div style={{ paddingLeft: "11.250px" }}>
+        <Link to="/">{strings.backToHome}</Link>
+        <div>
           <h4>
-            <b>Register</b> below
+            <b>{strings.signUp}</b> {strings.below}
           </h4>
           <p>
-            Already have an account? <Link to="/signIn">Sign in</Link>
+            {strings.alreadyHaveAnAccount}{" "}
+            <Link to={constants.routes.SIGN_IN}>{strings.signIn}</Link>
           </p>
         </div>
         <form noValidate onSubmit={this.onSubmit}>
@@ -68,7 +71,7 @@ class SignUp extends Component {
               id="firstname"
               type="text"
             />
-            <label htmlFor="firstname">First Name</label>
+            <label htmlFor="firstname">{strings.firstName}</label>
             <span>{errors.firstname}</span>
           </div>
           <div>
@@ -79,7 +82,7 @@ class SignUp extends Component {
               id="lastname"
               type="text"
             />
-            <label htmlFor="lastname">Last Name</label>
+            <label htmlFor="lastname">{strings.lastName}</label>
             <span>{errors.lastname}</span>
           </div>
           <div>
@@ -90,7 +93,7 @@ class SignUp extends Component {
               id="email"
               type="email"
             />
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{strings.email}</label>
             <span>{errors.email}</span>
           </div>
           <div>
@@ -101,7 +104,7 @@ class SignUp extends Component {
               id="password"
               type="password"
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{strings.password}</label>
             <span>{errors.password}</span>
           </div>
           <div>
@@ -112,7 +115,7 @@ class SignUp extends Component {
               id="password2"
               type="password"
             />
-            <label htmlFor="password2">Confirm Password</label>
+            <label htmlFor="password2">{strings.confirmPassword}</label>
             <span>{errors.password2}</span>
           </div>
           <div>
@@ -123,7 +126,7 @@ class SignUp extends Component {
               id="address"
               type="text"
             />
-            <label htmlFor="address">Address</label>
+            <label htmlFor="address">{strings.address}</label>
             <span>{errors.address}</span>
           </div>
           <div>
@@ -134,21 +137,11 @@ class SignUp extends Component {
               id="phone"
               type="text"
             />
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">{strings.phone}</label>
             <span>{errors.phone}</span>
           </div>
-          <div style={{ paddingLeft: "11.250px" }}>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-              }}
-              type="submit"
-            >
-              Sign Up
-            </button>
+          <div>
+            <button type="submit">{strings.signUpCapitalized}</button>
           </div>
         </form>
       </div>
