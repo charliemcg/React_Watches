@@ -24,6 +24,34 @@ export default class Brands extends Component {
         >
           {constants.brands.PATEK_PHILIPPE}
         </Link>
+        <Link
+          to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
+        >
+          {constants.brands.AUDEMARS_PIGUET}
+        </Link>
+        <Link to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.OMEGA}`}>
+          {constants.brands.OMEGA}
+        </Link>
+        <Link
+          to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}
+        >
+          {constants.brands.VACHERON_CONSTANTIN}
+        </Link>
+        <Link
+          to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.CHOPARD}`}
+        >
+          {constants.brands.CHOPARD}
+        </Link>
+        <Link
+          to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PANERAI}`}
+        >
+          {constants.brands.PANERAI}
+        </Link>
+        <Link
+          to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.RICHARD_MILLE}`}
+        >
+          {constants.brands.RICHARD_MILLE}
+        </Link>
       </div>
     );
   }
