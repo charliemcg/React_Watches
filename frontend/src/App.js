@@ -12,8 +12,11 @@ import SignUpSuccess from "./components/auth/SignUpSuccess";
 import SignIn from "./components/auth/SignIn";
 import Brands from "./components/brands/Brands";
 import DynamicBrand from "./components/brands/DynamicBrand";
+import Product from "./components/product/Product";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import constants from "./constants";
+
 if (localStorage.jwtToken) {
   const token = localStorage.jwtToken;
   setAuthToken(token);
@@ -30,16 +33,31 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
+          <div>
             <Navbar />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/signUp" component={SignUp} />
-            <Route exact path="/signUpSuccess" component={SignUpSuccess} />
-            <Route exact path="/signIn" component={SignIn} />
-            <Route exact path="/brands" component={Brands} />
-            <Route path="/dynamicBrand/:brand" component={DynamicBrand} />
+            <Route exact path={constants.routes.HOME} component={Landing} />
+            <Route exact path={constants.routes.SIGN_UP} component={SignUp} />
+            <Route
+              exact
+              path={constants.routes.SIGN_UP_SUCCESS}
+              component={SignUpSuccess}
+            />
+            <Route exact path={constants.routes.SIGN_IN} component={SignIn} />
+            <Route exact path={constants.routes.BRANDS} component={Brands} />
+            <Route
+              path={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PARAM_BRAND}`}
+              component={DynamicBrand}
+            />
+            <Route
+              path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
+              component={Product}
+            />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path={constants.routes.DASHBOARD}
+                component={Dashboard}
+              />
             </Switch>
           </div>
         </Router>

@@ -2,7 +2,7 @@ export default {
   api: {
     SIGN_UP: "/api/users/signUp",
     SIGN_IN: "/api/users/signIn",
-    WATCHES: "/api/watches/",
+    WATCHES: "/api/watches",
   },
   routes: {
     HOME: "/",
@@ -12,6 +12,9 @@ export default {
     SIGN_IN: "/signIn",
     BRANDS: "/brands",
     DYNAMIC_BRAND: "/dynamicBrand",
+    PARAM_BRAND: "/:brand",
+    PRODUCT: "/product",
+    PARAM_MODEL: "/:model",
     ROLEX: "/Rolex",
     CARTIER: "/Cartier",
     BREGUET: "/Breguet",

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import constants from "../../constants";
 
-export default class Cartier extends Component {
+export default class DynamicBrand extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,7 +12,7 @@ export default class Cartier extends Component {
   }
   componentDidMount() {
     axios
-      .get(constants.api.WATCHES + this.props.match.params.brand)
+      .get(`${constants.api.WATCHES}/${this.props.match.params.brand}`)
       .then((res) => {
         this.setState({ watches: res.data });
       })
@@ -25,7 +26,11 @@ export default class Cartier extends Component {
   }
   render() {
     const watches = this.state.watches.map((watch) => {
-      return <p>{watch.model}</p>;
+      return (
+        <Link to={`${constants.routes.PRODUCT}/${watch.brand}/${watch.model}`}>
+          {watch.model}
+        </Link>
+      );
     });
     return (
       <div>
