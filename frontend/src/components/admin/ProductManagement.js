@@ -1,12 +1,16 @@
 import React, { Component } from "react";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import axios from "axios";
 import constants from "../../constants";
+import brands from "../../brands";
+import models from "../../models";
 
 export default class Admin extends Component {
   constructor() {
     super();
     this.state = {
-      brand: "",
+      brand: brands[0],
       model: "",
       price: "",
       description: "",
@@ -16,8 +20,20 @@ export default class Admin extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(`Models: ${JSON.stringify(models[0])}`);
+  }
+
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
+  };
+
+  onChangeBrand = (e) => {
+    this.setState({ brand: e.value });
+  };
+
+  onChangeModel = (e) => {
+    this.setState({ model: e.value });
   };
 
   onChangeImage = (e) => {
@@ -60,13 +76,31 @@ export default class Admin extends Component {
     const { errors } = this.state;
     return (
       <div>
+        <div>
+          <Dropdown
+            options={brands}
+            onChange={this.onChangeBrand}
+            value={brands[0]}
+            id="brand"
+          />
+          Brand
+        </div>
+        <div>
+          <Dropdown
+            options={models[this.state.brand.replace(/\s/g, "")]}
+            onChange={this.onChangeModel}
+            value={models[this.state.brand.replace(/\s/g, "")][0]}
+            id="model"
+          />
+          Model
+        </div>
         <form
           action="/upload"
           method="POST"
           encType="multipart/form-data"
           onSubmit={this.onSubmit}
         >
-          <div>
+          {/* <div>
             <input
               onChange={this.onChange}
               value={this.state.brand}
@@ -76,8 +110,8 @@ export default class Admin extends Component {
             />
             <label htmlFor="brand">Brand</label>
             <span>{errors.brand}</span>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <input
               onChange={this.onChange}
               value={this.state.model}
@@ -87,7 +121,7 @@ export default class Admin extends Component {
             />
             <label htmlFor="model">Model</label>
             <span>{errors.model}</span>
-          </div>
+          </div> */}
           <div>
             <input
               onChange={this.onChange}
@@ -134,7 +168,6 @@ export default class Admin extends Component {
             <button type="submit">Submit</button>
           </div>
         </form>
-
         {/* <form action="/upload" method="POST" encType="multipart/form-data">
           <input type="file" name="file" id="file" class="custom-file-input" />
           <br />
