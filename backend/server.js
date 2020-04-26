@@ -8,10 +8,11 @@ const watches = require("./routes/api/watches");
 
 app.use(
   bodyParser.urlencoded({
-    extended: false,
+    extended: true,
+    limit: "5mb",
   })
 );
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "5mb" }));
 const db = require("./config/constants").connectionString;
 mongoose
   .connect(db, { useNewUrlParser: true })

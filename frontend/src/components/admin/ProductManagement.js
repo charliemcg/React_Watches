@@ -45,7 +45,7 @@ export default class Admin extends Component {
     axios
       .post(`${constants.api.WATCHES}${constants.api.NEW_WATCH}`, newWatch)
       .then((res) => {
-        console.log(`Watch posted? ${JSON.stringify(res)}`);
+        console.log(`Watch posted successfully`);
       })
       .catch((err) => {
         console.log(`error: ${err}`);
