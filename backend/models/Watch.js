@@ -17,6 +17,14 @@ const WatchSchema = new Schema({
     type: String,
     required: false,
   },
+  inStock: {
+    type: Boolean,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

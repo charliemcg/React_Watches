@@ -13,8 +13,13 @@ import SignIn from "./components/auth/SignIn";
 import Brands from "./components/brands/Brands";
 import DynamicBrand from "./components/brands/DynamicBrand";
 import Product from "./components/product/Product";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
+import Cart from "./components/cart/Cart";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Admin from "./components/admin/ProductManagement";
+import Footer from "./components/footer/Footer";
 import constants from "./constants";
 
 if (localStorage.jwtToken) {
@@ -43,6 +48,10 @@ class App extends Component {
               component={SignUpSuccess}
             />
             <Route exact path={constants.routes.SIGN_IN} component={SignIn} />
+            <Route exact path={constants.routes.ABOUT} component={About} />
+            <Route exact path={constants.routes.CONTACT} component={Contact} />
+            <Route exact path={constants.routes.CART} component={Cart} />
+            <Route exact path={constants.routes.ADMIN} component={Admin} />
             <Route exact path={constants.routes.BRANDS} component={Brands} />
             <Route
               path={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PARAM_BRAND}`}
@@ -61,6 +70,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
+        <Footer />
       </Provider>
     );
   }

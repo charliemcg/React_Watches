@@ -13,6 +13,12 @@ class Navbar extends Component {
               MERN
             </Link>
             <Link to={constants.routes.BRANDS}>{strings.watches}</Link>
+            <Link to={constants.routes.ABOUT}>{strings.about}</Link>
+            <Link to={constants.routes.CONTACT}>{strings.contact}</Link>
+            <Link to={constants.routes.CART}>{strings.cart}</Link>
+            <Link to={constants.routes.ADMIN} style={{ color: "pink" }}>
+              Admin
+            </Link>
           </div>
         </nav>
       </div>
