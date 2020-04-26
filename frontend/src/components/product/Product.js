@@ -32,6 +32,7 @@ export default class Product extends Component {
         <p>{watch.model}</p>
         <p>${watch.price}</p>
         <p>{watch.description}</p>
+        <img src={`data:image/jpeg;base64,${watch.image}`} />
       </div>
     );
   }

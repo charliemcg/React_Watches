@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import constants from "../../constants";
-import { serialize, deserialize } from "react-serialize";
-import base64Img from "base64-img";
 
 export default class Admin extends Component {
   constructor() {
@@ -17,9 +15,11 @@ export default class Admin extends Component {
       errors: {},
     };
   }
+
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
+
   onChangeImage = (e) => {
     var file = e.target.files[0],
       reader = new FileReader();
@@ -31,6 +31,7 @@ export default class Admin extends Component {
 
     reader.readAsDataURL(file);
   };
+
   onSubmit = (e) => {
     e.preventDefault();
     const newWatch = {
@@ -54,6 +55,7 @@ export default class Admin extends Component {
         // });
       });
   };
+
   render() {
     const { errors } = this.state;
     return (
