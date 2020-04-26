@@ -20,16 +20,12 @@ export default class Admin extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(`Models: ${JSON.stringify(models[0])}`);
-  }
-
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
   onChangeBrand = (e) => {
-    this.setState({ brand: e.value });
+    this.setState({ brand: e.value, model: "" });
   };
 
   onChangeModel = (e) => {
@@ -80,7 +76,7 @@ export default class Admin extends Component {
           <Dropdown
             options={brands}
             onChange={this.onChangeBrand}
-            value={brands[0]}
+            value={this.state.brand}
             id="brand"
           />
           Brand
@@ -89,7 +85,8 @@ export default class Admin extends Component {
           <Dropdown
             options={models[this.state.brand.replace(/\s/g, "")]}
             onChange={this.onChangeModel}
-            value={models[this.state.brand.replace(/\s/g, "")][0]}
+            // value={models[this.state.brand.replace(/\s/g, "")][0]}
+            value={this.state.model}
             id="model"
           />
           Model
@@ -100,28 +97,6 @@ export default class Admin extends Component {
           encType="multipart/form-data"
           onSubmit={this.onSubmit}
         >
-          {/* <div>
-            <input
-              onChange={this.onChange}
-              value={this.state.brand}
-              error={errors.brand}
-              id="brand"
-              type="text"
-            />
-            <label htmlFor="brand">Brand</label>
-            <span>{errors.brand}</span>
-          </div> */}
-          {/* <div>
-            <input
-              onChange={this.onChange}
-              value={this.state.model}
-              error={errors.model}
-              id="model"
-              type="text"
-            />
-            <label htmlFor="model">Model</label>
-            <span>{errors.model}</span>
-          </div> */}
           <div>
             <input
               onChange={this.onChange}
