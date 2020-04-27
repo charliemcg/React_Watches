@@ -6,6 +6,7 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const watches = require("./routes/api/watches");
 
+//setting 5mb upload image to allow for product images
 app.use(
   bodyParser.urlencoded({
     extended: true,

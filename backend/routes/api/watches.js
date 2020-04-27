@@ -13,6 +13,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+//GET model
 router.get("/:brand/:model", (req, res) => {
   Watch.findOne({ brand: req.params.brand, model: req.params.model }).then(
     (watch) => {
@@ -24,6 +25,7 @@ router.get("/:brand/:model", (req, res) => {
   );
 });
 
+//GET all models of brand
 router.get("/:brand", (req, res) => {
   Watch.find({ brand: req.params.brand }).then((watches) => {
     if (!watches) {
@@ -33,6 +35,7 @@ router.get("/:brand", (req, res) => {
   });
 });
 
+//POST new watch
 router.post("/newWatch", upload.single("image"), (req, res) => {
   const { brand, model, price, description, inStock, image } = req.body;
   Watch.findOne({ model: brand }).then((watch) => {

@@ -21,6 +21,7 @@ const WatchSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  //image willl be stored in base64
   image: {
     type: String,
     required: true,

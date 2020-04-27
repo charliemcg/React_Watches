@@ -25,6 +25,7 @@ export default class Admin extends Component {
   };
 
   onChangeBrand = (e) => {
+    //remove any previously chosen model because it may not be part of the newly chosen brand
     this.setState({ brand: e.value, model: "" });
   };
 
@@ -33,14 +34,13 @@ export default class Admin extends Component {
   };
 
   onChangeImage = (e) => {
+    //converting image to base64
     var file = e.target.files[0],
       reader = new FileReader();
-
     reader.onloadend = () => {
       var b64 = reader.result.replace(/^data:.+;base64,/, "");
       this.setState({ image: b64 });
     };
-
     reader.readAsDataURL(file);
   };
 
@@ -83,9 +83,10 @@ export default class Admin extends Component {
         </div>
         <div>
           <Dropdown
+            //Removing whitespace from brand name so it can be used as a key for finding models.
+            //This dropdown will only show models reletive to the selected brand
             options={models[this.state.brand.replace(/\s/g, "")]}
             onChange={this.onChangeModel}
-            // value={models[this.state.brand.replace(/\s/g, "")][0]}
             value={this.state.model}
             id="model"
           />
@@ -135,7 +136,6 @@ export default class Admin extends Component {
             type="file"
             className="file"
             id="image"
-            // class="custom-file-input"
           />
 
           <label htmlFor="file">Image</label>
@@ -143,14 +143,6 @@ export default class Admin extends Component {
             <button type="submit">Submit</button>
           </div>
         </form>
-        {/* <form action="/upload" method="POST" encType="multipart/form-data">
-          <input type="file" name="file" id="file" class="custom-file-input" />
-          <br />
-          <label for="file" class="custom-file-label">
-            Choose File
-          </label>
-          <input type="submit" value="Submit" />
-        </form> */}
       </div>
     );
   }
