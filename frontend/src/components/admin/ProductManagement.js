@@ -10,6 +10,7 @@ export default class Admin extends Component {
   constructor() {
     super();
     this.state = {
+      //default to Rolex
       brand: brands[0],
       model: "",
       price: "",
@@ -135,17 +136,6 @@ export default class Admin extends Component {
             <label htmlFor="description">Description</label>
             <span>{errors.description}</span>
           </div>
-          {/* <div>
-            <input
-              onChange={this.onChange}
-              value={this.state.inStock}
-              error={errors.inStock}
-              id="inStock"
-              type="inStock"
-            />
-            <label htmlFor="inStock">In Stock?</label>
-            <span>{errors.inStock}</span>
-          </div> */}
           <div>
             <input
               type="checkbox"
