@@ -14,7 +14,7 @@ export default class Admin extends Component {
       model: "",
       price: "",
       description: "",
-      inStock: "",
+      inStock: true,
       image: null,
       errors: {},
     };
@@ -31,6 +31,11 @@ export default class Admin extends Component {
 
   onChangeModel = (e) => {
     this.setState({ model: e.value });
+  };
+
+  onChangeStock = (e) => {
+    console.log(this.state.inStock);
+    this.setState({ inStock: !this.state.inStock });
   };
 
   onChangeImage = (e) => {
@@ -54,10 +59,20 @@ export default class Admin extends Component {
       inStock: this.state.inStock,
       image: this.state.image,
     };
+    console.log(newWatch);
     axios
       .post(`${constants.api.WATCHES}${constants.api.NEW_WATCH}`, newWatch)
       .then((res) => {
         console.log(`Watch posted successfully`);
+        this.setState({
+          brand: brands[0],
+          model: "",
+          price: "",
+          description: "",
+          inStock: "",
+          image: null,
+          errors: {},
+        });
       })
       .catch((err) => {
         console.log(`error: ${err}`);
@@ -104,7 +119,7 @@ export default class Admin extends Component {
               value={this.state.price}
               error={errors.price}
               id="price"
-              type="price"
+              // type="price"
             />
             <label htmlFor="price">Price</label>
             <span>{errors.price}</span>
@@ -115,12 +130,12 @@ export default class Admin extends Component {
               value={this.state.description}
               error={errors.description}
               id="description"
-              type="description"
+              // type="description"
             />
             <label htmlFor="description">Description</label>
             <span>{errors.description}</span>
           </div>
-          <div>
+          {/* <div>
             <input
               onChange={this.onChange}
               value={this.state.inStock}
@@ -128,7 +143,18 @@ export default class Admin extends Component {
               id="inStock"
               type="inStock"
             />
-            <label htmlFor="inStock">In Stock</label>
+            <label htmlFor="inStock">In Stock?</label>
+            <span>{errors.inStock}</span>
+          </div> */}
+          <div>
+            <input
+              type="checkbox"
+              defaultChecked={this.state.inStock}
+              onChange={this.onChangeStock}
+              error={errors.inStock}
+              id="inStock"
+            />
+            <label htmlFor="inStock">In Stock?</label>
             <span>{errors.inStock}</span>
           </div>
           <input

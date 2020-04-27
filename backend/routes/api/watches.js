@@ -46,7 +46,9 @@ router.post("/newWatch", upload.single("image"), (req, res) => {
         brand,
         model,
         price,
-        description,
+        //TODO remove lorem ipsum from before rolling out to production
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis diam lectus, in cursus nunc tempus at. Curabitur vitae porttitor odio, vitae auctor turpis. Nam varius nisi ut sapien suscipit rutrum. Sed tempor iaculis mauris, sed ullamcorper ante. Donec eu vestibulum nunc. Praesent sit amet semper nisi. Cras maximus, tellus et vestibulum tempus, velit tellus auctor turpis, sit amet ultricies turpis metus vitae dolor.",
         inStock,
         image,
       });

@@ -10,7 +10,7 @@ export default {
     "GMT-Master II",
     "Sky-Dweller",
     "Yacht-Master",
-    "Sea Dweller",
+    "Sea-Dweller",
     "Milgauss",
     "Explorer",
     "Air-King",

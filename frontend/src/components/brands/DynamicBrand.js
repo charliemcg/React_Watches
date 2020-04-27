@@ -26,11 +26,11 @@ export default class DynamicBrand extends Component {
   }
   render() {
     const watches = this.state.watches.map((watch) => {
-      return (
+      return watch.inStock ? (
         <Link to={`${constants.routes.PRODUCT}/${watch.brand}/${watch.model}`}>
           {watch.model}
         </Link>
-      );
+      ) : null;
     });
     return (
       <div>
