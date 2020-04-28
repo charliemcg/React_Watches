@@ -35,6 +35,12 @@ class Landing extends Component {
             >
               {constants.brands.AUDEMARS_PIGUET}
             </Link>
+            <Link
+              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.CARTIER}`}
+              style={styles.subNavBtn}
+            >
+              {constants.brands.CARTIER}
+            </Link>
             <Link to={constants.routes.BRANDS} style={styles.subNavBtn}>
               {strings.more}
             </Link>

@@ -1,11 +1,11 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import collection from "./graphics/jumbotron_collection.jpg";
-import daytona from "./graphics/jumbotron_daytona.jpg";
-import finance from "./graphics/jumbotron_finance.jpg";
-import overseas from "./graphics/jumbotron_overseas.jpg";
-import patek from "./graphics/jumbotron_patek.jpg";
+import collection from "./graphics/jumbotron_collection.png";
+import daytona from "./graphics/jumbotron_daytona.png";
+import finance from "./graphics/jumbotron_finance.png";
+import overseas from "./graphics/jumbotron_overseas.png";
+import patek from "./graphics/jumbotron_patek.png";
 
 const sources = [collection, daytona, finance, overseas, patek];
 
@@ -18,7 +18,7 @@ const images = sources.map((img) => {
 });
 
 export default () => (
-  <div style={{ height: "500px", width: "800px" }}>
+  <div>
     <Carousel
       autoPlay
       showStatus={false}

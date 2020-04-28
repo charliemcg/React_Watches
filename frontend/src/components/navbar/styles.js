@@ -1,8 +1,9 @@
 export default {
-  masterContainer: {
+  masterWrapper: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    padding: "20px",
   },
   btnWrapper: {
     display: "flex",
@@ -11,10 +12,27 @@ export default {
   leftWrapper: {
     width: "365px",
   },
-  divider: {
+  phone: {
     height: "40px",
     width: "355px",
     borderBottom: "1px solid #000",
+  },
+  phoneContent: {
+    color: "#777",
+    fontSize: "15px",
+    padding: "10px",
+  },
+  address: {
+    display: "flex",
+    justifyContent: "flex-end",
+    height: "40px",
+    width: "355px",
+    borderBottom: "1px solid #000",
+  },
+  addressContent: {
+    color: "#777",
+    fontSize: "15px",
+    padding: "10px",
   },
   leftBtnWrapper: {
     display: "flex",
@@ -37,10 +55,15 @@ export default {
     width: "110px",
     padding: "0px 20px",
   },
+  logoLink: {
+    textDecoration: "none",
+    color: "#444",
+  },
   rightWrapper: {
     width: "355px",
   },
   btn: {
     textDecoration: "none",
+    color: "#444",
   },
 };

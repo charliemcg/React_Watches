@@ -15,6 +15,13 @@ export default class Cart extends Component {
     return (
       <div style={styles.footerWrapper}>
         <div style={styles.columnWrapper}>
+          <div>
+            <div>{strings.addressLineOne}</div>
+            <div>{strings.addressLineTwo}</div>
+          </div>
+          <div>{strings.phone}</div>
+        </div>
+        <div style={styles.columnWrapper}>
           <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
             {strings.contactUs}
           </Link>
@@ -35,13 +42,6 @@ export default class Cart extends Component {
           <div>
             {strings.copyright} {year}
           </div>
-        </div>
-        <div style={styles.columnWrapper}>
-          <div>
-            <div>{strings.addressLineOne}</div>
-            <div>{strings.addressLineTwo}</div>
-          </div>
-          <div>{strings.phone}</div>
         </div>
       </div>
     );
