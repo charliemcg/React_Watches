@@ -20,6 +20,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Admin from "./components/admin/ProductManagement";
 import Footer from "./components/footer/Footer";
+import UnderConstruction from "./components/underConstruction/UnderConstruction";
 import constants from "./constants";
 
 if (localStorage.jwtToken) {
@@ -62,6 +63,10 @@ class App extends Component {
               path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
               component={Product}
             />
+            <Route
+              path={`${constants.routes.UNDER_CONSTRUCTION}`}
+              component={UnderConstruction}
+            />
             <Switch>
               <PrivateRoute
                 exact
@@ -70,8 +75,8 @@ class App extends Component {
               />
             </Switch>
           </div>
+          <Footer />
         </Router>
-        <Footer />
       </Provider>
     );
   }

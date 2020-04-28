@@ -1,67 +1,47 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import youtube from "./graphics/icon_youtube.png";
 import instagram from "./graphics/icon_instagram.png";
 import facebook from "./graphics/icon_facebook.png";
 import twitter from "./graphics/icon_twitter.png";
+import styles from "./styles";
+import strings from "./strings";
+import constants from "../../constants";
+
+const year = new Date().getFullYear();
 
 export default class Cart extends Component {
   render() {
     return (
-      <div
-        style={{
-          backgroundColor: "gray",
-          width: "100%",
-          height: "100dp",
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "green",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <p style={{ color: "pink" }}>Contact Us</p>
-          <p style={{ color: "pink" }}>Careers</p>
-          <p style={{ color: "pink" }}>Terms and Conditions</p>
-          <p style={{ color: "pink" }}>Copyright</p>
+      <div style={styles.footerWrapper}>
+        <div style={styles.columnWrapper}>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.contactUs}
+          </Link>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.careers}
+          </Link>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.termsAndConditions}
+          </Link>
         </div>
-        <div
-          style={{
-            backgroundColor: "red",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div>
-            <p style={{ color: "pink" }}>123 Fake Street</p>
-            <p style={{ color: "pink" }}>SpringField ABC</p>
-            <p style={{ color: "pink" }}>(01) 234 567 890</p>
+        <div style={styles.columnWrapper}>
+          <div style={styles.socialWrapper}>
+            <img alt="" src={youtube} style={styles.socialIcon} />
+            <img alt="" src={instagram} style={styles.socialIcon} />
+            <img alt="" src={facebook} style={styles.socialIcon} />
+            <img alt="" src={twitter} style={styles.socialIcon} />
           </div>
           <div>
-            <img
-              alt=""
-              src={youtube}
-              style={{ height: "20px", width: "20px" }}
-            />
-            <img
-              alt=""
-              src={instagram}
-              style={{ height: "20px", width: "20px" }}
-            />
-            <img
-              alt=""
-              src={facebook}
-              style={{ height: "20px", width: "20px" }}
-            />
-            <img
-              alt=""
-              src={twitter}
-              style={{ height: "20px", width: "20px" }}
-            />
+            {strings.copyright} {year}
           </div>
+        </div>
+        <div style={styles.columnWrapper}>
+          <div>
+            <div>{strings.addressLineOne}</div>
+            <div>{strings.addressLineTwo}</div>
+          </div>
+          <div>{strings.phone}</div>
         </div>
       </div>
     );

@@ -20,6 +20,7 @@ export default {
     PARAM_BRAND: "/:brand",
     PRODUCT: "/product",
     PARAM_MODEL: "/:model",
+    UNDER_CONSTRUCTION: "/underConstruction",
     ROLEX: "/Rolex",
     CARTIER: "/Cartier",
     BREGUET: "/Breguet",
