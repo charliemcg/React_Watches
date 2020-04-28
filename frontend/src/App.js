@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
+          <div style={{ backgroundColor: "#EEE" }}>
             <Navbar />
             <Route exact path={constants.routes.HOME} component={Landing} />
             <Route exact path={constants.routes.SIGN_UP} component={SignUp} />

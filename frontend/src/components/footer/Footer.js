@@ -13,34 +13,36 @@ const year = new Date().getFullYear();
 export default class Cart extends Component {
   render() {
     return (
-      <div style={styles.footerWrapper}>
-        <div style={styles.columnWrapper}>
-          <div>
-            <div>{strings.addressLineOne}</div>
-            <div>{strings.addressLineTwo}</div>
+      <div style={styles.background}>
+        <div style={styles.footerWrapper}>
+          <div style={styles.columnWrapper}>
+            <div>
+              <div>{strings.addressLineOne}</div>
+              <div>{strings.addressLineTwo}</div>
+            </div>
+            <div>{strings.phone}</div>
           </div>
-          <div>{strings.phone}</div>
-        </div>
-        <div style={styles.columnWrapper}>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-            {strings.contactUs}
-          </Link>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-            {strings.careers}
-          </Link>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-            {strings.termsAndConditions}
-          </Link>
-        </div>
-        <div style={styles.columnWrapper}>
-          <div style={styles.socialWrapper}>
-            <img alt="" src={youtube} style={styles.socialIcon} />
-            <img alt="" src={instagram} style={styles.socialIcon} />
-            <img alt="" src={facebook} style={styles.socialIcon} />
-            <img alt="" src={twitter} style={styles.socialIcon} />
+          <div style={styles.columnWrapper}>
+            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+              {strings.contactUs}
+            </Link>
+            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+              {strings.careers}
+            </Link>
+            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+              {strings.termsAndConditions}
+            </Link>
           </div>
-          <div>
-            {strings.copyright} {year}
+          <div style={styles.columnWrapper}>
+            <div style={styles.socialWrapper}>
+              <img alt="" src={youtube} style={styles.socialIcon} />
+              <img alt="" src={instagram} style={styles.socialIcon} />
+              <img alt="" src={facebook} style={styles.socialIcon} />
+              <img alt="" src={twitter} style={styles.socialIcon} />
+            </div>
+            <div>
+              {strings.copyright} {year}
+            </div>
           </div>
         </div>
       </div>

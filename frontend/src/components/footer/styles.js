@@ -1,7 +1,11 @@
 export default {
+  background: {
+    backgroundColor: "#F7E7CE",
+    display: "flex",
+    justifyContent: "center",
+  },
   footerWrapper: {
-    backgroundColor: "gray",
-    width: "100%",
+    width: "80%",
     height: "100dp",
     display: "flex",
     justifyContent: "space-around",
@@ -12,10 +16,12 @@ export default {
     justifyContent: "space-around",
     alignItems: "center",
     margin: "5px",
+    color: "#444",
   },
   link: {
     margin: "5px",
     textDecoration: "none",
+    color: "#444",
   },
   socialWrapper: {
     display: "flex",
