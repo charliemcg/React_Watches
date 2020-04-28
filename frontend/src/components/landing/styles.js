@@ -1,1 +1,50 @@
-export default {};
+export default {
+  masterContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  subNav: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "850px",
+    height: "30px",
+  },
+  subNavBtnWrapper: {
+    height: "30px",
+    display: "flex",
+    width: "500px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  subNavBtn: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "none",
+    height: "30px",
+    padding: "0px 10px",
+  },
+  warranty: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  carouselWrapper: {
+    width: "1000px",
+    height: "600px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "pink",
+  },
+  descriptionWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "1000px",
+  },
+};
