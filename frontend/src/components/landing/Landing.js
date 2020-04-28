@@ -41,7 +41,9 @@ class Landing extends Component {
           </div>
           <div style={styles.warranty}>{strings.warranty}</div>
         </div>
-        <div style={styles.carouselWrapper}>Content goes here</div>
+        <div style={styles.carouselWrapper}>
+          <Carousel />
+        </div>
         <div style={styles.descriptionWrapper}>{strings.description}</div>
       </div>
     );
