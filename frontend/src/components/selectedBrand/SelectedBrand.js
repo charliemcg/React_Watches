@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
-import brands from "../../brands";
 import bannerRolex from "./graphics/bannerRolex.png";
 import bannerOmega from "./graphics/bannerOmega.png";
 import bannerPatek from "./graphics/bannerPatek.png";
@@ -14,6 +12,7 @@ import bannerBreguet from "./graphics/bannerBreguet.png";
 import bannerChopard from "./graphics/bannerChopard.png";
 import bannerPanerai from "./graphics/bannerPanerai.png";
 import bannerMille from "./graphics/bannerMille.png";
+import ProductPreview from "../productPreview/ProductPreview";
 
 export default class SelectedBrand extends Component {
   constructor() {
@@ -67,21 +66,7 @@ export default class SelectedBrand extends Component {
     const watches = this.state.watches
       .filter((watch) => watch.inStock)
       .map((watch) => {
-        return (
-          <Link
-            to={`${constants.routes.PRODUCT}/${watch.brand}/${watch.model}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div style={styles.itemWrapper}>
-              <img
-                style={styles.thumbnail}
-                src={`data:image/jpeg;base64,${watch.image}`}
-              />
-              <div>{watch.model}</div>
-              <div>${watch.price}</div>
-            </div>
-          </Link>
-        );
+        return <ProductPreview watch={watch} />;
       });
     return (
       <div style={styles.masterWrapper}>

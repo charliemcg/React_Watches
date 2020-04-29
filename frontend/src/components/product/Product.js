@@ -3,20 +3,24 @@ import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
 import strings from "./strings";
+import ProductPreview from "../productPreview/ProductPreview";
 
 export default class Product extends Component {
   constructor() {
     super();
     this.state = {
       watch: {},
+      otherWatches: [],
     };
   }
+
   componentDidMount() {
     const { params } = this.props.match;
     axios
       .get(`${constants.api.WATCHES}/${params.brand}/${params.model}`)
       .then((res) => {
         this.setState({ watch: res.data });
+        this.getOtherWatches();
       })
       .catch((err) => {
         console.log(`error: ${err}`);
@@ -26,8 +30,29 @@ export default class Product extends Component {
         // });
       });
   }
+
+  getOtherWatches = () => {
+    axios
+      .get(`${constants.api.WATCHES}/${this.state.watch.brand}`)
+      .then((res) => {
+        this.setState({ otherWatches: res.data });
+      })
+      .catch((err) => {
+        console.log(`error: ${err}`);
+        // dispatch({
+        //   type: GET_ERRORS,
+        //   payload: err.response.data,
+        // });
+      });
+  };
+
   render() {
     const { watch } = this.state;
+    const otherWatches = this.state.otherWatches
+      .filter((watch) => watch.inStock)
+      .map((watch) => {
+        return <ProductPreview watch={watch} />;
+      });
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.topWrapper}>
@@ -52,28 +77,29 @@ export default class Product extends Component {
             <p>{watch.description}</p>
             <div style={styles.specs}>
               <div style={styles.properties}>
-                <p>Case: </p>
-                <p>Bracelet: </p>
-                <p>Dial: </p>
-                <p>Diameter: </p>
-                <p>Movement: </p>
-                <p>Complications: </p>
+                <p>{strings.case}</p>
+                <p>{strings.bracelet}</p>
+                <p>{strings.dial}</p>
+                <p>{strings.diameter}</p>
+                <p>{strings.movement}</p>
+                <p>{strings.complications}</p>
               </div>
               <div style={styles.values}>
-                <p>Steel</p>
-                <p>Steel</p>
-                <p>Black</p>
-                <p>41mm</p>
-                <p>Automatic</p>
-                <p>null</p>
+                <p style={{ color: "pink" }}>Steel</p>
+                <p style={{ color: "pink" }}>Steel</p>
+                <p style={{ color: "pink" }}>Black</p>
+                <p style={{ color: "pink" }}>41mm</p>
+                <p style={{ color: "pink" }}>Automatic</p>
+                <p style={{ color: "pink" }}>null</p>
               </div>
             </div>
           </div>
         </div>
-        <div style={styles.others}>Other watches by Rolex</div>
-        <div style={styles.bottomWrapper}>
-          <p>Show other watches here</p>
+        <div style={styles.others}>
+          {strings.otherWatchesBy}
+          {watch.brand}
         </div>
+        <div style={styles.bottomWrapper}>{otherWatches}</div>
       </div>
     );
   }

@@ -81,7 +81,7 @@ export default {
   bottomWrapper: {
     display: "flex",
     overflow: "auto",
-    backgroundColor: "pink",
+    backgroundColor: "white",
     width: "1000px",
     height: "300px",
     marginBottom: "20px",
