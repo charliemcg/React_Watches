@@ -1,5 +1,5 @@
 export default {
-  masterContainer: {
+  masterWrapper: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -16,7 +16,6 @@ export default {
     height: "30px",
     display: "flex",
     width: "600px",
-    display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
   },

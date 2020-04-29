@@ -8,7 +8,7 @@ import Carousel from "./Carousel";
 class Landing extends Component {
   render() {
     return (
-      <div style={styles.masterContainer}>
+      <div style={styles.masterWrapper}>
         <div style={styles.subNav}>
           <div style={styles.subNavBtnWrapper}>
             <Link
