@@ -16,7 +16,7 @@ export default {
     CART: "/Cart",
     BRANDS: "/brands",
     ADMIN: "/Admin",
-    DYNAMIC_BRAND: "/dynamicBrand",
+    SELECTED_BRAND: "/selectedBrand",
     PARAM_BRAND: "/:brand",
     PRODUCT: "/product",
     PARAM_MODEL: "/:model",

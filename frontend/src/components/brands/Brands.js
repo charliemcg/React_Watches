@@ -20,35 +20,35 @@ export default class Brands extends Component {
         <div style={styles.topRow}>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.ROLEX}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.ROLEX}`}
             >
               <img alt="" src={logoRolex} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.OMEGA}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.OMEGA}`}
             >
               <img alt="" src={logoOmega} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PATEK_PHILIPPE}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.PATEK_PHILIPPE}`}
             >
               <img alt="" src={logoPatek} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
             >
               <img alt="" src={logoAudemars} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.CARTIER}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.CARTIER}`}
             >
               <img alt="" src={logoCartier} />
             </Link>
@@ -57,35 +57,35 @@ export default class Brands extends Component {
         <div style={styles.bottomRow}>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}
             >
               <img alt="" src={logoVacheron} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.BREGUET}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.BREGUET}`}
             >
               <img alt="" src={logoBreguet} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.CHOPARD}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.CHOPARD}`}
             >
               <img alt="" src={logoChopard} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PANERAI}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.PANERAI}`}
             >
               <img alt="" src={logoPanerai} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
-              to={`${constants.routes.DYNAMIC_BRAND}${constants.routes.RICHARD_MILLE}`}
+              to={`${constants.routes.SELECTED_BRAND}${constants.routes.RICHARD_MILLE}`}
             >
               <img alt="" src={logoMille} />
             </Link>

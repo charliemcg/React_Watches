@@ -11,7 +11,7 @@ import SignUp from "./components/auth/SignUp";
 import SignUpSuccess from "./components/auth/SignUpSuccess";
 import SignIn from "./components/auth/SignIn";
 import Brands from "./components/brands/Brands";
-import DynamicBrand from "./components/brands/DynamicBrand";
+import SelectedBrand from "./components/selectedBrand/SelectedBrand";
 import Product from "./components/product/Product";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
@@ -56,8 +56,8 @@ class App extends Component {
             <Route exact path={constants.routes.ADMIN} component={Admin} />
             <Route exact path={constants.routes.BRANDS} component={Brands} />
             <Route
-              path={`${constants.routes.DYNAMIC_BRAND}${constants.routes.PARAM_BRAND}`}
-              component={DynamicBrand}
+              path={`${constants.routes.SELECTED_BRAND}${constants.routes.PARAM_BRAND}`}
+              component={SelectedBrand}
             />
             <Route
               path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
