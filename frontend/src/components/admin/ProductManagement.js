@@ -5,6 +5,8 @@ import axios from "axios";
 import constants from "../../constants";
 import brands from "../../brands";
 import models from "../../models";
+import styles from "./styles";
+import strings from "./strings";
 
 export default class Admin extends Component {
   constructor() {
@@ -13,6 +15,12 @@ export default class Admin extends Component {
       //default to Rolex
       brand: brands[0],
       model: "",
+      case: "",
+      bracelet: "",
+      dial: "",
+      diameter: "",
+      movement: "",
+      complications: "",
       price: "",
       description: "",
       inStock: true,
@@ -32,6 +40,26 @@ export default class Admin extends Component {
 
   onChangeModel = (e) => {
     this.setState({ model: e.value });
+  };
+
+  onChangeCase = (e) => {
+    this.setState({ case: e.value });
+  };
+
+  onChangeBracelet = (e) => {
+    this.setState({ bracelet: e.value });
+  };
+
+  onChangeDial = (e) => {
+    this.setState({ dial: e.value });
+  };
+
+  onChangeDiameter = (e) => {
+    this.setState({ diameter: e.value });
+  };
+
+  onChangeMovement = (e) => {
+    this.setState({ movement: e.value });
   };
 
   onChangeStock = (e) => {
@@ -88,6 +116,7 @@ export default class Admin extends Component {
     const { errors } = this.state;
     return (
       <div>
+        {/* Brand */}
         <div>
           <Dropdown
             options={brands}
@@ -95,8 +124,9 @@ export default class Admin extends Component {
             value={this.state.brand}
             id="brand"
           />
-          Brand
+          {strings.brand}
         </div>
+        {/* Model */}
         <div>
           <Dropdown
             //Removing whitespace from brand name so it can be used as a key for finding models.
@@ -106,7 +136,57 @@ export default class Admin extends Component {
             value={this.state.model}
             id="model"
           />
-          Model
+          {strings.model}
+        </div>
+        {/* Case */}
+        <div>
+          <Dropdown
+            options={strings.caseOptions}
+            onChange={this.onChangeCase}
+            value={this.state.case}
+            id="case"
+          />
+          {strings.case}
+        </div>
+        {/* Bracelet */}
+        <div>
+          <Dropdown
+            options={strings.braceletOptions}
+            onChange={this.onChangeBracelet}
+            value={this.state.bracelet}
+            id="bracelet"
+          />
+          {strings.bracelet}
+        </div>
+        {/* Dial */}
+        <div>
+          <Dropdown
+            options={strings.dialOptions}
+            onChange={this.onChangeDial}
+            value={this.state.dial}
+            id="dial"
+          />
+          {strings.dial}
+        </div>
+        {/* Diameter */}
+        <div>
+          <Dropdown
+            options={strings.diameterOptions}
+            onChange={this.onChangeDiameter}
+            value={this.state.diameter}
+            id="diameter"
+          />
+          {strings.diameter}
+        </div>
+        {/* Movement */}
+        <div>
+          <Dropdown
+            options={strings.movementOptions}
+            onChange={this.onChangeMovement}
+            value={this.state.movement}
+            id="movement"
+          />
+          {strings.movement}
         </div>
         <form
           action="/upload"
@@ -114,28 +194,29 @@ export default class Admin extends Component {
           encType="multipart/form-data"
           onSubmit={this.onSubmit}
         >
+          {/* Price */}
           <div>
             <input
               onChange={this.onChange}
               value={this.state.price}
               error={errors.price}
               id="price"
-              // type="price"
             />
-            <label htmlFor="price">Price</label>
+            <label htmlFor="price">{strings.price}</label>
             <span>{errors.price}</span>
           </div>
+          {/* Description */}
           <div>
             <input
               onChange={this.onChange}
               value={this.state.description}
               error={errors.description}
               id="description"
-              // type="description"
             />
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description">{strings.description}</label>
             <span>{errors.description}</span>
           </div>
+          {/* In stock */}
           <div>
             <input
               type="checkbox"
@@ -144,19 +225,19 @@ export default class Admin extends Component {
               error={errors.inStock}
               id="inStock"
             />
-            <label htmlFor="inStock">In Stock?</label>
+            <label htmlFor="inStock">{strings.inStock}</label>
             <span>{errors.inStock}</span>
           </div>
+          {/* Image */}
           <input
             onChange={this.onChangeImage}
             type="file"
             className="file"
             id="image"
           />
-
-          <label htmlFor="file">Image</label>
+          <label htmlFor="file">{strings.image}</label>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit">{strings.submit}</button>
           </div>
         </form>
       </div>
