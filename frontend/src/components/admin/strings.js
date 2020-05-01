@@ -1,4 +1,5 @@
 export default {
+  uploadNewWatch: "Upload a new watch",
   brand: "Brand",
   model: "Model",
   case: "Case",
@@ -56,4 +57,14 @@ export default {
     "44mm",
   ],
   movementOptions: ["Automatic", "Manual", "Quartz"],
+  date: "Date",
+  annualCalendar: "Annual Calendar",
+  perpetualCalendar: "Perpetual Calendar",
+  chronograph: "Chronograph",
+  gmt: "GMT",
+  worldTime: "World Time",
+  minuteRepeater: "Minute Repeater",
+  moonPhase: "Moon Phase",
+  tourbillon: "Tourbillon",
+  powerReserve: "Power Reserve",
 };

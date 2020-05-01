@@ -20,7 +20,18 @@ export default class Admin extends Component {
       dial: "",
       diameter: "",
       movement: "",
-      complications: "",
+      complications: {
+        date: false,
+        annualCalendar: false,
+        perpetualCalendar: false,
+        chronograph: false,
+        gmt: false,
+        worldTime: false,
+        minuteRepeater: false,
+        moonPhase: false,
+        tourbillon: false,
+        powerReserve: false,
+      },
       price: "",
       description: "",
       inStock: true,
@@ -114,132 +125,303 @@ export default class Admin extends Component {
 
   render() {
     const { errors } = this.state;
+
     return (
-      <div>
-        {/* Brand */}
-        <div>
-          <Dropdown
-            options={brands}
-            onChange={this.onChangeBrand}
-            value={this.state.brand}
-            id="brand"
-          />
-          {strings.brand}
-        </div>
-        {/* Model */}
-        <div>
-          <Dropdown
-            //Removing whitespace from brand name so it can be used as a key for finding models.
-            //This dropdown will only show models reletive to the selected brand
-            options={models[this.state.brand.replace(/\s/g, "")]}
-            onChange={this.onChangeModel}
-            value={this.state.model}
-            id="model"
-          />
-          {strings.model}
-        </div>
-        {/* Case */}
-        <div>
-          <Dropdown
-            options={strings.caseOptions}
-            onChange={this.onChangeCase}
-            value={this.state.case}
-            id="case"
-          />
-          {strings.case}
-        </div>
-        {/* Bracelet */}
-        <div>
-          <Dropdown
-            options={strings.braceletOptions}
-            onChange={this.onChangeBracelet}
-            value={this.state.bracelet}
-            id="bracelet"
-          />
-          {strings.bracelet}
-        </div>
-        {/* Dial */}
-        <div>
-          <Dropdown
-            options={strings.dialOptions}
-            onChange={this.onChangeDial}
-            value={this.state.dial}
-            id="dial"
-          />
-          {strings.dial}
-        </div>
-        {/* Diameter */}
-        <div>
-          <Dropdown
-            options={strings.diameterOptions}
-            onChange={this.onChangeDiameter}
-            value={this.state.diameter}
-            id="diameter"
-          />
-          {strings.diameter}
-        </div>
-        {/* Movement */}
-        <div>
-          <Dropdown
-            options={strings.movementOptions}
-            onChange={this.onChangeMovement}
-            value={this.state.movement}
-            id="movement"
-          />
-          {strings.movement}
-        </div>
-        <form
-          action="/upload"
-          method="POST"
-          encType="multipart/form-data"
-          onSubmit={this.onSubmit}
-        >
-          {/* Price */}
-          <div>
-            <input
-              onChange={this.onChange}
-              value={this.state.price}
-              error={errors.price}
-              id="price"
-            />
-            <label htmlFor="price">{strings.price}</label>
-            <span>{errors.price}</span>
+      <div style={styles.masterWrapper}>
+        <div style={styles.uploadForm}>
+          <div style={styles.title}>{strings.uploadNewWatch}</div>
+          {/* Brand */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.brand}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={brands}
+                onChange={this.onChangeBrand}
+                value={this.state.brand}
+                id="brand"
+                style={styles.dropdown}
+              />
+            </div>
           </div>
-          {/* Description */}
-          <div>
-            <input
-              onChange={this.onChange}
-              value={this.state.description}
-              error={errors.description}
-              id="description"
-            />
-            <label htmlFor="description">{strings.description}</label>
-            <span>{errors.description}</span>
+          {/* Model */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.model}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                //Removing whitespace from brand name so it can be used as a key for finding models.
+                //This dropdown will only show models reletive to the selected brand
+                options={models[this.state.brand.replace(/\s/g, "")]}
+                onChange={this.onChangeModel}
+                value={this.state.model}
+                id="model"
+                style={styles.dropdown}
+              />
+            </div>
           </div>
-          {/* In stock */}
-          <div>
-            <input
-              type="checkbox"
-              defaultChecked={this.state.inStock}
-              onChange={this.onChangeStock}
-              error={errors.inStock}
-              id="inStock"
-            />
-            <label htmlFor="inStock">{strings.inStock}</label>
-            <span>{errors.inStock}</span>
+          {/* Case */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.case}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={strings.caseOptions}
+                onChange={this.onChangeCase}
+                value={this.state.case}
+                id="case"
+              />
+            </div>
           </div>
-          {/* Image */}
-          <input
-            onChange={this.onChangeImage}
-            type="file"
-            className="file"
-            id="image"
-          />
-          <label htmlFor="file">{strings.image}</label>
-          <div>
-            <button type="submit">{strings.submit}</button>
+          {/* Bracelet */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.bracelet}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={strings.braceletOptions}
+                onChange={this.onChangeBracelet}
+                value={this.state.bracelet}
+                id="bracelet"
+              />
+            </div>
           </div>
-        </form>
+          {/* Dial */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.dial}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={strings.dialOptions}
+                onChange={this.onChangeDial}
+                value={this.state.dial}
+                id="dial"
+              />
+            </div>
+          </div>
+          {/* Diameter */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.diameter}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={strings.diameterOptions}
+                onChange={this.onChangeDiameter}
+                value={this.state.diameter}
+                id="diameter"
+              />
+            </div>
+          </div>
+          {/* Movement */}
+          <div style={styles.dropdownWrapper}>
+            <div style={styles.label}>{strings.movement}</div>
+            <div style={styles.dropdown}>
+              <Dropdown
+                options={strings.movementOptions}
+                onChange={this.onChangeMovement}
+                value={this.state.movement}
+                id="movement"
+              />
+            </div>
+          </div>
+          {/* Complications */}
+          <div style={styles.checkBoxWrapper}>
+            <div style={styles.label}>{strings.complications}</div>
+            <div style={styles.complicationOptionsWrapper}>
+              <div style={styles.complicationRowWrapper}>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>{strings.date}</div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.date}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="date"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.annualCalendar}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.annualCalendar}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="annualCalendar"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+              </div>
+              <div style={styles.complicationRowWrapper}>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.perpetualCalendar}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.perpetualCalendar}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="perpetualCalendar"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.chronograph}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.chronograph}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="chronograph"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+              </div>
+              <div style={styles.complicationRowWrapper}>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>{strings.gmt}</div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.gmt}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="gmt"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.worldTime}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.worldTime}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="worldTime"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+              </div>
+              <div style={styles.complicationRowWrapper}>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.minuteRepeater}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.minuteRepeater}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="minuteRepeater"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.moonPhase}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.moonPhase}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="moonPhase"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+              </div>
+              <div style={styles.complicationRowWrapper}>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.tourbillon}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.tourbillon}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="tourbillon"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+                <div style={styles.complicationWrapper}>
+                  <div style={styles.complicationLabel}>
+                    {strings.powerReserve}
+                  </div>
+                  <input
+                    type="checkbox"
+                    defaultChecked={this.state.complications.powerReserve}
+                    onChange={this.onChangeComplications}
+                    error={errors.complications}
+                    id="powerReserve"
+                    style={styles.complicationCheckbox}
+                  />
+                </div>
+              </div>
+            </div>
+            <span>{errors.complications}</span>
+          </div>
+          {/* TODO get rid of the form. Everything is stored in state so shouldn't need it. Just call onSubmit on button click */}
+          <form
+            action="/upload"
+            method="POST"
+            encType="multipart/form-data"
+            onSubmit={this.onSubmit}
+          >
+            {/* Price */}
+            <div style={styles.dropdownWrapper}>
+              <div style={styles.label}>{strings.price}</div>$
+              <input
+                onChange={this.onChange}
+                value={this.state.price}
+                error={errors.price}
+                id="price"
+              />
+              <span>{errors.price}</span>
+            </div>
+            {/* Description */}
+            <div style={styles.dropdownWrapper}>
+              <div style={styles.label}>{strings.description}</div>
+              <textarea
+                onChange={this.onChange}
+                value={this.state.description}
+                error={errors.description}
+                id="description"
+                style={styles.description}
+              />
+              <span>{errors.description}</span>
+            </div>
+            {/* In stock */}
+            <div style={styles.checkBoxWrapper}>
+              <div style={styles.label}>{strings.inStock}</div>
+              <input
+                type="checkbox"
+                defaultChecked={this.state.inStock}
+                onChange={this.onChangeStock}
+                error={errors.inStock}
+                id="inStock"
+              />
+              <span>{errors.inStock}</span>
+            </div>
+            {/* Image */}
+            <div style={styles.dropdownWrapper}>
+              <div style={styles.label}>{strings.image}</div>
+              <input
+                onChange={this.onChangeImage}
+                type="file"
+                className="file"
+                id="image"
+              />
+            </div>
+            <div style={styles.dropdownWrapper}>
+              <div style={styles.submitWrapper}>
+                <button type="submit" style={styles.submitBtn}>
+                  {strings.submit}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

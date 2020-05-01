@@ -18,10 +18,16 @@ class Navbar extends Component {
                 <Link to={constants.routes.BRANDS} style={styles.btn}>
                   {strings.watches}
                 </Link>
-                <Link to={constants.routes.ABOUT} style={styles.btn}>
+                <Link
+                  to={constants.routes.UNDER_CONSTRUCTION}
+                  style={styles.btn}
+                >
                   {strings.about}
                 </Link>
-                <Link to={constants.routes.CONTACT} style={styles.btn}>
+                <Link
+                  to={constants.routes.UNDER_CONSTRUCTION}
+                  style={styles.btn}
+                >
                   {strings.contact}
                 </Link>
               </div>
@@ -36,7 +42,10 @@ class Navbar extends Component {
                 <div style={styles.addressContent}>{strings.address}</div>
               </div>
               <div style={styles.rightBtnWrapper}>
-                <Link to={constants.routes.CART} style={styles.btn}>
+                <Link
+                  to={constants.routes.UNDER_CONSTRUCTION}
+                  style={styles.btn}
+                >
                   {strings.cart}
                 </Link>
                 <Link to={constants.routes.ADMIN} style={styles.btn}>
