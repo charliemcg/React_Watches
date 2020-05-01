@@ -1,8 +1,7 @@
 export default {
-  signUp: "Sign up",
-  signUpCapitalized: "Sign Up",
-  signIn: "Sign in",
-  below: "below",
+  signUpBelow: "Sign up below",
+  signUp: "Sign Up",
+  signIn: "Sign In",
   alreadyHaveAnAccount: "Already have an account?",
   email: "Email",
   password: "Password",
