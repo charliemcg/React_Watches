@@ -52,7 +52,6 @@ class SignUp extends Component {
     const { errors } = this.state;
     return (
       <div>
-        <Link to="/">{strings.backToHome}</Link>
         <div>
           <h4>
             <b>{strings.signUp}</b> {strings.below}
