@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -10,7 +12,7 @@ export default {
     height: "500px",
   },
   title: {
-    color: "#444",
+    color: colors.darkText,
     margin: "10px",
     paddingLeft: "20px",
     width: "1000px",
@@ -31,7 +33,7 @@ export default {
     alignItems: "center",
     width: "200px",
     height: "230px",
-    color: "#444",
+    color: colors.darkText,
   },
   thumbnail: {
     height: "200px",

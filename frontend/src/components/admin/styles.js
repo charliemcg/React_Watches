@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -41,7 +43,7 @@ export default {
     flexDirection: "row",
     justifyContent: "flex-end",
   },
-  complicationLabel: { color: "#777" },
+  complicationLabel: { color: colors.lightText },
   description: {
     width: "50%",
     height: "80px",
@@ -54,9 +56,9 @@ export default {
   submitBtn: {
     height: "40px",
     width: "90px",
-    marginTop: "50px",
+    marginTop: "30px",
     marginBottom: "20px",
-    backgroundColor: "#F7E7CE",
+    backgroundColor: colors.champagne,
     borderRadius: "5px",
     fontSize: "16px",
   },

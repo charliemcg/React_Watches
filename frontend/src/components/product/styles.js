@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -14,7 +16,7 @@ export default {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    color: "#777",
+    color: colors.lightText,
   },
   image: {
     width: "80%",
@@ -33,7 +35,7 @@ export default {
   },
   detailsWrapper: {
     flex: 3,
-    color: "#444",
+    color: colors.darkText,
   },
   title: {
     fontSize: "50px",
@@ -54,16 +56,16 @@ export default {
     display: "flex",
     alignItems: "flex-end",
     height: "75%",
-    color: "#444",
+    color: colors.darkText,
     textDecoration: "none",
   },
   buyBtn: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F7E7CE",
+    backgroundColor: colors.champagne,
     borderRadius: "6px",
-    border: "1px solid #d9be96",
+    border: `1px solid ${colors.btnBorder}`,
     width: "110px",
     height: "100%",
   },
@@ -75,22 +77,14 @@ export default {
     border: "1px solid #aaa",
     width: "110px",
     height: "100%",
-    color: "#444",
+    color: colors.darkText,
     marginLeft: "10px",
     textAlign: "center",
     fontSize: "13px",
     backgroundColor: "#ddd",
   },
-  // finance: {
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   width: "110px",
-  //   color: "#777",
-  //   height: "25%",
-  // },
   divider: {
-    backgroundColor: "#444",
+    backgroundColor: colors.darkText,
     width: "100%",
     height: "1px",
     marginTop: "10px",
@@ -107,7 +101,7 @@ export default {
   },
   others: {
     width: "1000px",
-    color: "#444",
+    color: colors.darkText,
     fontSize: "20px",
     marginBottom: "5px",
     marginLeft: "20px",

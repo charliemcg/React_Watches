@@ -1,6 +1,8 @@
+import colors from "../../colors";
+
 export default {
   background: {
-    backgroundColor: "#F7E7CE",
+    backgroundColor: colors.champagne,
     display: "flex",
     justifyContent: "center",
   },
@@ -16,12 +18,12 @@ export default {
     justifyContent: "space-around",
     alignItems: "center",
     margin: "5px",
-    color: "#444",
+    color: colors.darkText,
   },
   link: {
     margin: "5px",
     textDecoration: "none",
-    color: "#444",
+    color: colors.darkText,
   },
   socialWrapper: {
     display: "flex",

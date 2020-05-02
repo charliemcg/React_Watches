@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -15,7 +17,7 @@ export default {
   phone: {
     height: "40px",
     width: "355px",
-    borderBottom: "1px solid #000",
+    borderBottom: "1px solid black",
     display: "flex",
     alignItems: "center",
     paddingLeft: "10px",
@@ -25,7 +27,7 @@ export default {
     height: "15px",
   },
   phoneContent: {
-    color: "#777",
+    color: colors.lightText,
     fontSize: "15px",
     padding: "10px",
   },
@@ -35,10 +37,10 @@ export default {
     alignItems: "center",
     height: "40px",
     width: "355px",
-    borderBottom: "1px solid #000",
+    borderBottom: "1px solid black",
   },
   addressContent: {
-    color: "#777",
+    color: colors.lightText,
     fontSize: "15px",
     padding: "10px",
   },
@@ -58,7 +60,7 @@ export default {
     justifyContent: "center",
     alignItems: "center",
     border: "0px solid",
-    backgroundColor: "#F7E7CE",
+    backgroundColor: colors.champagne,
     borderRadius: "40px 40px 40px 40px",
     height: "80px",
     width: "110px",
@@ -66,19 +68,25 @@ export default {
   },
   logoLink: {
     textDecoration: "none",
-    color: "#444",
+    color: colors.darkText,
   },
   rightWrapper: {
     width: "355px",
   },
   btn: {
     textDecoration: "none",
-    color: "#444",
+    color: colors.darkText,
+    display: "flex",
+    alignItems: "center",
+  },
+  cartBtn: {
+    width: "16px",
+    marginLeft: "7px",
   },
   signIn: {
     textDecoration: "none",
-    color: "#444",
-    backgroundColor: "#F7E7CE",
+    color: colors.darkText,
+    backgroundColor: colors.champagne,
     borderRadius: "10px",
     padding: "5px 12px",
     fontSize: "13px",

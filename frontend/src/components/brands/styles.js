@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -8,7 +10,7 @@ export default {
   title: {
     width: "1000px",
     fontSize: "40px",
-    color: "#444",
+    color: colors.darkText,
   },
   brandsWrapper: {
     margin: "10px 0px",
@@ -25,6 +27,6 @@ export default {
   },
   itemWrapper: {
     margin: "10px 0px",
-    background: "#111",
+    background: colors.logoBlack,
   },
 };

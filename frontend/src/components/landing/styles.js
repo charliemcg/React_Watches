@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -26,13 +28,13 @@ export default {
     textDecoration: "none",
     height: "30px",
     padding: "0px 10px",
-    color: "#444",
+    color: colors.darkText,
   },
   warranty: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: "#777",
+    color: colors.lightText,
     marginRight: "10px",
   },
   carouselWrapper: {
@@ -47,7 +49,7 @@ export default {
     display: "flex",
     alignItems: "center",
     width: "1000px",
-    color: "#444",
+    color: colors.darkText,
     fontSize: "30px",
     marginTop: "15px",
   },
@@ -56,7 +58,7 @@ export default {
     justifyContent: "center",
     alignItems: "center",
     width: "1000px",
-    color: "#444",
+    color: colors.darkText,
     textAlign: "center",
     margin: "20px 0px",
   },

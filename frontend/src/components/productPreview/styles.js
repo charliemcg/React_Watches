@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   itemWrapper: {
     paddingTop: "10px",
@@ -6,7 +8,7 @@ export default {
     alignItems: "center",
     width: "200px",
     height: "230px",
-    color: "#444",
+    color: colors.darkText,
   },
   thumbnail: {
     height: "200px",

@@ -5,6 +5,7 @@ import strings from "./strings";
 import styles from "./styles";
 import iconPhone from "./graphics/phoneIcon.png";
 import iconLocation from "./graphics/locationIcon.png";
+import iconCart from "./graphics/cartIcon.png";
 
 class Navbar extends Component {
   render() {
@@ -50,7 +51,8 @@ class Navbar extends Component {
                   to={constants.routes.UNDER_CONSTRUCTION}
                   style={styles.btn}
                 >
-                  {strings.cart}
+                  <div>{strings.cart}</div>
+                  <img src={iconCart} alt="" style={styles.cartBtn} />
                 </Link>
                 <Link to={constants.routes.ADMIN} style={styles.btn}>
                   {strings.admin}

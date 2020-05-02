@@ -1,3 +1,5 @@
+import colors from "../../colors";
+
 export default {
   masterWrapper: {
     display: "flex",
@@ -16,10 +18,10 @@ export default {
   },
   signUpBtn: {
     textDecoration: "none",
-    color: "#444",
+    color: colors.darkText,
     padding: "6px 12px",
     fontSize: "12px",
-    backgroundColor: "#F7E7CE",
+    backgroundColor: colors.champagne,
     borderRadius: "10px",
   },
   form: {
