@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
-import bannerRolex from "./graphics/bannerRolex.png";
-import bannerOmega from "./graphics/bannerOmega.png";
-import bannerPatek from "./graphics/bannerPatek.png";
-import bannerAudemars from "./graphics/bannerAudemars.png";
-import bannerCartier from "./graphics/bannerCartier.png";
-import bannerVacheron from "./graphics/bannerVacheron.png";
-import bannerBreguet from "./graphics/bannerBreguet.png";
-import bannerChopard from "./graphics/bannerChopard.png";
-import bannerPanerai from "./graphics/bannerPanerai.png";
-import bannerMille from "./graphics/bannerMille.png";
+import bannerRolex from "./graphics/bannerRolex2.png";
+import bannerOmega from "./graphics/bannerOmega2.png";
+import bannerPatek from "./graphics/bannerPatek2.png";
+import bannerAudemars from "./graphics/bannerAudemars2.png";
+import bannerCartier from "./graphics/bannerCartier2.png";
+import bannerVacheron from "./graphics/bannerVacheron2.png";
+import bannerBreguet from "./graphics/bannerBreguet2.png";
+import bannerChopard from "./graphics/bannerChopard2.png";
+import bannerPanerai from "./graphics/bannerPanerai2.png";
+import bannerMille from "./graphics/bannerMille2.png";
 import ProductPreview from "../productPreview/ProductPreview";
 import strings from "./strings";
 
@@ -79,7 +79,6 @@ export default class SelectedBrand extends Component {
             src={this.getBanner()}
           />
         </div>
-        <div style={styles.title}>{this.props.match.params.brand}</div>
         <div style={styles.watchesScrollWrapper}>{watches}</div>
       </div>
     );
