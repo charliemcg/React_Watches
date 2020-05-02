@@ -4,11 +4,25 @@ import constants from "../../constants";
 import strings from "./strings";
 import styles from "./styles";
 import Carousel from "./Carousel";
+import Covid from "./Covid";
 
 class Landing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: true };
+  }
+
+  removeBanner = () => {
+    this.setState({ show: false });
+  };
+
   render() {
+    const banner = this.state.show && (
+      <Covid removeBanner={this.removeBanner} />
+    );
     return (
       <div style={styles.masterWrapper}>
+        {banner}
         <div style={styles.subNav}>
           <div style={styles.subNavBtnWrapper}>
             <Link

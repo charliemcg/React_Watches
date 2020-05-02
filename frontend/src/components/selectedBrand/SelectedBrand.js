@@ -60,6 +60,8 @@ export default class SelectedBrand extends Component {
         return bannerPanerai;
       case "Richard Mille":
         return bannerMille;
+      default:
+        return "Rolex";
     }
   };
 
