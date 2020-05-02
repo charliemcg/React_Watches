@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
 import strings from "./strings";
 import ProductPreview from "../productPreview/ProductPreview";
+import zoom from "./graphics/zoom.png";
 
 export default class Product extends Component {
   constructor() {
@@ -53,6 +55,12 @@ export default class Product extends Component {
       .map((watch) => {
         return <ProductPreview watch={watch} />;
       });
+    const caseKey = watch.case && <p>{strings.case}</p>;
+    const braceletKey = watch.case && <p>{strings.bracelet}</p>;
+    const dialKey = watch.case && <p>{strings.dial}</p>;
+    const diameterKey = watch.case && <p>{strings.diameter}</p>;
+    const movementKey = watch.case && <p>{strings.movement}</p>;
+
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.topWrapper}>
@@ -62,35 +70,54 @@ export default class Product extends Component {
               src={`data:image/jpeg;base64,${watch.image}`}
               style={styles.image}
             />
-            <p>{strings.clickToZoom}</p>
+            <div style={styles.zoom}>
+              {strings.clickToZoom}
+              <img alt="" src={zoom} style={styles.zoomIcon} />
+            </div>
           </div>
           <div style={styles.detailsWrapper}>
             <div style={styles.title}>{watch.brand}</div>
             <div style={styles.model}>{watch.model}</div>
             <div style={styles.buyWrapper}>
               <div style={styles.priceWrapper}>${watch.price}</div>
-              <div style={styles.buyBtnWrapper}>
-                <div style={styles.buy}>Buy</div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Link
+                  to={constants.routes.UNDER_CONSTRUCTION}
+                  style={styles.btnWrapper}
+                >
+                  <div style={styles.buyBtn}>{strings.buy}</div>
+                </Link>
+                <Link
+                  to={constants.routes.UNDER_CONSTRUCTION}
+                  style={styles.btnWrapper}
+                >
+                  <div style={styles.financeBtn}>{strings.finance}</div>
+                </Link>
               </div>
-              <div style={styles.finance}>Finance</div>
             </div>
             <div style={styles.divider} />
             <p>{watch.description}</p>
             <div style={styles.specs}>
               <div style={styles.properties}>
-                <p>{strings.case}</p>
-                <p>{strings.bracelet}</p>
-                <p>{strings.dial}</p>
-                <p>{strings.diameter}</p>
-                <p>{strings.movement}</p>
+                {caseKey}
+                {braceletKey}
+                {dialKey}
+                {diameterKey}
+                {movementKey}
                 <p>{strings.complications}</p>
               </div>
               <div style={styles.values}>
-                <p style={{ color: "pink" }}>Steel</p>
-                <p style={{ color: "pink" }}>Steel</p>
-                <p style={{ color: "pink" }}>Black</p>
-                <p style={{ color: "pink" }}>41mm</p>
-                <p style={{ color: "pink" }}>Automatic</p>
+                <p>{watch.case}</p>
+                <p>{watch.bracelet}</p>
+                <p>{watch.dial}</p>
+                <p>{watch.diameter}</p>
+                <p>{watch.movement}</p>
                 <p style={{ color: "pink" }}>null</p>
               </div>
             </div>

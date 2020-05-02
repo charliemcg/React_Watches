@@ -50,7 +50,8 @@ export default {
   rightBtnWrapper: {
     display: "flex",
     justifyContent: "space-around",
-    marginTop: "5px",
+    alignItems: "center",
+    height: "30px",
   },
   logo: {
     display: "flex",
@@ -73,5 +74,13 @@ export default {
   btn: {
     textDecoration: "none",
     color: "#444",
+  },
+  signIn: {
+    textDecoration: "none",
+    color: "#444",
+    backgroundColor: "#F7E7CE",
+    borderRadius: "10px",
+    padding: "5px 12px",
+    fontSize: "13px",
   },
 };

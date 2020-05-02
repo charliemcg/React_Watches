@@ -21,7 +21,7 @@ export default {
     overflow: "auto",
     backgroundColor: "white",
     width: "1000px",
-    height: "300px",
+    height: "270px",
     marginBottom: "20px",
   },
   itemWrapper: {

@@ -55,7 +55,7 @@ class Navbar extends Component {
                 <Link to={constants.routes.ADMIN} style={styles.btn}>
                   {strings.admin}
                 </Link>
-                <Link to={constants.routes.SIGN_IN} style={styles.btn}>
+                <Link to={constants.routes.SIGN_IN} style={styles.signIn}>
                   {strings.signIn}
                 </Link>
               </div>
