@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import constants from "../../constants";
 import strings from "./strings";
 import styles from "./styles";
+import iconPhone from "./graphics/phoneIcon.png";
+import iconLocation from "./graphics/locationIcon.png";
 
 class Navbar extends Component {
   render() {
@@ -12,6 +14,7 @@ class Navbar extends Component {
           <div style={styles.btnWrapper}>
             <div style={styles.leftWrapper}>
               <div style={styles.phone}>
+                <img alt="" src={iconPhone} style={styles.icon} />
                 <div style={styles.phoneContent}>{strings.phone}</div>
               </div>
               <div style={styles.leftBtnWrapper}>
@@ -39,6 +42,7 @@ class Navbar extends Component {
             </div>
             <div style={styles.rightWrapper}>
               <div style={styles.address}>
+                <img alt="" src={iconLocation} style={styles.icon} />
                 <div style={styles.addressContent}>{strings.address}</div>
               </div>
               <div style={styles.rightBtnWrapper}>

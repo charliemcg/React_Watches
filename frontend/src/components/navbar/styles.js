@@ -16,6 +16,13 @@ export default {
     height: "40px",
     width: "355px",
     borderBottom: "1px solid #000",
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: "10px",
+  },
+  icon: {
+    width: "15px",
+    height: "15px",
   },
   phoneContent: {
     color: "#777",
@@ -25,6 +32,7 @@ export default {
   address: {
     display: "flex",
     justifyContent: "flex-end",
+    alignItems: "center",
     height: "40px",
     width: "355px",
     borderBottom: "1px solid #000",
