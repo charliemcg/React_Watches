@@ -25,5 +25,6 @@ export default {
   },
   itemWrapper: {
     margin: "10px 0px",
+    background: "#111",
   },
 };
