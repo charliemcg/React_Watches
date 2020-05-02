@@ -35,10 +35,34 @@ export default class Cart extends Component {
           </div>
           <div style={styles.columnWrapper}>
             <div style={styles.socialWrapper}>
-              <img alt="" src={youtube} style={styles.socialIcon} />
-              <img alt="" src={instagram} style={styles.socialIcon} />
-              <img alt="" src={facebook} style={styles.socialIcon} />
-              <img alt="" src={twitter} style={styles.socialIcon} />
+              <Link to={constants.routes.UNDER_CONSTRUCTION}>
+                <img
+                  alt={strings.accessibility.youtube}
+                  src={youtube}
+                  style={styles.socialIcon}
+                />
+              </Link>
+              <Link to={constants.routes.UNDER_CONSTRUCTION}>
+                <img
+                  alt={strings.accessibility.instagram}
+                  src={instagram}
+                  style={styles.socialIcon}
+                />
+              </Link>
+              <Link to={constants.routes.UNDER_CONSTRUCTION}>
+                <img
+                  alt={strings.accessibility.facebook}
+                  src={facebook}
+                  style={styles.socialIcon}
+                />
+              </Link>
+              <Link to={constants.routes.UNDER_CONSTRUCTION}>
+                <img
+                  alt={strings.accessibility.twitter}
+                  src={twitter}
+                  style={styles.socialIcon}
+                />
+              </Link>
             </div>
             <div>
               {strings.copyright} {year}

@@ -13,6 +13,7 @@ import bannerChopard from "./graphics/bannerChopard.png";
 import bannerPanerai from "./graphics/bannerPanerai.png";
 import bannerMille from "./graphics/bannerMille.png";
 import ProductPreview from "../productPreview/ProductPreview";
+import strings from "./strings";
 
 export default class SelectedBrand extends Component {
   constructor() {
@@ -71,7 +72,10 @@ export default class SelectedBrand extends Component {
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.banner}>
-          <img alt="" src={this.getBanner()} />
+          <img
+            alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
+            src={this.getBanner()}
+          />
         </div>
         <div style={styles.title}>{this.props.match.params.brand}</div>
         <div style={styles.watchesScrollWrapper}>{watches}</div>

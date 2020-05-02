@@ -12,6 +12,7 @@ import logoBreguet from "./graphics/logo_breguet.png";
 import logoChopard from "./graphics/logo_chopard.png";
 import logoPanerai from "./graphics/logo_panerai.png";
 import logoMille from "./graphics/logo_mille.png";
+import strings from "./strings";
 
 export default class Brands extends Component {
   render() {
@@ -22,35 +23,38 @@ export default class Brands extends Component {
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.ROLEX}`}
             >
-              <img alt="" src={logoRolex} />
+              <img alt={strings.accessibility.rolexLogo} src={logoRolex} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.OMEGA}`}
             >
-              <img alt="" src={logoOmega} />
+              <img alt={strings.accessibility.omegaLogo} src={logoOmega} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.PATEK_PHILIPPE}`}
             >
-              <img alt="" src={logoPatek} />
+              <img alt={strings.accessibility.patekLogo} src={logoPatek} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
             >
-              <img alt="" src={logoAudemars} />
+              <img
+                alt={strings.accessibility.audemarsLogo}
+                src={logoAudemars}
+              />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.CARTIER}`}
             >
-              <img alt="" src={logoCartier} />
+              <img alt={strings.accessibility.cartierLogo} src={logoCartier} />
             </Link>
           </div>
         </div>
@@ -59,35 +63,38 @@ export default class Brands extends Component {
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}
             >
-              <img alt="" src={logoVacheron} />
+              <img
+                alt={strings.accessibility.vacheronLogo}
+                src={logoVacheron}
+              />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.BREGUET}`}
             >
-              <img alt="" src={logoBreguet} />
+              <img alt={strings.accessibility.breguetLogo} src={logoBreguet} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.CHOPARD}`}
             >
-              <img alt="" src={logoChopard} />
+              <img alt={strings.accessibility.chopardLogo} src={logoChopard} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.PANERAI}`}
             >
-              <img alt="" src={logoPanerai} />
+              <img alt={strings.accessibility.paneraiLogo} src={logoPanerai} />
             </Link>
           </div>
           <div style={styles.itemWrapper}>
             <Link
               to={`${constants.routes.SELECTED_BRAND}${constants.routes.RICHARD_MILLE}`}
             >
-              <img alt="" src={logoMille} />
+              <img alt={strings.accessibility.milleLogo} src={logoMille} />
             </Link>
           </div>
         </div>

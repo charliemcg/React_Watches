@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import constants from "../../constants";
 import styles from "./styles";
+import strings from "./strings";
 
 export default class ProductPreview extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class ProductPreview extends Component {
           <img
             style={styles.thumbnail}
             src={`data:image/jpeg;base64,${watch.image}`}
+            alt={strings.accessibility.productImage}
           />
           <div>{watch.model}</div>
           <div>${watch.price}</div>

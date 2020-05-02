@@ -58,6 +58,7 @@ export default class Product extends Component {
         <div style={styles.topWrapper}>
           <div style={styles.imageWrapper}>
             <img
+              alt={strings.accessibility.productImage}
               src={`data:image/jpeg;base64,${watch.image}`}
               style={styles.image}
             />

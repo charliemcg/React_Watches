@@ -50,6 +50,7 @@ class Landing extends Component {
         <div style={styles.carouselWrapper}>
           <Carousel />
         </div>
+        <div style={styles.descriptionTitle}>{strings.descriptionTitle}</div>
         <div style={styles.descriptionWrapper}>{strings.description}</div>
       </div>
     );

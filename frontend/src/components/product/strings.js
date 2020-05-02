@@ -7,4 +7,7 @@ export default {
   movement: "Movement:",
   complications: "Complications:",
   otherWatchesBy: "Other watches by ",
+  accessibility: {
+    productImage: "Product image",
+  },
 };
