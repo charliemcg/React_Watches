@@ -1,4 +1,5 @@
 export default {
+  brands: "Brands",
   accessibility: {
     rolexLogo: "Rolex logo",
     omegaLogo: "Omega logo",

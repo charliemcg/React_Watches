@@ -1,16 +1,22 @@
 export default {
   masterWrapper: {
-    height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
   },
+  title: {
+    width: "1000px",
+    fontSize: "40px",
+    color: "#444",
+  },
+  brandsWrapper: {
+    margin: "10px 0px",
+  },
   topRow: {
     display: "flex",
     justifyContent: "space-around",
     width: "1000px",
-    margin: "10px",
   },
   bottomRow: {
     display: "flex",
@@ -18,7 +24,6 @@ export default {
     width: "1000px",
   },
   itemWrapper: {
-    height: "250px",
-    width: "180px",
+    margin: "10px 0px",
   },
 };
