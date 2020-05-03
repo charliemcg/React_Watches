@@ -9,14 +9,14 @@ export default {
   },
   btnWrapper: {
     display: "flex",
-    width: "850px",
+    justifyContent: "center",
+    width: "75%",
   },
   leftWrapper: {
-    width: "365px",
+    width: "42%",
   },
   phone: {
     height: "40px",
-    width: "355px",
     borderBottom: "1px solid black",
     display: "flex",
     alignItems: "center",
@@ -36,7 +36,6 @@ export default {
     justifyContent: "flex-end",
     alignItems: "center",
     height: "40px",
-    width: "355px",
     borderBottom: "1px solid black",
   },
   addressContent: {
@@ -47,39 +46,37 @@ export default {
   leftBtnWrapper: {
     display: "flex",
     justifyContent: "space-around",
-    marginTop: "5px",
+    alignItems: "center",
   },
   rightBtnWrapper: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    height: "30px",
   },
   logo: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    border: "0px solid",
     backgroundColor: colors.champagne,
-    borderRadius: "40px 40px 40px 40px",
-    height: "80px",
-    width: "110px",
-    padding: "0px 20px",
+    border: `1px solid ${colors.btnBorder}`,
+    borderRadius: "40px",
+    width: "14%",
   },
   logoLink: {
     textDecoration: "none",
     color: colors.darkText,
   },
   rightWrapper: {
-    width: "355px",
+    width: "42%",
   },
   btn: {
     textDecoration: "none",
     color: colors.darkText,
     display: "flex",
     alignItems: "center",
+    height: "40px",
   },
-  cartBtn: {
+  cartIcon: {
     width: "16px",
     marginLeft: "7px",
   },
@@ -87,8 +84,9 @@ export default {
     textDecoration: "none",
     color: colors.darkText,
     backgroundColor: colors.champagne,
+    border: `1px solid ${colors.btnBorder}`,
     borderRadius: "10px",
-    padding: "5px 12px",
+    padding: "8px 17px",
     fontSize: "13px",
   },
 };
