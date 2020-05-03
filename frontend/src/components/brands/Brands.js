@@ -127,7 +127,7 @@ export default class Brands extends Component {
       <div style={styles.masterWrapper}>
         <div style={styles.title}>{strings.brands}</div>
         <div style={styles.brandsWrapper}>
-          <div style={styles.topRow}>
+          <div style={styles.row}>
             <div style={styles.itemWrapper}>
               <Link
                 to={`${constants.routes.SELECTED_BRAND}${constants.routes.ROLEX}`}
@@ -189,7 +189,7 @@ export default class Brands extends Component {
               </Link>
             </div>
           </div>
-          <div style={styles.bottomRow}>
+          <div style={styles.row}>
             <div style={styles.itemWrapper}>
               <Link
                 to={`${constants.routes.SELECTED_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}

@@ -11,6 +11,7 @@ export default {
     display: "flex",
     justifyContent: "center",
     width: "75%",
+    minWidth: "500px",
   },
   leftWrapper: {
     width: "42%",
@@ -57,6 +58,7 @@ export default {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
     backgroundColor: colors.champagne,
     border: `1px solid ${colors.btnBorder}`,
     borderRadius: "40px",

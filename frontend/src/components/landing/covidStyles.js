@@ -2,7 +2,8 @@ export default {
   masterWrapper: {
     backgroundColor: "#F7E7CE",
     padding: "10px",
-    width: "1000px",
+    width: "75%",
+    minWidth: "500px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -13,7 +14,7 @@ export default {
     alignItems: "center",
     color: "#444",
   },
-  message: {
+  infoIcon: {
     width: "23px",
     margin: "5px",
   },

@@ -77,6 +77,7 @@ export default class SelectedBrand extends Component {
           <img
             alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
             src={this.getBanner()}
+            style={{ width: "100%" }}
           />
         </div>
         <div style={styles.watchesScrollWrapper}>{watches}</div>

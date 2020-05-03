@@ -8,22 +8,18 @@ export default {
     alignItems: "center",
   },
   title: {
-    width: "1000px",
+    width: "75%",
     fontSize: "40px",
     color: colors.darkText,
   },
   brandsWrapper: {
     margin: "10px 0px",
+    width: "75%",
+    minWidth: "950px",
   },
-  topRow: {
+  row: {
     display: "flex",
     justifyContent: "space-around",
-    width: "1000px",
-  },
-  bottomRow: {
-    display: "flex",
-    justifyContent: "space-around",
-    width: "1000px",
   },
   itemWrapper: {
     margin: "10px 0px",

@@ -9,7 +9,7 @@ export default class Covid extends Component {
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.messageWrapper}>
-          <img alt="" src={info} style={styles.message} />
+          <img alt="" src={info} style={styles.infoIcon} />
           {strings.covid}
         </div>
         <div onClick={this.props.removeBanner} style={styles.x}>

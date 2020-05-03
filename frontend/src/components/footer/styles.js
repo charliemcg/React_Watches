@@ -11,9 +11,9 @@ export default {
   },
   footerWrapper: {
     width: "80%",
-    height: "100dp",
     display: "flex",
     justifyContent: "space-around",
+    minWidth: "500px",
   },
   columnWrapper: {
     display: "flex",
