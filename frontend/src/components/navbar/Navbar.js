@@ -11,7 +11,6 @@ class Navbar extends Component {
   render() {
     return (
       <div style={styles.masterWrapper}>
-        {/* <nav> */}
         <div style={styles.btnWrapper}>
           <div style={styles.leftWrapper}>
             <div style={styles.phone}>
@@ -54,7 +53,6 @@ class Navbar extends Component {
             </div>
           </div>
         </div>
-        {/* </nav> */}
       </div>
     );
   }

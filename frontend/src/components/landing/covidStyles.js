@@ -17,5 +17,5 @@ export default {
     width: "23px",
     margin: "5px",
   },
-  x: { padding: "5px 10px", color: "#444" },
+  x: { padding: "5px 10px", color: "#444", cursor: "pointer" },
 };

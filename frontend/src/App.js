@@ -40,42 +40,65 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div style={{ backgroundColor: "#EEE" }}>
-            <Navbar />
-            <Route exact path={constants.routes.HOME} component={Landing} />
-            <Route exact path={constants.routes.SIGN_UP} component={SignUp} />
-            <Route
-              exact
-              path={constants.routes.SIGN_UP_SUCCESS}
-              component={SignUpSuccess}
-            />
-            <Route exact path={constants.routes.SIGN_IN} component={SignIn} />
-            <Route exact path={constants.routes.ABOUT} component={About} />
-            <Route exact path={constants.routes.CONTACT} component={Contact} />
-            <Route exact path={constants.routes.CART} component={Cart} />
-            <Route exact path={constants.routes.ADMIN} component={Admin} />
-            <Route exact path={constants.routes.BRANDS} component={Brands} />
-            <Route
-              path={`${constants.routes.SELECTED_BRAND}${constants.routes.PARAM_BRAND}`}
-              component={SelectedBrand}
-            />
-            <Route
-              path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
-              component={Product}
-            />
-            <Route
-              path={`${constants.routes.UNDER_CONSTRUCTION}`}
-              component={UnderConstruction}
-            />
-            <Switch>
-              <PrivateRoute
+          <div
+            style={{
+              backgroundColor: "#EEE",
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div style={{ height: "15vh" }}>
+              <Navbar />
+            </div>
+            <div style={{ minHeight: "73vh" }}>
+              <Route exact path={constants.routes.HOME} component={Landing} />
+              <Route exact path={constants.routes.SIGN_UP} component={SignUp} />
+              <Route
                 exact
-                path={constants.routes.DASHBOARD}
-                component={Dashboard}
+                path={constants.routes.SIGN_UP_SUCCESS}
+                component={SignUpSuccess}
               />
-            </Switch>
+              <Route exact path={constants.routes.SIGN_IN} component={SignIn} />
+              <Route exact path={constants.routes.ABOUT} component={About} />
+              <Route
+                exact
+                path={constants.routes.CONTACT}
+                component={Contact}
+              />
+              <Route exact path={constants.routes.CART} component={Cart} />
+              <Route exact path={constants.routes.ADMIN} component={Admin} />
+              <Route exact path={constants.routes.BRANDS} component={Brands} />
+              <Route
+                path={`${constants.routes.SELECTED_BRAND}${constants.routes.PARAM_BRAND}`}
+                component={SelectedBrand}
+              />
+              <Route
+                path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
+                component={Product}
+              />
+              <Route
+                path={`${constants.routes.UNDER_CONSTRUCTION}`}
+                component={UnderConstruction}
+              />
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path={constants.routes.DASHBOARD}
+                  component={Dashboard}
+                />
+              </Switch>
+            </div>
+            <div
+              style={{
+                height: "12vh",
+                display: "flex",
+                alignItems: "flex-end",
+              }}
+            >
+              <Footer />
+            </div>
           </div>
-          <Footer />
         </Router>
       </Provider>
     );
