@@ -7,7 +7,7 @@ export default {
     alignItems: "center",
   },
   uploadForm: {
-    width: "1000px",
+    width: "75%",
   },
   title: {
     fontSize: "35px",
@@ -26,12 +26,15 @@ export default {
     justifyContent: "center",
     alignItems: "center",
     width: "15%",
+    minWidth: "110px",
   },
   dropdown: {
     width: "50%",
+    minWidth: "235px",
   },
   complicationOptionsWrapper: {
     width: "50%",
+    minWidth: "240px",
   },
   complicationRowWrapper: {
     display: "flex",

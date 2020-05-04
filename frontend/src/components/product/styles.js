@@ -9,7 +9,8 @@ export default {
   },
   topWrapper: {
     display: "flex",
-    width: "1000px",
+    width: "75%",
+    minWidth: "500px",
   },
   imageWrapper: {
     flex: 2,
@@ -25,6 +26,7 @@ export default {
   zoom: {
     height: "30px",
     width: "50%",
+    minWidth: "150px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -100,7 +102,9 @@ export default {
     flex: 3,
   },
   others: {
-    width: "1000px",
+    // width: "1000px",
+    width: "75%",
+    minWidth: "500px",
     color: colors.darkText,
     fontSize: "20px",
     marginBottom: "5px",
@@ -110,7 +114,9 @@ export default {
     display: "flex",
     overflow: "auto",
     backgroundColor: "white",
-    width: "1000px",
+    // width: "1000px",
+    width: "75%",
+    minWidth: "500px",
     height: "270px",
     marginBottom: "20px",
   },

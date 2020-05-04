@@ -6,8 +6,7 @@ export default {
     justifyContent: "center",
   },
   contentWrapper: {
-    width: "1000px",
-    height: "620px",
+    width: "75%",
   },
   title: {
     fontSize: "40px",
@@ -22,6 +21,7 @@ export default {
     padding: "6px 12px",
     fontSize: "12px",
     backgroundColor: colors.champagne,
+    border: `1px solid ${colors.btnBorder}`,
     borderRadius: "10px",
   },
   form: {
@@ -33,9 +33,14 @@ export default {
   },
   label: {
     width: "10%",
+    minWidth: "80px",
+    display: "flex",
+    alignItems: "center",
   },
   input: {
     width: "25%",
+    minWidth: "220px",
+    height: "20px",
   },
   btnWrapper: {
     display: "flex",
@@ -48,5 +53,6 @@ export default {
     width: "100px",
     borderRadius: "10px",
     fontSize: "13px",
+    cursor: "pointer",
   },
 };
