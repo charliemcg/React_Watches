@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import { signUpUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
-import styles from "./styles";
+// import styles from "./styles";
+import styles from "./styles.module.css";
 
 class SignUp extends Component {
   constructor() {
@@ -55,19 +56,48 @@ class SignUp extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div style={styles.masterWrapper}>
-        <div style={styles.contentWrapper}>
-          <div style={styles.title}>{strings.signUpBelow}</div>
-          <div style={styles.signIn}>
+      <div
+        className={styles.masterWrapper}
+        // style={styles.masterWrapper}
+      >
+        <div
+          className={styles.contentWrapper}
+          // style={styles.contentWrapper}
+        >
+          <div
+            className={styles.title}
+            // style={styles.title}
+          >
+            {strings.signUpBelow}
+          </div>
+          <div
+            className={styles.signIn}
+            // style={styles.signIn}
+          >
             {strings.alreadyHaveAnAccount}{" "}
-            <Link to={constants.routes.SIGN_IN} style={styles.signInBtn}>
+            <Link
+              to={constants.routes.SIGN_IN}
+              className={styles.signInBtn}
+              //  style={styles.signInBtn}
+            >
               {strings.signIn}
             </Link>
           </div>
           {/* TODO might not need this form */}
-          <form noValidate onSubmit={this.onSubmit} style={styles.form}>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+          <form
+            noValidate
+            onSubmit={this.onSubmit}
+            className={styles.form}
+            // style={styles.form}
+          >
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="firstname">{strings.firstName}</label>
               </div>
               <input
@@ -77,12 +107,19 @@ class SignUp extends Component {
                 error={errors.firstname}
                 id="firstname"
                 type="text"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.firstname}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="lastname">{strings.lastName}</label>
               </div>
               <input
@@ -91,12 +128,19 @@ class SignUp extends Component {
                 error={errors.lastname}
                 id="lastname"
                 type="text"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.lastname}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="email">{strings.email}</label>
               </div>
               <input
@@ -105,12 +149,19 @@ class SignUp extends Component {
                 error={errors.email}
                 id="email"
                 type="email"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.email}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="password">{strings.password}</label>
               </div>
               <input
@@ -119,12 +170,19 @@ class SignUp extends Component {
                 error={errors.password}
                 id="password"
                 type="password"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.password}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="password2">{strings.confirmPassword}</label>
               </div>
               <input
@@ -133,12 +191,19 @@ class SignUp extends Component {
                 error={errors.password2}
                 id="password2"
                 type="password"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.password2}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="address">{strings.address}</label>
               </div>
               <input
@@ -147,12 +212,19 @@ class SignUp extends Component {
                 error={errors.address}
                 id="address"
                 type="text"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.address}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
+            <div
+              className={styles.inputWrapper}
+              //  style={styles.inputWrapper}
+            >
+              <div
+                className={styles.label}
+                // style={styles.label}
+              >
                 <label htmlFor="phone">{strings.phone}</label>
               </div>
               <input
@@ -161,13 +233,24 @@ class SignUp extends Component {
                 error={errors.phone}
                 id="phone"
                 type="text"
-                style={styles.input}
+                className={styles.input}
+                // style={styles.input}
               />
               <span>{errors.phone}</span>
             </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.btnWrapper}>
-                <button type="submit" style={styles.btn}>
+            <div
+              className={styles.inputWrapper}
+              // style={styles.inputWrapper}
+            >
+              <div
+                className={styles.btnWrapper}
+                // style={styles.btnWrapper}
+              >
+                <button
+                  type="submit"
+                  className={styles.btn}
+                  // style={styles.btn}
+                >
                   {strings.signUp}
                 </button>
               </div>

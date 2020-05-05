@@ -6,9 +6,7 @@ export default {
     justifyContent: "center",
   },
   contentWrapper: {
-    // width: "1000px",
     width: "75%",
-    // height: "620px",
   },
   title: {
     fontSize: "40px",
