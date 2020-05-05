@@ -20,10 +20,13 @@ class SignUp extends Component {
       phone: "",
       errors: {},
     };
+    this.firstNameRef = React.createRef();
   }
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push(constants.routes.DASHBOARD);
+    } else {
+      this.firstNameRef.current.focus();
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -68,6 +71,7 @@ class SignUp extends Component {
                 <label htmlFor="firstname">{strings.firstName}</label>
               </div>
               <input
+                ref={this.firstNameRef}
                 onChange={this.onChange}
                 value={this.state.firstname}
                 error={errors.firstname}

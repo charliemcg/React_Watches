@@ -15,11 +15,14 @@ class SignIn extends Component {
       password: "",
       errors: {},
     };
+    this.emailRef = React.createRef();
   }
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push(constants.routes.DASHBOARD);
+    } else {
+      this.emailRef.current.focus();
     }
   }
 
@@ -66,6 +69,7 @@ class SignIn extends Component {
                 <label htmlFor="email">{strings.email}</label>
               </div>
               <input
+                ref={this.emailRef}
                 onChange={this.onChange}
                 value={this.state.email}
                 error={errors.email}
