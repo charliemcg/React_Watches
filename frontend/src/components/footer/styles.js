@@ -2,7 +2,6 @@ import colors from "../../colors";
 
 export default {
   background: {
-    justifyContent: "flex-end",
     alignItems: "flex-end",
     backgroundColor: colors.champagne,
     display: "flex",

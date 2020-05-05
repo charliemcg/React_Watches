@@ -13,6 +13,7 @@ export default class Product extends Component {
     this.state = {
       watch: {},
       otherWatches: [],
+      zoom: false,
     };
   }
 
@@ -33,6 +34,12 @@ export default class Product extends Component {
       });
   }
 
+  zoom = () => {
+    this.setState({
+      zoom: !this.state.zoom,
+    });
+  };
+
   getOtherWatches = () => {
     axios
       .get(`${constants.api.WATCHES}/${this.state.watch.brand}`)
@@ -50,11 +57,21 @@ export default class Product extends Component {
 
   render() {
     const { watch } = this.state;
+    const watchImage = `data:image/jpeg;base64,${watch.image}`;
     const otherWatches = this.state.otherWatches
       .filter((watch) => watch.inStock)
       .map((watch) => {
         return <ProductPreview watch={watch} />;
       });
+    const imageFullSize = (
+      <div style={styles.fullImageWrapper}>
+        {/* Change this to an actual icon instead of just text */}
+        <div style={styles.fullImageClose} onClick={this.zoom}>
+          X
+        </div>
+        <img alt={strings.accessibility.fullImage} src={watchImage} />
+      </div>
+    );
     const caseKey = watch.case && <p>{strings.case}</p>;
     const braceletKey = watch.case && <p>{strings.bracelet}</p>;
     const dialKey = watch.case && <p>{strings.dial}</p>;
@@ -63,12 +80,14 @@ export default class Product extends Component {
 
     return (
       <div style={styles.masterWrapper}>
+        {this.state.zoom && imageFullSize}
         <div style={styles.topWrapper}>
           <div style={styles.imageWrapper}>
             <img
               alt={strings.accessibility.productImage}
-              src={`data:image/jpeg;base64,${watch.image}`}
+              src={watchImage}
               style={styles.image}
+              onClick={this.zoom}
             />
             <div style={styles.zoom}>
               {strings.clickToZoom}

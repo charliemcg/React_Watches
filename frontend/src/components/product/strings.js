@@ -11,5 +11,6 @@ export default {
   otherWatchesBy: "Other watches by ",
   accessibility: {
     productImage: "Product image",
+    fullImage: "Full size image of the product",
   },
 };

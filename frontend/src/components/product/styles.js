@@ -35,6 +35,23 @@ export default {
     height: "50%",
     marginLeft: "10px",
   },
+  fullImageWrapper: {
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(52, 52, 52, 0.8)",
+  },
+  fullImageClose: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    fontSize: "30px",
+    cursor: "pointer",
+    color: "white",
+  },
   detailsWrapper: {
     flex: 3,
     color: colors.darkText,
