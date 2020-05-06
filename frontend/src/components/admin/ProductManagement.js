@@ -40,51 +40,23 @@ export default class Admin extends Component {
     };
   }
 
-  onChange = (e) => {
+  handleInputChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  onChangeBrand = (e) => {
+  handleChange = (e) => {
+    this.setState({ [e.id]: e.value });
     //remove any previously chosen model because it may not be part of the newly chosen brand
-    this.setState({ brand: e.value, model: "" });
+    e.id === "brand" && this.setState({ model: "" });
   };
 
-  onChangeModel = (e) => {
-    this.setState({ model: e.value });
-  };
-
-  onChangeCase = (e) => {
-    this.setState({ case: e.value });
-  };
-
-  onChangeBracelet = (e) => {
-    this.setState({ bracelet: e.value });
-  };
-
-  onChangeDial = (e) => {
-    this.setState({ dial: e.value });
-  };
-
-  onChangeDiameter = (e) => {
-    this.setState({ diameter: e.value });
-  };
-
-  onChangeMovement = (e) => {
-    this.setState({ movement: e.value });
-  };
-
-  onChangeComplications = (e) => {
+  handleComplicationChange = (e) => {
     this.setState({
       complications: {
         ...this.state.complications,
-        [e.target.id]: !this.state.complications[e.target.id],
+        [e.id]: e.value,
       },
     });
-  };
-
-  onChangeStock = (e) => {
-    console.log(this.state.inStock);
-    this.setState({ inStock: !this.state.inStock });
   };
 
   onChangeImage = (e) => {
@@ -164,6 +136,12 @@ export default class Admin extends Component {
 
     return (
       <div style={styles.masterWrapper}>
+        <div
+          style={{ backgroundColor: "pink" }}
+          onClick={() => console.log(this.state)}
+        >
+          Check state
+        </div>
         <div style={styles.uploadForm}>
           <div style={styles.title}>{strings.uploadNewWatch}</div>
           {/* Brand */}
@@ -172,10 +150,10 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={brands}
-                onChange={this.onChangeBrand}
+                onChange={(val) => {
+                  this.handleChange({ value: val.value, id: "brand" });
+                }}
                 value={this.state.brand}
-                id="brand"
-                style={styles.dropdown}
               />
             </div>
           </div>
@@ -187,10 +165,10 @@ export default class Admin extends Component {
                 //Removing whitespace from brand name so it can be used as a key for finding models.
                 //This dropdown will only show models reletive to the selected brand
                 options={models[this.state.brand.replace(/\s/g, "")]}
-                onChange={this.onChangeModel}
+                onChange={(val) => {
+                  this.handleChange({ value: val.value, id: "model" });
+                }}
                 value={this.state.model}
-                id="model"
-                style={styles.dropdown}
               />
             </div>
           </div>
@@ -200,9 +178,10 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={strings.caseOptions}
-                onChange={this.onChangeCase}
+                onChange={(val) => {
+                  this.handleChange({ value: val.value, id: "case" });
+                }}
                 value={this.state.case}
-                id="case"
               />
             </div>
           </div>
@@ -212,9 +191,13 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={strings.braceletOptions}
-                onChange={this.onChangeBracelet}
+                onChange={(val) => {
+                  this.handleChange({
+                    value: val.value,
+                    id: "bracelet",
+                  });
+                }}
                 value={this.state.bracelet}
-                id="bracelet"
               />
             </div>
           </div>
@@ -224,9 +207,10 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={strings.dialOptions}
-                onChange={this.onChangeDial}
+                onChange={(val) => {
+                  this.handleChange({ value: val.value, id: "dial" });
+                }}
                 value={this.state.dial}
-                id="dial"
               />
             </div>
           </div>
@@ -236,9 +220,13 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={strings.diameterOptions}
-                onChange={this.onChangeDiameter}
+                onChange={(val) => {
+                  this.handleChange({
+                    value: val.value,
+                    id: "diameter",
+                  });
+                }}
                 value={this.state.diameter}
-                id="diameter"
               />
             </div>
           </div>
@@ -248,9 +236,13 @@ export default class Admin extends Component {
             <div style={styles.dropdown}>
               <Dropdown
                 options={strings.movementOptions}
-                onChange={this.onChangeMovement}
+                onChange={(val) => {
+                  this.handleChange({
+                    value: val.value,
+                    id: "movement",
+                  });
+                }}
                 value={this.state.movement}
-                id="movement"
               />
             </div>
           </div>
@@ -264,9 +256,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.date}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.date,
+                        id: "date",
+                      });
+                    }}
                     error={errors.complications}
-                    id="date"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -277,9 +273,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.annualCalendar}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.annualCalendar,
+                        id: "annualCalendar",
+                      });
+                    }}
                     error={errors.complications}
-                    id="annualCalendar"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -292,9 +292,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.perpetualCalendar}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.perpetualCalendar,
+                        id: "perpetualCalendar",
+                      });
+                    }}
                     error={errors.complications}
-                    id="perpetualCalendar"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -305,9 +309,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.chronograph}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.chronograph,
+                        id: "chronograph",
+                      });
+                    }}
                     error={errors.complications}
-                    id="chronograph"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -318,9 +326,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.gmt}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.gmt,
+                        id: "gmt",
+                      });
+                    }}
                     error={errors.complications}
-                    id="gmt"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -331,9 +343,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.worldTime}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.worldTime,
+                        id: "worldTime",
+                      });
+                    }}
                     error={errors.complications}
-                    id="worldTime"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -346,9 +362,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.minuteRepeater}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.minuteRepeater,
+                        id: "minuteRepeater",
+                      });
+                    }}
                     error={errors.complications}
-                    id="minuteRepeater"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -359,9 +379,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.moonPhase}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.moonPhase,
+                        id: "moonPhase",
+                      });
+                    }}
                     error={errors.complications}
-                    id="moonPhase"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -374,9 +398,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.tourbillon}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.tourbillon,
+                        id: "tourbillon",
+                      });
+                    }}
                     error={errors.complications}
-                    id="tourbillon"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -387,9 +415,13 @@ export default class Admin extends Component {
                   <input
                     type="checkbox"
                     defaultChecked={this.state.complications.powerReserve}
-                    onChange={this.onChangeComplications}
+                    onChange={() => {
+                      this.handleComplicationChange({
+                        value: !this.state.complications.powerReserve,
+                        id: "powerReserve",
+                      });
+                    }}
                     error={errors.complications}
-                    id="powerReserve"
                     style={styles.complicationCheckbox}
                   />
                 </div>
@@ -408,7 +440,7 @@ export default class Admin extends Component {
             <div style={styles.dropdownWrapper}>
               <div style={styles.label}>{strings.price}</div>$
               <input
-                onChange={this.onChange}
+                onChange={this.handleInputChange}
                 value={this.state.price}
                 error={errors.price}
                 id="price"
@@ -419,7 +451,7 @@ export default class Admin extends Component {
             <div style={styles.dropdownWrapper}>
               <div style={styles.label}>{strings.description}</div>
               <textarea
-                onChange={this.onChange}
+                onChange={this.handleInputChange}
                 value={this.state.description}
                 error={errors.description}
                 id="description"
@@ -433,9 +465,13 @@ export default class Admin extends Component {
               <input
                 type="checkbox"
                 defaultChecked={this.state.inStock}
-                onChange={this.onChangeStock}
+                onChange={() => {
+                  this.handleChange({
+                    value: !this.state.inStock,
+                    id: "inStock",
+                  });
+                }}
                 error={errors.inStock}
-                id="inStock"
               />
               <span>{errors.inStock}</span>
             </div>
@@ -446,7 +482,6 @@ export default class Admin extends Component {
                 onChange={this.onChangeImage}
                 type="file"
                 className="file"
-                id="image"
               />
             </div>
             <div style={styles.dropdownWrapper}>
