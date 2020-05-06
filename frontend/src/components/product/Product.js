@@ -59,7 +59,9 @@ export default class Product extends Component {
     const { watch } = this.state;
     const watchImage = `data:image/jpeg;base64,${watch.image}`;
     const otherWatches = this.state.otherWatches
-      .filter((watch) => watch.inStock)
+      .filter((product) => product.inStock)
+      //compare to uuid instead of model
+      .filter((product) => product.model != watch.model)
       .map((watch) => {
         return <ProductPreview watch={watch} />;
       });
