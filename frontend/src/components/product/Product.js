@@ -73,10 +73,18 @@ export default class Product extends Component {
       </div>
     );
     const caseKey = watch.case && <p>{strings.case}</p>;
-    const braceletKey = watch.case && <p>{strings.bracelet}</p>;
-    const dialKey = watch.case && <p>{strings.dial}</p>;
-    const diameterKey = watch.case && <p>{strings.diameter}</p>;
-    const movementKey = watch.case && <p>{strings.movement}</p>;
+    const braceletKey = watch.bracelet && <p>{strings.bracelet}</p>;
+    const dialKey = watch.dial && <p>{strings.dial}</p>;
+    const diameterKey = watch.diameter && <p>{strings.diameter}</p>;
+    const movementKey = watch.movement && <p>{strings.movement}</p>;
+    const complicationsKey = watch.complications !== undefined && (
+      <p>{strings.complications}</p>
+    );
+    const complications =
+      watch.complications !== undefined &&
+      watch.complications.map((e, i) => {
+        return i > 0 ? `, ${e}` : e;
+      });
 
     return (
       <div style={styles.masterWrapper}>
@@ -129,7 +137,7 @@ export default class Product extends Component {
                 {dialKey}
                 {diameterKey}
                 {movementKey}
-                <p>{strings.complications}</p>
+                {complicationsKey}
               </div>
               <div style={styles.values}>
                 <p>{watch.case}</p>
@@ -137,7 +145,7 @@ export default class Product extends Component {
                 <p>{watch.dial}</p>
                 <p>{watch.diameter}</p>
                 <p>{watch.movement}</p>
-                <p style={{ color: "pink" }}>null</p>
+                <p>{complications}</p>
               </div>
             </div>
           </div>
