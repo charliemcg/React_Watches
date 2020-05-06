@@ -73,6 +73,15 @@ export default class Admin extends Component {
     this.setState({ movement: e.value });
   };
 
+  onChangeComplications = (e) => {
+    this.setState({
+      complications: {
+        ...this.state.complications,
+        [e.target.id]: !this.state.complications[e.target.id],
+      },
+    });
+  };
+
   onChangeStock = (e) => {
     console.log(this.state.inStock);
     this.setState({ inStock: !this.state.inStock });
@@ -91,15 +100,25 @@ export default class Admin extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    const complications = [];
+    for (let [key, value] of Object.entries(this.state.complications)) {
+      value && complications.push(strings[key]);
+    }
     const newWatch = {
       brand: this.state.brand,
       model: this.state.model,
+      //cannot use 'case' in the backend because it's a keyword. Using 'housing' instead
+      housing: this.state.case,
+      bracelet: this.state.bracelet,
+      dial: this.state.dial,
+      diameter: this.state.diameter,
+      movement: this.state.movement,
+      complications,
       price: this.state.price,
       description: this.state.description,
       inStock: this.state.inStock,
       image: this.state.image,
     };
-    console.log(newWatch);
     axios
       .post(`${constants.api.WATCHES}${constants.api.NEW_WATCH}`, newWatch)
       .then((res) => {
@@ -107,9 +126,26 @@ export default class Admin extends Component {
         this.setState({
           brand: brands[0],
           model: "",
+          case: "",
+          bracelet: "",
+          dial: "",
+          diameter: "",
+          movement: "",
+          complications: {
+            date: false,
+            annualCalendar: false,
+            perpetualCalendar: false,
+            chronograph: false,
+            gmt: false,
+            worldTime: false,
+            minuteRepeater: false,
+            moonPhase: false,
+            tourbillon: false,
+            powerReserve: false,
+          },
           price: "",
           description: "",
-          inStock: "",
+          inStock: true,
           image: null,
           errors: {},
         });

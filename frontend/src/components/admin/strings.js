@@ -27,6 +27,7 @@ export default {
     "White",
     "Black",
     "Blue",
+    "Brown",
     "Champagne",
     "Green",
     "Purple",

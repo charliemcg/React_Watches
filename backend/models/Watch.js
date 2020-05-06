@@ -9,6 +9,30 @@ const WatchSchema = new Schema({
     type: String,
     required: true,
   },
+  case: {
+    type: String,
+    required: false,
+  },
+  bracelet: {
+    type: String,
+    required: false,
+  },
+  dial: {
+    type: String,
+    required: false,
+  },
+  diameter: {
+    type: String,
+    required: false,
+  },
+  movement: {
+    type: String,
+    required: false,
+  },
+  complications: {
+    type: Array,
+    required: false,
+  },
   price: {
     type: Number,
     required: true,

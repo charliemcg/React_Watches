@@ -37,7 +37,20 @@ router.get("/:brand", (req, res) => {
 
 //POST new watch
 router.post("/newWatch", upload.single("image"), (req, res) => {
-  const { brand, model, price, description, inStock, image } = req.body;
+  const {
+    brand,
+    model,
+    housing,
+    bracelet,
+    dial,
+    diameter,
+    movement,
+    complications,
+    price,
+    description,
+    inStock,
+    image,
+  } = req.body;
   Watch.findOne({ model: brand }).then((watch) => {
     if (watch) {
       return res.status(400).json({ watch: "Watch already exists" });
@@ -45,6 +58,12 @@ router.post("/newWatch", upload.single("image"), (req, res) => {
       const newWatch = new Watch({
         brand,
         model,
+        case: housing,
+        bracelet,
+        dial,
+        diameter,
+        movement,
+        complications,
         price,
         //TODO remove lorem ipsum from before rolling out to production
         description:
