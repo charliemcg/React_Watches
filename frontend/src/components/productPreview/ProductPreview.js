@@ -9,7 +9,7 @@ export default class ProductPreview extends Component {
     const { watch } = this.props;
     return (
       <Link
-        to={`${constants.routes.PRODUCT}/${watch.brand}/${watch.model}`}
+        to={`${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`}
         style={{ textDecoration: "none" }}
       >
         <div style={styles.itemWrapper}>

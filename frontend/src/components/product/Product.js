@@ -20,7 +20,7 @@ export default class Product extends Component {
   componentDidMount() {
     const { params } = this.props.match;
     axios
-      .get(`${constants.api.WATCHES}/${params.brand}/${params.model}`)
+      .get(`${constants.api.WATCHES}/${params.brand}/${params._id}`)
       .then((res) => {
         this.setState({ watch: res.data });
         this.getOtherWatches();
@@ -60,8 +60,7 @@ export default class Product extends Component {
     const watchImage = `data:image/jpeg;base64,${watch.image}`;
     const otherWatches = this.state.otherWatches
       .filter((product) => product.inStock)
-      //compare to uuid instead of model
-      .filter((product) => product.model != watch.model)
+      .filter((product) => product._id != watch._id)
       .map((watch) => {
         return <ProductPreview watch={watch} />;
       });
@@ -71,7 +70,11 @@ export default class Product extends Component {
         <div style={styles.fullImageClose} onClick={this.zoom}>
           X
         </div>
-        <img alt={strings.accessibility.fullImage} src={watchImage} />
+        <img
+          alt={strings.accessibility.fullImage}
+          src={watchImage}
+          style={{ maxHeight: "100%" }}
+        />
       </div>
     );
     const caseKey = watch.case && <p>{strings.case}</p>;

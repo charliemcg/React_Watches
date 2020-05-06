@@ -14,8 +14,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //GET model
-router.get("/:brand/:model", (req, res) => {
-  Watch.findOne({ brand: req.params.brand, model: req.params.model }).then(
+router.get("/:brand/:_id", (req, res) => {
+  Watch.findOne({ brand: req.params.brand, _id: req.params._id }).then(
     (watch) => {
       if (!watch) {
         return res.status(404).json({ watchnotfound: "Watch not found" });

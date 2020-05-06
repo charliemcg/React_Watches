@@ -19,7 +19,7 @@ export default {
     SELECTED_BRAND: "/selectedBrand",
     PARAM_BRAND: "/:brand",
     PRODUCT: "/product",
-    PARAM_MODEL: "/:model",
+    PARAM_ID: "/:_id",
     UNDER_CONSTRUCTION: "/underConstruction",
     ROLEX: "/Rolex",
     CARTIER: "/Cartier",

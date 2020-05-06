@@ -22,6 +22,7 @@ export default {
   image: {
     width: "80%",
     marginTop: "30px",
+    cursor: "pointer",
   },
   zoom: {
     height: "30px",

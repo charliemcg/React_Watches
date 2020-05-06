@@ -74,7 +74,7 @@ class App extends Component {
                 component={SelectedBrand}
               />
               <Route
-                path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_MODEL}`}
+                path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_ID}`}
                 component={Product}
               />
               <Route
