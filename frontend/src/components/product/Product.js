@@ -82,9 +82,8 @@ export default class Product extends Component {
     const dialKey = watch.dial && <p>{strings.dial}</p>;
     const diameterKey = watch.diameter && <p>{strings.diameter}</p>;
     const movementKey = watch.movement && <p>{strings.movement}</p>;
-    const complicationsKey = watch.complications !== undefined && (
-      <p>{strings.complications}</p>
-    );
+    const complicationsKey = watch.complications !== undefined &&
+      watch.complications.length > 0 && <p>{strings.complications}</p>;
     const complications =
       watch.complications !== undefined &&
       watch.complications.map((e, i) => {
