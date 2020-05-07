@@ -98,12 +98,12 @@ class App extends Component {
                   path={`${constants.routes.UNDER_CONSTRUCTION}`}
                   component={UnderConstruction}
                 />
-                <Route component={FourOhFour} />
                 <PrivateRoute
                   exact
                   path={constants.routes.DASHBOARD}
                   component={Dashboard}
                 />
+                <Route component={FourOhFour} />
               </Switch>
             </div>
             <div

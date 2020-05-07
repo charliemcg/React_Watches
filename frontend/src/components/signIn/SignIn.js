@@ -87,44 +87,8 @@ class SignIn extends Component {
             </Link>
           </div>
           {/* TODO might not need this form */}
-          {/* <form noValidate onSubmit={this.onSubmit} style={styles.form}> */}
           <div style={styles.form}>
             {getInputs}
-            {/* <div style={styles.inputWrapper}>
-              <div style={styles.label}>
-                <label htmlFor="email">{strings.email}</label>
-              </div>
-              <input
-                ref={this.emailRef}
-                onChange={this.onChange}
-                value={this.state.email}
-                error={errors.email}
-                id="email"
-                type="email"
-                style={styles.input}
-              />
-              <span>
-                {errors.email}
-                {errors.emailnotfound}
-              </span>
-            </div>
-            <div style={styles.inputWrapper}>
-              <div style={styles.label}>
-                <label htmlFor="password">{strings.password}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.password}
-                error={errors.password}
-                id="password"
-                type="password"
-                style={styles.input}
-              />
-              <span>
-                {errors.password}
-                {errors.passwordincorrect}
-              </span>
-            </div> */}
             <div style={styles.inputWrapper}>
               <div style={styles.btnWrapper}>
                 <button
