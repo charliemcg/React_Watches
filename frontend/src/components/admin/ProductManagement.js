@@ -159,7 +159,6 @@ export default class Admin extends Component {
           <div style={styles.label}>{strings[watchAttribute]}</div>
           <div style={styles.dropdown}>
             <Dropdown
-              // options={getOptions(watchAttribute)}
               options={getOptions(watchAttribute)}
               onChange={(val) => {
                 this.handleChange({ value: val.value, id: watchAttribute });
@@ -173,10 +172,28 @@ export default class Admin extends Component {
 
     const getComplication = (comp) => {
       return (
+        // <div style={styles.complicationWrapper}>
+        //   <div style={styles.complicationLabel}>{strings[comp]}</div>
+        //   <input
+        //     type="checkbox"
+        //     defaultChecked={this.state.complications[comp]}
+        //     onChange={() => {
+        //       this.handleComplicationChange({
+        //         value: !this.state.complications[comp],
+        //         id: comp,
+        //       });
+        //     }}
+        //     error={errors.complications}
+        //     style={styles.complicationCheckbox}
+        //   />
+        // </div>
         <div style={styles.complicationWrapper}>
-          <div style={styles.complicationLabel}>{strings[comp]}</div>
+          <label htmlFor={comp} style={styles.complicationLabel}>
+            {strings[comp]}
+          </label>
           <input
             type="checkbox"
+            id={comp}
             defaultChecked={this.state.complications[comp]}
             onChange={() => {
               this.handleComplicationChange({
