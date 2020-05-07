@@ -42,10 +42,11 @@
 }
 .error {
   display: flex;
-  justify-content: center;
+  align-items: center;
   color: red;
   width: 35%;
   min-width: 300px;
+  margin-left: 15px;
 }
 .btnWrapper {
   display: flex;

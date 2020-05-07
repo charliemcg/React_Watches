@@ -172,21 +172,6 @@ export default class Admin extends Component {
 
     const getComplication = (comp) => {
       return (
-        // <div style={styles.complicationWrapper}>
-        //   <div style={styles.complicationLabel}>{strings[comp]}</div>
-        //   <input
-        //     type="checkbox"
-        //     defaultChecked={this.state.complications[comp]}
-        //     onChange={() => {
-        //       this.handleComplicationChange({
-        //         value: !this.state.complications[comp],
-        //         id: comp,
-        //       });
-        //     }}
-        //     error={errors.complications}
-        //     style={styles.complicationCheckbox}
-        //   />
-        // </div>
         <div style={styles.complicationWrapper}>
           <label htmlFor={comp} style={styles.complicationLabel}>
             {strings[comp]}

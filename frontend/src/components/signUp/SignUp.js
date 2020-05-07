@@ -55,6 +55,37 @@ class SignUp extends Component {
   };
   render() {
     const { errors } = this.state;
+    const detailsArr = [
+      { id: "firstname", type: "text" },
+      { id: "lastname", type: "text" },
+      { id: "email", type: "email" },
+      { id: "password", type: "password" },
+      { id: "password2", type: "password" },
+      { id: "phone", type: "text" },
+    ];
+    const getInputs = detailsArr.map((e) => {
+      return (
+        <>
+          <div className={styles.inputWrapper}>
+            <div className={styles.label}>
+              <label htmlFor={e.id}>{strings[e.id]}</label>
+            </div>
+            <input
+              ref={e.id === "firstname" && this.firstNameRef}
+              onChange={this.onChange}
+              value={this.state[e.id]}
+              error={errors[e.id]}
+              id={e.id}
+              type={e.type}
+              className={styles.input}
+              //Give input a red border in input invalid
+              style={errors[e.id] && { border: "2px solid red" }}
+            />
+            <div className={styles.error}>{errors[e.id]}</div>
+          </div>
+        </>
+      );
+    });
     return (
       <div className={styles.masterWrapper}>
         <div className={styles.contentWrapper}>
@@ -66,105 +97,7 @@ class SignUp extends Component {
             </Link>
           </div>
           <div classname={styles.form}>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="firstname">{strings.firstName}</label>
-              </div>
-              <input
-                ref={this.firstNameRef}
-                onChange={this.onChange}
-                value={this.state.firstname}
-                error={errors.firstname}
-                id="firstname"
-                type="text"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.firstname}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="lastname">{strings.lastName}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.lastname}
-                error={errors.lastname}
-                id="lastname"
-                type="text"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.lastname}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="email">{strings.email}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.email}
-                error={errors.email}
-                id="email"
-                type="email"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.email}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="password">{strings.password}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.password}
-                error={errors.password}
-                id="password"
-                type="password"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.password}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="password2">{strings.confirmPassword}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.password2}
-                error={errors.password2}
-                id="password2"
-                type="password"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.password2}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="address">{strings.address}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.address}
-                error={errors.address}
-                id="address"
-                type="text"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.address}</div>
-            <div className={styles.inputWrapper}>
-              <div className={styles.label}>
-                <label htmlFor="phone">{strings.phone}</label>
-              </div>
-              <input
-                onChange={this.onChange}
-                value={this.state.phone}
-                error={errors.phone}
-                id="phone"
-                type="text"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.error}>{errors.phone}</div>
+            {getInputs}
             <div className={styles.inputWrapper}>
               <div className={styles.btnWrapper}>
                 <button

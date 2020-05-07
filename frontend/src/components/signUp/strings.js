@@ -5,9 +5,9 @@ export default {
   alreadyHaveAnAccount: "Already have an account?",
   email: "Email",
   password: "Password",
-  confirmPassword: "Confirm Password",
-  firstName: "First Name",
-  lastName: "Last Name",
+  password2: "Confirm Password",
+  firstname: "First Name",
+  lastname: "Last Name",
   address: "Address",
   phone: "Phone",
 };
