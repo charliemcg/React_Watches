@@ -28,224 +28,144 @@ export default class Brands extends Component {
   constructor() {
     super();
     this.state = {
-      onRolex: false,
-      onOmega: false,
-      onPatek: false,
-      onAudemars: false,
-      onCartier: false,
-      onVacheron: false,
-      onBreguet: false,
-      onChopard: false,
-      onPanerai: false,
-      onMille: false,
+      rolex: false,
+      omega: false,
+      patek: false,
+      audemars: false,
+      cartier: false,
+      vacheron: false,
+      breguet: false,
+      chopard: false,
+      panerai: false,
+      mille: false,
     };
   }
 
-  //TODO pass the brand in as a parameter to get rid of this code duplication
-  onMouseEnterRolex = () => {
-    this.setState({ onRolex: true });
-  };
-
-  onMouseLeaveRolex = () => {
-    this.setState({ onRolex: false });
-  };
-
-  onMouseEnterOmega = () => {
-    this.setState({ onOmega: true });
-  };
-
-  onMouseLeaveOmega = () => {
-    this.setState({ onOmega: false });
-  };
-
-  onMouseEnterPatek = () => {
-    this.setState({ onPatek: true });
-  };
-
-  onMouseLeavePatek = () => {
-    this.setState({ onPatek: false });
-  };
-
-  onMouseEnterAudemars = () => {
-    this.setState({ onAudemars: true });
-  };
-
-  onMouseLeaveAudemars = () => {
-    this.setState({ onAudemars: false });
-  };
-
-  onMouseEnterCartier = () => {
-    this.setState({ onCartier: true });
-  };
-
-  onMouseLeaveCartier = () => {
-    this.setState({ onCartier: false });
-  };
-
-  onMouseEnterVacheron = () => {
-    this.setState({ onVacheron: true });
-  };
-
-  onMouseLeaveVacheron = () => {
-    this.setState({ onVacheron: false });
-  };
-
-  onMouseEnterBreguet = () => {
-    this.setState({ onBreguet: true });
-  };
-
-  onMouseLeaveBreguet = () => {
-    this.setState({ onBreguet: false });
-  };
-
-  onMouseEnterChopard = () => {
-    this.setState({ onChopard: true });
-  };
-
-  onMouseLeaveChopard = () => {
-    this.setState({ onChopard: false });
-  };
-
-  onMouseEnterPanerai = () => {
-    this.setState({ onPanerai: true });
-  };
-
-  onMouseLeavePanerai = () => {
-    this.setState({ onPanerai: false });
-  };
-
-  onMouseEnterMille = () => {
-    this.setState({ onMille: true });
-  };
-
-  onMouseLeaveMille = () => {
-    this.setState({ onMille: false });
+  triggerChangeImage = (brand) => {
+    this.setState({ [brand]: !this.state[brand] });
   };
 
   render() {
+    //getting all the brands from state
+    const itemsArr = [];
+    for (let [key, value] of Object.entries(this.state)) {
+      itemsArr.push(key);
+    }
+    //getting route for each brand
+    const getProperties = (brand) => {
+      switch (brand) {
+        case strings.keys.rolex:
+          return {
+            route: constants.routes.ROLEX,
+            accessibility: strings.accessibility.rolexLogo,
+            image: imgRolex,
+            logo: logoRolex,
+          };
+        case strings.keys.omega:
+          return {
+            route: constants.routes.OMEGA,
+            accessibility: strings.accessibility.omegaLogo,
+            image: imgOmega,
+            logo: logoOmega,
+          };
+        case strings.keys.patek:
+          return {
+            route: constants.routes.PATEK_PHILIPPE,
+            accessibility: strings.accessibility.patekLogo,
+            image: imgPatek,
+            logo: logoPatek,
+          };
+        case strings.keys.audemars:
+          return {
+            route: constants.routes.AUDEMARS_PIGUET,
+            accessibility: strings.accessibility.audemarsLogo,
+            image: imgAudemars,
+            logo: logoAudemars,
+          };
+        case strings.keys.cartier:
+          return {
+            route: constants.routes.CARTIER,
+            accessibility: strings.accessibility.cartierLogo,
+            image: imgCartier,
+            logo: logoCartier,
+          };
+        case strings.keys.vacheron:
+          return {
+            route: constants.routes.VACHERON_CONSTANTIN,
+            accessibility: strings.accessibility.vacheronLogo,
+            image: imgVacheron,
+            logo: logoVacheron,
+          };
+        case strings.keys.breguet:
+          return {
+            route: constants.routes.BREGUET,
+            accessibility: strings.accessibility.breguetLogo,
+            image: imgBreguet,
+            logo: logoBreguet,
+          };
+        case strings.keys.chopard:
+          return {
+            route: constants.routes.CHOPARD,
+            accessibility: strings.accessibility.chopardLogo,
+            image: imgChopard,
+            logo: logoChopard,
+          };
+        case strings.keys.panerai:
+          return {
+            route: constants.routes.PANERAI,
+            accessibility: strings.accessibility.paneraiLogo,
+            image: imgPanerai,
+            logo: logoPanerai,
+          };
+        case strings.keys.mille:
+          return {
+            route: constants.routes.RICHARD_MILLE,
+            accessibility: strings.accessibility.milleLogo,
+            image: imgMille,
+            logo: logoMille,
+          };
+      }
+    };
+    //creating the view for each brand
+    const getRenderedItem = (item) => {
+      const brandProperties = getProperties(item);
+      return (
+        brandProperties !== undefined && (
+          <div style={styles.itemWrapper}>
+            <Link to={`${constants.routes.BRANDS}${brandProperties.route}`}>
+              <img
+                alt={brandProperties.accessibility}
+                src={
+                  this.state[item]
+                    ? brandProperties.image
+                    : brandProperties.logo
+                }
+                onMouseEnter={() => this.triggerChangeImage(item)}
+                onMouseLeave={() => this.triggerChangeImage(item)}
+              />
+            </Link>
+          </div>
+        )
+      );
+    };
+
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.title}>{strings.brands}</div>
         <div style={styles.brandsWrapper}>
           <div style={styles.row}>
-            <div style={styles.itemWrapper}>
-              <Link to={`${constants.routes.BRANDS}${constants.routes.ROLEX}`}>
-                <img
-                  alt={strings.accessibility.rolexLogo}
-                  src={this.state.onRolex ? imgRolex : logoRolex}
-                  onMouseEnter={this.onMouseEnterRolex}
-                  onMouseLeave={this.onMouseLeaveRolex}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link to={`${constants.routes.BRANDS}${constants.routes.OMEGA}`}>
-                <img
-                  alt={strings.accessibility.omegaLogo}
-                  src={this.state.onOmega ? imgOmega : logoOmega}
-                  onMouseEnter={this.onMouseEnterOmega}
-                  onMouseLeave={this.onMouseLeaveOmega}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.PATEK_PHILIPPE}`}
-              >
-                <img
-                  alt={strings.accessibility.patekLogo}
-                  src={this.state.onPatek ? imgPatek : logoPatek}
-                  onMouseEnter={this.onMouseEnterPatek}
-                  onMouseLeave={this.onMouseLeavePatek}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.AUDEMARS_PIGUET}`}
-              >
-                <img
-                  alt={strings.accessibility.audemarsLogo}
-                  src={this.state.onAudemars ? imgAudemars : logoAudemars}
-                  onMouseEnter={this.onMouseEnterAudemars}
-                  onMouseLeave={this.onMouseLeaveAudemars}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.CARTIER}`}
-              >
-                <img
-                  alt={strings.accessibility.cartierLogo}
-                  src={this.state.onCartier ? imgCartier : logoCartier}
-                  onMouseEnter={this.onMouseEnterCartier}
-                  onMouseLeave={this.onMouseLeaveCartier}
-                />
-              </Link>
-            </div>
+            {getRenderedItem(strings.keys.rolex)}
+            {getRenderedItem(strings.keys.omega)}
+            {getRenderedItem(strings.keys.patek)}
+            {getRenderedItem(strings.keys.audemars)}
+            {getRenderedItem(strings.keys.cartier)}
           </div>
           <div style={styles.row}>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.VACHERON_CONSTANTIN}`}
-              >
-                <img
-                  alt={strings.accessibility.vacheronLogo}
-                  src={this.state.onVacheron ? imgVacheron : logoVacheron}
-                  onMouseEnter={this.onMouseEnterVacheron}
-                  onMouseLeave={this.onMouseLeaveVacheron}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.BREGUET}`}
-              >
-                <img
-                  alt={strings.accessibility.breguetLogo}
-                  src={this.state.onBreguet ? imgBreguet : logoBreguet}
-                  onMouseEnter={this.onMouseEnterBreguet}
-                  onMouseLeave={this.onMouseLeaveBreguet}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.CHOPARD}`}
-              >
-                <img
-                  alt={strings.accessibility.chopardLogo}
-                  src={this.state.onChopard ? imgChopard : logoChopard}
-                  onMouseEnter={this.onMouseEnterChopard}
-                  onMouseLeave={this.onMouseLeaveChopard}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.PANERAI}`}
-              >
-                <img
-                  alt={strings.accessibility.paneraiLogo}
-                  src={this.state.onPanerai ? imgPanerai : logoPanerai}
-                  onMouseEnter={this.onMouseEnterPanerai}
-                  onMouseLeave={this.onMouseLeavePanerai}
-                />
-              </Link>
-            </div>
-            <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.BRANDS}${constants.routes.RICHARD_MILLE}`}
-              >
-                <img
-                  alt={strings.accessibility.milleLogo}
-                  src={this.state.onMille ? imgMille : logoMille}
-                  onMouseEnter={this.onMouseEnterMille}
-                  onMouseLeave={this.onMouseLeaveMille}
-                />
-              </Link>
-            </div>
+            {getRenderedItem(strings.keys.vacheron)}
+            {getRenderedItem(strings.keys.breguet)}
+            {getRenderedItem(strings.keys.chopard)}
+            {getRenderedItem(strings.keys.panerai)}
+            {getRenderedItem(strings.keys.mille)}
           </div>
         </div>
       </div>

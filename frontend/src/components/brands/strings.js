@@ -1,5 +1,17 @@
 export default {
   brands: "Brands",
+  keys: {
+    rolex: "rolex",
+    omega: "omega",
+    patek: "patek",
+    audemars: "audemars",
+    cartier: "cartier",
+    vacheron: "vacheron",
+    breguet: "breguet",
+    chopard: "chopard",
+    panerai: "panerai",
+    mille: "mille",
+  },
   accessibility: {
     rolexLogo: "Rolex logo",
     omegaLogo: "Omega logo",
