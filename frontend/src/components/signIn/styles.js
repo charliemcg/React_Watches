@@ -42,6 +42,20 @@ export default {
     minWidth: "220px",
     height: "20px",
   },
+  inputWithError: {
+    width: "25%",
+    minWidth: "220px",
+    height: "20px",
+    border: "2px solid red",
+  },
+  error: {
+    display: "flex",
+    alignItems: "center",
+    color: "red",
+    width: "35%",
+    minWidth: "300px",
+    marginLeft: "15px",
+  },
   btnWrapper: {
     display: "flex",
     justifyContent: "center",

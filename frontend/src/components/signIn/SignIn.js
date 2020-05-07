@@ -52,6 +52,30 @@ class SignIn extends Component {
 
   render() {
     const { errors } = this.state;
+    const detailsArr = [
+      { id: "email", type: "email" },
+      { id: "password", type: "password" },
+    ];
+    const getInputs = detailsArr.map((e) => {
+      return (
+        <div style={styles.inputWrapper}>
+          <div style={styles.label}>
+            <label htmlFor={e.id}>{strings[e.id]}</label>
+          </div>
+          <input
+            ref={e.id === "email" && this.emailRef}
+            onChange={this.onChange}
+            value={this.state[e.id]}
+            error={errors[e.id]}
+            id={e.id}
+            type={e.type}
+            //Give input a red border in input invalid
+            style={errors[e.id] ? styles.inputWithError : styles.input}
+          />
+          <div style={styles.error}>{errors[e.id]}</div>
+        </div>
+      );
+    });
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.contentWrapper}>
@@ -63,8 +87,10 @@ class SignIn extends Component {
             </Link>
           </div>
           {/* TODO might not need this form */}
-          <form noValidate onSubmit={this.onSubmit} style={styles.form}>
-            <div style={styles.inputWrapper}>
+          {/* <form noValidate onSubmit={this.onSubmit} style={styles.form}> */}
+          <div style={styles.form}>
+            {getInputs}
+            {/* <div style={styles.inputWrapper}>
               <div style={styles.label}>
                 <label htmlFor="email">{strings.email}</label>
               </div>
@@ -98,15 +124,19 @@ class SignIn extends Component {
                 {errors.password}
                 {errors.passwordincorrect}
               </span>
-            </div>
+            </div> */}
             <div style={styles.inputWrapper}>
               <div style={styles.btnWrapper}>
-                <button type="submit" style={styles.btn}>
+                <button
+                  type="submit"
+                  style={styles.btn}
+                  onClick={this.onSubmit}
+                >
                   {strings.signIn}
                 </button>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );

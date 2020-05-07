@@ -65,25 +65,23 @@ class SignUp extends Component {
     ];
     const getInputs = detailsArr.map((e) => {
       return (
-        <>
-          <div className={styles.inputWrapper}>
-            <div className={styles.label}>
-              <label htmlFor={e.id}>{strings[e.id]}</label>
-            </div>
-            <input
-              ref={e.id === "firstname" && this.firstNameRef}
-              onChange={this.onChange}
-              value={this.state[e.id]}
-              error={errors[e.id]}
-              id={e.id}
-              type={e.type}
-              className={styles.input}
-              //Give input a red border in input invalid
-              style={errors[e.id] && { border: "2px solid red" }}
-            />
-            <div className={styles.error}>{errors[e.id]}</div>
+        <div className={styles.inputWrapper}>
+          <div className={styles.label}>
+            <label htmlFor={e.id}>{strings[e.id]}</label>
           </div>
-        </>
+          <input
+            ref={e.id === "firstname" && this.firstNameRef}
+            onChange={this.onChange}
+            value={this.state[e.id]}
+            error={errors[e.id]}
+            id={e.id}
+            type={e.type}
+            className={styles.input}
+            //Give input a red border in input invalid
+            style={errors[e.id] && { border: "2px solid red" }}
+          />
+          <div className={styles.error}>{errors[e.id]}</div>
+        </div>
       );
     });
     return (
