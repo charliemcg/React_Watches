@@ -58,11 +58,6 @@ class Navbar extends Component {
               <Link to={constants.routes.ADMIN} style={styles.btn}>
                 {strings.admin}
               </Link>
-              {/* <Link to={constants.routes.SIGN_IN} style={styles.signIn}>
-                {this.props.auth.user.id !== undefined
-                  ? strings.logOut
-                  : strings.signIn}
-              </Link> */}
               <div onClick={this.handleSignInOut} style={styles.signIn}>
                 {this.props.auth.user.id !== undefined
                   ? strings.logOut

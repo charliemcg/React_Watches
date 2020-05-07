@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Dots } from "react-activity";
+import "react-activity/dist/react-activity.css";
 import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
@@ -71,6 +73,13 @@ export default class SelectedBrand extends Component {
       .map((watch) => {
         return <ProductPreview watch={watch} />;
       });
+
+    const activityIndicator = (
+      <div style={styles.activityIndicator}>
+        <Dots />
+      </div>
+    );
+
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.banner}>
@@ -80,7 +89,9 @@ export default class SelectedBrand extends Component {
             style={{ width: "100%" }}
           />
         </div>
-        <div style={styles.watchesScrollWrapper}>{watches}</div>
+        <div style={styles.watchesScrollWrapper}>
+          {this.state.watches.length > 0 ? watches : activityIndicator}
+        </div>
       </div>
     );
   }

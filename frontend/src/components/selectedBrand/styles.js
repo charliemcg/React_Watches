@@ -8,10 +8,8 @@ export default {
     alignItems: "center",
   },
   banner: {
-    // width: "1000px",
     width: "75%",
     minWidth: "500px",
-    // height: "500px",
   },
   title: {
     color: colors.darkText,
@@ -29,6 +27,12 @@ export default {
     minWidth: "500px",
     height: "270px",
     marginBottom: "20px",
+  },
+  activityIndicator: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   itemWrapper: {
     paddingTop: "10px",

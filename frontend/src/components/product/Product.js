@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Dots } from "react-activity";
+import "react-activity/dist/react-activity.css";
 import axios from "axios";
 import constants from "../../constants";
 import styles from "./styles";
@@ -65,6 +67,11 @@ export default class Product extends Component {
       .map((watch, i) => {
         return <ProductPreview watch={watch} />;
       });
+    const activityIndicator = (
+      <div style={styles.activityIndicator}>
+        <Dots />
+      </div>
+    );
     const imageFullSize = (
       <div style={styles.fullImageWrapper}>
         {/* Change this to an actual icon instead of just text */}
@@ -159,7 +166,11 @@ export default class Product extends Component {
           {strings.otherWatchesBy}
           {watch.brand}
         </div>
-        <div style={styles.bottomWrapper}>{otherWatches}</div>
+        <div style={styles.bottomWrapper}>
+          {this.state.otherWatches.length > 0
+            ? otherWatches
+            : activityIndicator}
+        </div>
       </div>
     );
   }

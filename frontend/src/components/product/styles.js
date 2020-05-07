@@ -119,8 +119,13 @@ export default {
   values: {
     flex: 3,
   },
+  activityIndicator: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   others: {
-    // width: "1000px",
     width: "75%",
     minWidth: "500px",
     color: colors.darkText,
@@ -132,7 +137,6 @@ export default {
     display: "flex",
     overflow: "auto",
     backgroundColor: "white",
-    // width: "1000px",
     width: "75%",
     minWidth: "500px",
     height: "270px",
