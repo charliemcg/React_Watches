@@ -62,7 +62,7 @@ export default class Product extends Component {
     const otherWatches = this.state.otherWatches
       .filter((product) => product.inStock)
       .filter((product) => product._id != watch._id)
-      .map((watch) => {
+      .map((watch, i) => {
         return <ProductPreview watch={watch} />;
       });
     const imageFullSize = (

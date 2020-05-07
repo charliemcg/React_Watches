@@ -8,9 +8,11 @@ export default class ProductPreview extends Component {
   render() {
     const { watch } = this.props;
     return (
-      <Link
-        to={`${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`}
-        style={{ textDecoration: "none" }}
+      <div
+        style={{ textDecoration: "none", cursor: "pointer" }}
+        onClick={() =>
+          (window.location.href = `${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`)
+        }
       >
         <div style={styles.itemWrapper}>
           <img
@@ -21,7 +23,7 @@ export default class ProductPreview extends Component {
           <div>{watch.model}</div>
           <div>${watch.price}</div>
         </div>
-      </Link>
+      </div>
     );
   }
 }
