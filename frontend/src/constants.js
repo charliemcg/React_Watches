@@ -16,7 +16,6 @@ export default {
     CART: "/Cart",
     BRANDS: "/brands",
     ADMIN: "/Admin",
-    SELECTED_BRAND: "/selectedBrand",
     PARAM_BRAND: "/:brand",
     PRODUCT: "/product",
     PARAM_ID: "/:_id",

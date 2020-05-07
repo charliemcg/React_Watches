@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class UnderConstruction extends Component {
+export default class FourOhFour extends Component {
   render() {
     return (
       <div
@@ -14,7 +14,7 @@ export default class UnderConstruction extends Component {
             width: "75%",
           }}
         >
-          Under Construction...
+          404 Page not found...
         </h1>
       </div>
     );

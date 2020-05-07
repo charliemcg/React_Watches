@@ -129,9 +129,7 @@ export default class Brands extends Component {
         <div style={styles.brandsWrapper}>
           <div style={styles.row}>
             <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.ROLEX}`}
-              >
+              <Link to={`${constants.routes.BRANDS}${constants.routes.ROLEX}`}>
                 <img
                   alt={strings.accessibility.rolexLogo}
                   src={this.state.onRolex ? imgRolex : logoRolex}
@@ -141,9 +139,7 @@ export default class Brands extends Component {
               </Link>
             </div>
             <div style={styles.itemWrapper}>
-              <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.OMEGA}`}
-              >
+              <Link to={`${constants.routes.BRANDS}${constants.routes.OMEGA}`}>
                 <img
                   alt={strings.accessibility.omegaLogo}
                   src={this.state.onOmega ? imgOmega : logoOmega}
@@ -154,7 +150,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.PATEK_PHILIPPE}`}
+                to={`${constants.routes.BRANDS}${constants.routes.PATEK_PHILIPPE}`}
               >
                 <img
                   alt={strings.accessibility.patekLogo}
@@ -166,7 +162,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
+                to={`${constants.routes.BRANDS}${constants.routes.AUDEMARS_PIGUET}`}
               >
                 <img
                   alt={strings.accessibility.audemarsLogo}
@@ -178,7 +174,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.CARTIER}`}
+                to={`${constants.routes.BRANDS}${constants.routes.CARTIER}`}
               >
                 <img
                   alt={strings.accessibility.cartierLogo}
@@ -192,7 +188,7 @@ export default class Brands extends Component {
           <div style={styles.row}>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.VACHERON_CONSTANTIN}`}
+                to={`${constants.routes.BRANDS}${constants.routes.VACHERON_CONSTANTIN}`}
               >
                 <img
                   alt={strings.accessibility.vacheronLogo}
@@ -204,7 +200,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.BREGUET}`}
+                to={`${constants.routes.BRANDS}${constants.routes.BREGUET}`}
               >
                 <img
                   alt={strings.accessibility.breguetLogo}
@@ -216,7 +212,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.CHOPARD}`}
+                to={`${constants.routes.BRANDS}${constants.routes.CHOPARD}`}
               >
                 <img
                   alt={strings.accessibility.chopardLogo}
@@ -228,7 +224,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.PANERAI}`}
+                to={`${constants.routes.BRANDS}${constants.routes.PANERAI}`}
               >
                 <img
                   alt={strings.accessibility.paneraiLogo}
@@ -240,7 +236,7 @@ export default class Brands extends Component {
             </div>
             <div style={styles.itemWrapper}>
               <Link
-                to={`${constants.routes.SELECTED_BRAND}${constants.routes.RICHARD_MILLE}`}
+                to={`${constants.routes.BRANDS}${constants.routes.RICHARD_MILLE}`}
               >
                 <img
                   alt={strings.accessibility.milleLogo}

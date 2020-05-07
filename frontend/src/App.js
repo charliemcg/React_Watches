@@ -21,6 +21,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Admin from "./components/admin/ProductManagement";
 import Footer from "./components/footer/Footer";
 import UnderConstruction from "./components/underConstruction/UnderConstruction";
+import FourOhFour from "./components/404/404";
 import constants from "./constants";
 
 if (localStorage.jwtToken) {
@@ -52,36 +53,52 @@ class App extends Component {
               <Navbar />
             </div>
             <div style={{ minHeight: "73vh" }}>
-              <Route exact path={constants.routes.HOME} component={Landing} />
-              <Route exact path={constants.routes.SIGN_UP} component={SignUp} />
-              <Route
-                exact
-                path={constants.routes.SIGN_UP_SUCCESS}
-                component={SignUpSuccess}
-              />
-              <Route exact path={constants.routes.SIGN_IN} component={SignIn} />
-              <Route exact path={constants.routes.ABOUT} component={About} />
-              <Route
-                exact
-                path={constants.routes.CONTACT}
-                component={Contact}
-              />
-              <Route exact path={constants.routes.CART} component={Cart} />
-              <Route exact path={constants.routes.ADMIN} component={Admin} />
-              <Route exact path={constants.routes.BRANDS} component={Brands} />
-              <Route
-                path={`${constants.routes.SELECTED_BRAND}${constants.routes.PARAM_BRAND}`}
-                component={SelectedBrand}
-              />
-              <Route
-                path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_ID}`}
-                component={Product}
-              />
-              <Route
-                path={`${constants.routes.UNDER_CONSTRUCTION}`}
-                component={UnderConstruction}
-              />
               <Switch>
+                <Route exact path={constants.routes.HOME} component={Landing} />
+                <Route
+                  exact
+                  path={constants.routes.SIGN_UP}
+                  component={SignUp}
+                />
+                <Route
+                  exact
+                  path={constants.routes.SIGN_UP_SUCCESS}
+                  component={SignUpSuccess}
+                />
+                <Route
+                  exact
+                  path={constants.routes.SIGN_IN}
+                  component={SignIn}
+                />
+                <Route exact path={constants.routes.ABOUT} component={About} />
+                <Route
+                  exact
+                  path={constants.routes.CONTACT}
+                  component={Contact}
+                />
+                <Route exact path={constants.routes.CART} component={Cart} />
+                <Route exact path={constants.routes.ADMIN} component={Admin} />
+                <Route
+                  exact
+                  path={constants.routes.BRANDS}
+                  component={Brands}
+                />
+                <Route
+                  exact
+                  path={`${constants.routes.BRANDS}${constants.routes.PARAM_BRAND}`}
+                  component={SelectedBrand}
+                />
+                <Route
+                  exact
+                  path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_ID}`}
+                  component={Product}
+                />
+                <Route
+                  exact
+                  path={`${constants.routes.UNDER_CONSTRUCTION}`}
+                  component={UnderConstruction}
+                />
+                <Route component={FourOhFour} />
                 <PrivateRoute
                   exact
                   path={constants.routes.DASHBOARD}

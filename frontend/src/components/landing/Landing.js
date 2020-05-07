@@ -26,31 +26,31 @@ class Landing extends Component {
         <div style={styles.subNav}>
           <div style={styles.subNavBtnWrapper}>
             <Link
-              to={`${constants.routes.SELECTED_BRAND}${constants.routes.ROLEX}`}
+              to={`${constants.routes.BRANDS}${constants.routes.ROLEX}`}
               style={styles.subNavBtn}
             >
               {constants.brands.ROLEX}
             </Link>
             <Link
-              to={`${constants.routes.SELECTED_BRAND}${constants.routes.OMEGA}`}
+              to={`${constants.routes.BRANDS}${constants.routes.OMEGA}`}
               style={styles.subNavBtn}
             >
               {constants.brands.OMEGA}
             </Link>
             <Link
-              to={`${constants.routes.SELECTED_BRAND}${constants.routes.PATEK_PHILIPPE}`}
+              to={`${constants.routes.BRANDS}${constants.routes.PATEK_PHILIPPE}`}
               style={styles.subNavBtn}
             >
               {constants.brands.PATEK_PHILIPPE}
             </Link>
             <Link
-              to={`${constants.routes.SELECTED_BRAND}${constants.routes.AUDEMARS_PIGUET}`}
+              to={`${constants.routes.BRANDS}${constants.routes.AUDEMARS_PIGUET}`}
               style={styles.subNavBtn}
             >
               {constants.brands.AUDEMARS_PIGUET}
             </Link>
             <Link
-              to={`${constants.routes.SELECTED_BRAND}${constants.routes.CARTIER}`}
+              to={`${constants.routes.BRANDS}${constants.routes.CARTIER}`}
               style={styles.subNavBtn}
             >
               {constants.brands.CARTIER}
