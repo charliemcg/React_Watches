@@ -20,7 +20,8 @@ class SignIn extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push(constants.routes.DASHBOARD);
+      // this.props.history.push(constants.routes.DASHBOARD);
+      this.props.history.push(constants.routes.HOME);
     } else {
       this.emailRef.current.focus();
     }
@@ -28,7 +29,8 @@ class SignIn extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push(constants.routes.DASHBOARD);
+      // this.props.history.push(constants.routes.DASHBOARD);
+      this.props.history.push(constants.routes.HOME);
     }
     if (nextProps.errors) {
       this.setState({
@@ -86,7 +88,6 @@ class SignIn extends Component {
               {strings.signUp}
             </Link>
           </div>
-          {/* TODO might not need this form */}
           <div style={styles.form}>
             {getInputs}
             <div style={styles.inputWrapper}>

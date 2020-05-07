@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
 import styles from "./styles";
@@ -8,6 +11,14 @@ import iconLocation from "./graphics/locationIcon.png";
 import iconCart from "./graphics/cartIcon.png";
 
 class Navbar extends Component {
+  handleSignInOut = () => {
+    if (this.props.auth.user.id === undefined) {
+      window.location.href = constants.routes.SIGN_IN;
+    } else {
+      this.props.logoutUser();
+    }
+  };
+
   render() {
     return (
       <div style={styles.masterWrapper}>
@@ -47,9 +58,16 @@ class Navbar extends Component {
               <Link to={constants.routes.ADMIN} style={styles.btn}>
                 {strings.admin}
               </Link>
-              <Link to={constants.routes.SIGN_IN} style={styles.signIn}>
-                {strings.signIn}
-              </Link>
+              {/* <Link to={constants.routes.SIGN_IN} style={styles.signIn}>
+                {this.props.auth.user.id !== undefined
+                  ? strings.logOut
+                  : strings.signIn}
+              </Link> */}
+              <div onClick={this.handleSignInOut} style={styles.signIn}>
+                {this.props.auth.user.id !== undefined
+                  ? strings.logOut
+                  : strings.signIn}
+              </div>
             </div>
           </div>
         </div>
@@ -57,4 +75,11 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+Navbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, { logoutUser })(Navbar);

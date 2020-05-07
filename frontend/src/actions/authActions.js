@@ -15,6 +15,7 @@ export const signUpUser = (userData, history) => (dispatch) => {
       })
     );
 };
+
 export const signInUser = (userData) => (dispatch) => {
   axios
     .post(constants.api.SIGN_IN, userData)
@@ -33,17 +34,20 @@ export const signInUser = (userData) => (dispatch) => {
       });
     });
 };
+
 export const setCurrentUser = (decoded) => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded,
   };
 };
+
 export const setUserLoading = () => {
   return {
     type: USER_LOADING,
   };
 };
+
 export const logoutUser = () => (dispatch) => {
   localStorage.removeItem(constants.JWT_TOKEN);
   setAuthToken(false);

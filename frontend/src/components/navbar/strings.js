@@ -1,5 +1,6 @@
 export default {
   signIn: "Sign In",
+  logOut: "Log Out",
   watches: "Watches",
   about: "About",
   contact: "Contact",

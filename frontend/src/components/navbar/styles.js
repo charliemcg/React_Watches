@@ -90,5 +90,6 @@ export default {
     borderRadius: "10px",
     padding: "8px 17px",
     fontSize: "13px",
+    cursor: "pointer",
   },
 };
