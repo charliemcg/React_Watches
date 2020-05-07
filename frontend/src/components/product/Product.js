@@ -26,7 +26,8 @@ export default class Product extends Component {
         this.getOtherWatches();
       })
       .catch((err) => {
-        console.log(`error: ${err}`);
+        console.log(`Error getting the product: ${err}`);
+        window.location.href = "../../404";
         // dispatch({
         //   type: GET_ERRORS,
         //   payload: err.response.data,

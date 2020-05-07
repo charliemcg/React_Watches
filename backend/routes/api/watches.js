@@ -15,14 +15,16 @@ const upload = multer({ storage });
 
 //GET model
 router.get("/:brand/:_id", (req, res) => {
-  Watch.findOne({ brand: req.params.brand, _id: req.params._id }).then(
-    (watch) => {
+  Watch.findOne({ brand: req.params.brand, _id: req.params._id })
+    .then((watch) => {
       if (!watch) {
         return res.status(404).json({ watchnotfound: "Watch not found" });
       }
       res.json(watch);
-    }
-  );
+    })
+    .catch(function () {
+      return res.status(404).json({ watchnotfound: "Watch not found" });
+    });
 });
 
 //GET all models of brand
