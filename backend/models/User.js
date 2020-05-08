@@ -25,6 +25,10 @@ const UserSchema = new Schema({
     type: String,
     required: false,
   },
+  admin: {
+    type: Boolean,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

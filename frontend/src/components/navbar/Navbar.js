@@ -20,6 +20,18 @@ class Navbar extends Component {
   };
 
   render() {
+    //Admins do not need the cart functionality and regular users should not br able to access the admin section.
+    //Getting the correct button accordingly.
+    const cartOrAdminBtn = this.props.auth.user.admin ? (
+      <Link to={constants.routes.ADMIN} style={styles.btn}>
+        {strings.admin}
+      </Link>
+    ) : (
+      <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
+        <div>{strings.cart}</div>
+        <img src={iconCart} alt="" style={styles.cartIcon} />
+      </Link>
+    );
     return (
       <div style={styles.masterWrapper}>
         <div style={styles.btnWrapper}>
@@ -51,13 +63,14 @@ class Navbar extends Component {
               <div style={styles.addressContent}>{strings.address}</div>
             </div>
             <div style={styles.rightBtnWrapper}>
-              <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
+              {/* <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
                 <div>{strings.cart}</div>
                 <img src={iconCart} alt="" style={styles.cartIcon} />
               </Link>
               <Link to={constants.routes.ADMIN} style={styles.btn}>
                 {strings.admin}
-              </Link>
+              </Link> */}
+              {cartOrAdminBtn}
               <div onClick={this.handleSignInOut} style={styles.signIn}>
                 {this.props.auth.user.id !== undefined
                   ? strings.logOut
