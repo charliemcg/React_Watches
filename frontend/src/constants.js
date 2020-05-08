@@ -30,6 +30,7 @@ export default {
     CHOPARD: "/Chopard",
     PANERAI: "/Panerai",
     RICHARD_MILLE: "/Richard Mille",
+    FOUR_OH_FOUR: "/404",
   },
   brands: {
     ROLEX: "Rolex",

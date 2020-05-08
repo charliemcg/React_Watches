@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import axios from "axios";
@@ -8,10 +10,12 @@ import models from "../../models";
 import styles from "./styles";
 import strings from "./strings";
 
-export default class Admin extends Component {
+class Admin extends Component {
   constructor() {
     super();
     this.state = {
+      //only allow admins to access this page
+      isAdmin: false,
       //default to Rolex
       brand: brands[0],
       model: "",
@@ -38,6 +42,12 @@ export default class Admin extends Component {
       image: null,
       errors: {},
     };
+  }
+
+  componentWillMount() {
+    this.props.auth.user.admin
+      ? this.setState({ isAdmin: true })
+      : (window.location.href = constants.routes.FOUR_OH_FOUR);
   }
 
   handleInputChange = (e) => {
@@ -193,7 +203,7 @@ export default class Admin extends Component {
       );
     };
 
-    return (
+    return this.state.isAdmin ? (
       <div style={styles.masterWrapper}>
         <div style={styles.uploadForm}>
           <div style={styles.title}>{strings.uploadNewWatch}</div>
@@ -289,6 +299,13 @@ export default class Admin extends Component {
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
+Admin.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps, null)(Admin);

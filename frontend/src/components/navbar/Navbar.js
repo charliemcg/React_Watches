@@ -63,13 +63,6 @@ class Navbar extends Component {
               <div style={styles.addressContent}>{strings.address}</div>
             </div>
             <div style={styles.rightBtnWrapper}>
-              {/* <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
-                <div>{strings.cart}</div>
-                <img src={iconCart} alt="" style={styles.cartIcon} />
-              </Link>
-              <Link to={constants.routes.ADMIN} style={styles.btn}>
-                {strings.admin}
-              </Link> */}
               {cartOrAdminBtn}
               <div onClick={this.handleSignInOut} style={styles.signIn}>
                 {this.props.auth.user.id !== undefined
