@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Contact extends Component {
-  render() {
-    return (
-      <div>
-        <p style={{ color: "pink" }}>Put content here</p>
-      </div>
-    );
-  }
+export default function Contact() {
+  return (
+    <div>
+      <p style={{ color: "pink" }}>Put content here</p>
+    </div>
+  );
 }

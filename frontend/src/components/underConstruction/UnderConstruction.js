@@ -1,22 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class UnderConstruction extends Component {
-  render() {
-    return (
-      <div
+export default function UnderConstruction() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <h1
         style={{
-          display: "flex",
-          justifyContent: "center",
+          width: "75%",
         }}
       >
-        <h1
-          style={{
-            width: "75%",
-          }}
-        >
-          Under Construction...
-        </h1>
-      </div>
-    );
-  }
+        Under Construction...
+      </h1>
+    </div>
+  );
 }

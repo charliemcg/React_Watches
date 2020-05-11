@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Cart extends Component {
-  render() {
-    return (
-      <div>
-        <p style={{ color: "pink" }}>Put content here</p>
-      </div>
-    );
-  }
+export default function Cart() {
+  return (
+    <div>
+      <p style={{ color: "pink" }}>Put content here</p>
+    </div>
+  );
 }

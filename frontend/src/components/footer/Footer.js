@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import youtube from "./graphics/icon_youtube.png";
 import instagram from "./graphics/icon_instagram.png";
@@ -10,66 +10,64 @@ import constants from "../../constants";
 
 const year = new Date().getFullYear();
 
-export default class Cart extends Component {
-  render() {
-    return (
-      <div style={styles.background}>
-        <div style={styles.footerWrapper}>
-          <div style={styles.columnWrapper}>
-            <div>
-              <div>{strings.addressLineOne}</div>
-              <div>{strings.addressLineTwo}</div>
-            </div>
-            <div>{strings.phone}</div>
+export default function Cart() {
+  return (
+    <div style={styles.background}>
+      <div style={styles.footerWrapper}>
+        <div style={styles.columnWrapper}>
+          <div>
+            <div>{strings.addressLineOne}</div>
+            <div>{strings.addressLineTwo}</div>
           </div>
-          <div style={styles.columnWrapper}>
-            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-              {strings.contactUs}
+          <div>{strings.phone}</div>
+        </div>
+        <div style={styles.columnWrapper}>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.contactUs}
+          </Link>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.careers}
+          </Link>
+          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+            {strings.termsAndConditions}
+          </Link>
+        </div>
+        <div style={styles.columnWrapper}>
+          <div style={styles.socialWrapper}>
+            <Link to={constants.routes.UNDER_CONSTRUCTION}>
+              <img
+                alt={strings.accessibility.youtube}
+                src={youtube}
+                style={styles.socialIcon}
+              />
             </Link>
-            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-              {strings.careers}
+            <Link to={constants.routes.UNDER_CONSTRUCTION}>
+              <img
+                alt={strings.accessibility.instagram}
+                src={instagram}
+                style={styles.socialIcon}
+              />
             </Link>
-            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
-              {strings.termsAndConditions}
+            <Link to={constants.routes.UNDER_CONSTRUCTION}>
+              <img
+                alt={strings.accessibility.facebook}
+                src={facebook}
+                style={styles.socialIcon}
+              />
+            </Link>
+            <Link to={constants.routes.UNDER_CONSTRUCTION}>
+              <img
+                alt={strings.accessibility.twitter}
+                src={twitter}
+                style={styles.socialIcon}
+              />
             </Link>
           </div>
-          <div style={styles.columnWrapper}>
-            <div style={styles.socialWrapper}>
-              <Link to={constants.routes.UNDER_CONSTRUCTION}>
-                <img
-                  alt={strings.accessibility.youtube}
-                  src={youtube}
-                  style={styles.socialIcon}
-                />
-              </Link>
-              <Link to={constants.routes.UNDER_CONSTRUCTION}>
-                <img
-                  alt={strings.accessibility.instagram}
-                  src={instagram}
-                  style={styles.socialIcon}
-                />
-              </Link>
-              <Link to={constants.routes.UNDER_CONSTRUCTION}>
-                <img
-                  alt={strings.accessibility.facebook}
-                  src={facebook}
-                  style={styles.socialIcon}
-                />
-              </Link>
-              <Link to={constants.routes.UNDER_CONSTRUCTION}>
-                <img
-                  alt={strings.accessibility.twitter}
-                  src={twitter}
-                  style={styles.socialIcon}
-                />
-              </Link>
-            </div>
-            <div>
-              {strings.copyright} {year}
-            </div>
+          <div>
+            {strings.copyright} {year}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

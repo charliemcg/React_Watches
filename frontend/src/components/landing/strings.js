@@ -6,4 +6,11 @@ export default {
   descriptionTitle: "Lorem ipsum",
   covid:
     "Due to the ongoing COIVD-19 crisis there will be no change to our operations because this business doesn't exist.",
+  accessibility: {
+    collection: "Collection of watches in a watch box.",
+    daytona: "Two Rolex Daytonas",
+    finance: "Finance company's logo",
+    overseas: "Vacheron Constantin perpetual calendar on wrist.",
+    patek: "Four Patek Philippe watches.",
+  },
 };

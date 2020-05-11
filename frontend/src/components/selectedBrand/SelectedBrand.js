@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Dots } from "react-activity";
 import "react-activity/dist/react-activity.css";
 import axios from "axios";
@@ -17,18 +17,94 @@ import bannerMille from "./graphics/bannerMille2.png";
 import ProductPreview from "../productPreview/ProductPreview";
 import strings from "./strings";
 
-export default class SelectedBrand extends Component {
-  constructor() {
-    super();
-    this.state = {
-      watches: [],
-    };
-  }
-  componentDidMount() {
+// export default class SelectedBrand extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       watches: [],
+//     };
+//   }
+//   componentDidMount() {
+//     axios
+//       .get(`${constants.api.WATCHES}/${this.props.match.params.brand}`)
+//       .then((res) => {
+//         this.setState({ watches: res.data });
+//       })
+//       .catch((err) => {
+//         console.log(`error: ${err}`);
+//         // dispatch({
+//         //   type: GET_ERRORS,
+//         //   payload: err.response.data,
+//         // });
+//       });
+//   }
+
+//   //TODO do something more elegant than this
+//   getBanner = () => {
+//     switch (this.props.match.params.brand) {
+//       case "Rolex":
+//         return bannerRolex;
+//       case "Omega":
+//         return bannerOmega;
+//       case "Patek Philippe":
+//         return bannerPatek;
+//       case "Audemars Piguet":
+//         return bannerAudemars;
+//       case "Cartier":
+//         return bannerCartier;
+//       case "Vacheron Constantin":
+//         return bannerVacheron;
+//       case "Breguet":
+//         return bannerBreguet;
+//       case "Chopard":
+//         return bannerChopard;
+//       case "Panerai":
+//         return bannerPanerai;
+//       case "Richard Mille":
+//         return bannerMille;
+//       default:
+//         return "Rolex";
+//     }
+//   };
+
+//   render() {
+//     const watches = this.state.watches
+//       .filter((watch) => watch.inStock)
+//       .map((watch) => {
+//         return <ProductPreview watch={watch} />;
+//       });
+
+//     const activityIndicator = (
+//       <div style={styles.activityIndicator}>
+//         <Dots />
+//       </div>
+//     );
+
+//     return (
+//       <div style={styles.masterWrapper}>
+//         <div style={styles.banner}>
+//           <img
+//             alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
+//             src={this.getBanner()}
+//             style={{ width: "100%" }}
+//           />
+//         </div>
+//         <div style={styles.watchesScrollWrapper}>
+//           {this.state.watches.length > 0 ? watches : activityIndicator}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+export default function SelectedBrand() {
+  const [watches, setWatches] = useState([]);
+
+  useEffect(() => {
     axios
       .get(`${constants.api.WATCHES}/${this.props.match.params.brand}`)
       .then((res) => {
-        this.setState({ watches: res.data });
+        setWatches(res.data);
       })
       .catch((err) => {
         console.log(`error: ${err}`);
@@ -37,10 +113,10 @@ export default class SelectedBrand extends Component {
         //   payload: err.response.data,
         // });
       });
-  }
+  });
 
   //TODO do something more elegant than this
-  getBanner = () => {
+  const getBanner = () => {
     switch (this.props.match.params.brand) {
       case "Rolex":
         return bannerRolex;
@@ -67,32 +143,30 @@ export default class SelectedBrand extends Component {
     }
   };
 
-  render() {
-    const watches = this.state.watches
-      .filter((watch) => watch.inStock)
-      .map((watch) => {
-        return <ProductPreview watch={watch} />;
-      });
+  const renderedWatches = watches
+    .filter((watch) => watch.inStock)
+    .map((watch) => {
+      return <ProductPreview watch={watch} />;
+    });
 
-    const activityIndicator = (
-      <div style={styles.activityIndicator}>
-        <Dots />
-      </div>
-    );
+  const activityIndicator = (
+    <div style={styles.activityIndicator}>
+      <Dots />
+    </div>
+  );
 
-    return (
-      <div style={styles.masterWrapper}>
-        <div style={styles.banner}>
-          <img
-            alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
-            src={this.getBanner()}
-            style={{ width: "100%" }}
-          />
-        </div>
-        <div style={styles.watchesScrollWrapper}>
-          {this.state.watches.length > 0 ? watches : activityIndicator}
-        </div>
+  return (
+    <div style={styles.masterWrapper}>
+      <div style={styles.banner}>
+        <img
+          alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
+          src={this.getBanner()}
+          style={{ width: "100%" }}
+        />
       </div>
-    );
-  }
+      <div style={styles.watchesScrollWrapper}>
+        {watches.length > 0 ? renderedWatches : activityIndicator}
+      </div>
+    </div>
+  );
 }
