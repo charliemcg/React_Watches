@@ -120,6 +120,8 @@ import styles from "./styles";
 // export default connect(mapStateToProps, { signInUser })(SignIn);
 
 function SignIn() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
@@ -142,22 +144,18 @@ function SignIn() {
   //   }
   // }
 
-  // onChange = (e) => {
-  //   this.setState({ [e.target.id]: e.target.value });
-  // };
-
   const onSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      email: userDetails.email,
-      password: userDetails.password,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
     };
-    this.props.signInUser(userData);
+    signInUser(userData);
   };
 
   const detailsArr = [
-    { id: "email", type: "email" },
-    { id: "password", type: "password" },
+    { id: "email", type: "email", ref: emailRef },
+    { id: "password", type: "password", ref: passwordRef },
   ];
 
   const getInputs = detailsArr.map((e) => {
@@ -167,9 +165,7 @@ function SignIn() {
           <label htmlFor={e.id}>{strings[e.id]}</label>
         </div>
         <input
-          ref={e.id === "email" && this.emailRef}
-          onChange={setUserDetails}
-          value={[e.id]}
+          ref={e.ref}
           error={errors[e.id]}
           id={e.id}
           type={e.type}
@@ -205,15 +201,17 @@ function SignIn() {
   );
 }
 
-SignIn.propTypes = {
-  signInUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
-};
+export default SignIn;
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-  errors: state.errors,
-});
+// SignIn.propTypes = {
+//   signInUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   errors: PropTypes.object.isRequired,
+// };
 
-export default connect(mapStateToProps, { signInUser })(SignIn);
+// const mapStateToProps = (state) => ({
+//   auth: state.auth,
+//   errors: state.errors,
+// });
+
+// export default connect(mapStateToProps, { signInUser })(SignIn);

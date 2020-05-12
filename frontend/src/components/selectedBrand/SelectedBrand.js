@@ -97,12 +97,13 @@ import strings from "./strings";
 //   }
 // }
 
-export default function SelectedBrand() {
+export default function SelectedBrand(props) {
   const [watches, setWatches] = useState([]);
+  const { match } = props;
 
   useEffect(() => {
     axios
-      .get(`${constants.api.WATCHES}/${this.props.match.params.brand}`)
+      .get(`${constants.api.WATCHES}/${match.params.brand}`)
       .then((res) => {
         setWatches(res.data);
       })
@@ -117,7 +118,7 @@ export default function SelectedBrand() {
 
   //TODO do something more elegant than this
   const getBanner = () => {
-    switch (this.props.match.params.brand) {
+    switch (match.params.brand) {
       case "Rolex":
         return bannerRolex;
       case "Omega":
@@ -159,8 +160,8 @@ export default function SelectedBrand() {
     <div style={styles.masterWrapper}>
       <div style={styles.banner}>
         <img
-          alt={`${strings.accessibility.banner} ${this.props.match.params.brand}`}
-          src={this.getBanner()}
+          alt={`${strings.accessibility.banner} ${match.params.brand}`}
+          src={getBanner()}
           style={{ width: "100%" }}
         />
       </div>
