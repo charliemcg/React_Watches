@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import strings from "./strings";
 import info from "./graphics/info.png";

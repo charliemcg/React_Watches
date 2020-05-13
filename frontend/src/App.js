@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -35,92 +35,6 @@ if (localStorage.jwtToken) {
     window.location.href = "./signIn";
   }
 }
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//         <Router>
-//           <div
-//             style={{
-//               backgroundColor: "#EEE",
-//               minHeight: "100vh",
-//               display: "flex",
-//               flexDirection: "column",
-//             }}
-//           >
-//             <div style={{ height: "15vh" }}>
-//               <Navbar />
-//             </div>
-//             <div style={{ minHeight: "73vh" }}>
-//               <Switch>
-//                 <Route exact path={constants.routes.HOME} component={Landing} />
-//                 <Route
-//                   exact
-//                   path={constants.routes.SIGN_UP}
-//                   component={SignUp}
-//                 />
-//                 <Route
-//                   exact
-//                   path={constants.routes.SIGN_UP_SUCCESS}
-//                   component={SignUpSuccess}
-//                 />
-//                 <Route
-//                   exact
-//                   path={constants.routes.SIGN_IN}
-//                   component={SignIn}
-//                 />
-//                 <Route exact path={constants.routes.ABOUT} component={About} />
-//                 <Route
-//                   exact
-//                   path={constants.routes.CONTACT}
-//                   component={Contact}
-//                 />
-//                 <Route exact path={constants.routes.CART} component={Cart} />
-//                 <Route exact path={constants.routes.ADMIN} component={Admin} />
-//                 <Route
-//                   exact
-//                   path={constants.routes.BRANDS}
-//                   component={Brands}
-//                 />
-//                 <Route
-//                   exact
-//                   path={`${constants.routes.BRANDS}${constants.routes.PARAM_BRAND}`}
-//                   component={SelectedBrand}
-//                 />
-//                 <Route
-//                   exact
-//                   path={`${constants.routes.PRODUCT}${constants.routes.PARAM_BRAND}${constants.routes.PARAM_ID}`}
-//                   component={Product}
-//                 />
-//                 <Route
-//                   exact
-//                   path={`${constants.routes.UNDER_CONSTRUCTION}`}
-//                   component={UnderConstruction}
-//                 />
-//                 <PrivateRoute
-//                   exact
-//                   path={constants.routes.DASHBOARD}
-//                   component={Dashboard}
-//                 />
-//                 <Route component={FourOhFour} />
-//               </Switch>
-//             </div>
-//             <div
-//               style={{
-//                 height: "12vh",
-//                 display: "flex",
-//                 alignItems: "flex-end",
-//               }}
-//             >
-//               <Footer />
-//             </div>
-//           </div>
-//         </Router>
-//       </Provider>
-//     );
-//   }
-// }
 
 function App() {
   return (

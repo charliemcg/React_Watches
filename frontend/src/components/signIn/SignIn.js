@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -21,7 +21,7 @@ function SignIn(props) {
       }
       if (props.errors) setErrors(props.errors);
     },
-    [props.errors]
+    [props.errors, props.auth.isAuthenticated, props.history]
   );
 
   const onSubmit = (e) => {

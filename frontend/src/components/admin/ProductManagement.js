@@ -44,7 +44,7 @@ function Admin(props) {
     props.auth.user.admin
       ? toggleAdmin(true)
       : (window.location.href = constants.routes.FOUR_OH_FOUR);
-  });
+  }, [props.auth.user.admin]);
 
   const handleChange = (e) => {
     switch (e.id) {
@@ -86,6 +86,8 @@ function Admin(props) {
       case "inStock":
         toggleStock(!inStock);
         break;
+      default:
+        return null;
     }
   };
 
@@ -146,9 +148,8 @@ function Admin(props) {
           "tourbillon",
           "powerReserve",
         ];
-        clickThese.map((e) => {
-          complications[e] && document.getElementById(e).click();
-        });
+        for (const comp in clickThese)
+          complications[comp] && document.getElementById(comp).click();
         setPrice("");
         setDescription("");
         toggleStock(true);
@@ -180,6 +181,9 @@ function Admin(props) {
         return strings.diameterOptions;
       case "movement":
         return strings.movementOptions;
+      default:
+        console.log("Could not find option");
+        return null;
     }
   };
 
