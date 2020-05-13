@@ -143,6 +143,14 @@ function SignIn(props) {
   //   }
   // }
 
+  useEffect(function () {
+    if (props.auth.isAuthenticated) {
+      props.history.push(constants.routes.HOME);
+    } else {
+      emailRef.current.focus();
+    }
+  });
+
   const onSubmit = (e) => {
     e.preventDefault();
     const userData = {

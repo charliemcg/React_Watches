@@ -151,6 +151,14 @@ function SignUp(props) {
   //   }
   // }
 
+  useEffect(function () {
+    if (props.auth.isAuthenticated) {
+      props.history.push(constants.routes.DASHBOARD);
+    } else {
+      firstnameRef.current.focus();
+    }
+  });
+
   const onSubmit = (e) => {
     e.preventDefault();
     const newUser = {
@@ -162,7 +170,6 @@ function SignUp(props) {
       address: addressRef.current.value,
       phone: phoneRef.current.value,
     };
-    // console.log(props);
     props.signUpUser(newUser, props.history);
   };
 
