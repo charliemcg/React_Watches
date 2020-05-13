@@ -119,10 +119,9 @@ import styles from "./styles";
 
 // export default connect(mapStateToProps, { signInUser })(SignIn);
 
-function SignIn() {
+function SignIn(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
   // componentDidMount() {
@@ -150,7 +149,7 @@ function SignIn() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-    signInUser(userData);
+    props.signInUser(userData);
   };
 
   const detailsArr = [
@@ -200,8 +199,6 @@ function SignIn() {
     </div>
   );
 }
-
-// export default SignIn;
 
 SignIn.propTypes = {
   signInUser: PropTypes.func.isRequired,
