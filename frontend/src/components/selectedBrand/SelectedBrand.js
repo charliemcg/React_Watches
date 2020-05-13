@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Dots } from "react-activity";
 import "react-activity/dist/react-activity.css";
 import axios from "axios";
