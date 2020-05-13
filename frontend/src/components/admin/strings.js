@@ -2,7 +2,7 @@ export default {
   uploadNewWatch: "Upload a new watch",
   brand: "Brand",
   model: "Model",
-  case: "Case",
+  housing: "Case",
   bracelet: "Bracelet",
   dial: "Dial",
   diameter: "Diameter",
@@ -13,7 +13,7 @@ export default {
   inStock: "In Stock?",
   image: "Image",
   submit: "Submit",
-  caseOptions: [
+  housingOptions: [
     "Steel",
     "Yellow Gold",
     "White Gold",

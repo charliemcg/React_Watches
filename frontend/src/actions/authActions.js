@@ -16,6 +16,26 @@ export const signUpUser = (userData, history) => (dispatch) => {
     );
 };
 
+// export const signInUser = (userData) => {
+//   axios
+//     .post(constants.api.SIGN_IN, userData)
+//     .then((res) => {
+//       const { token } = res.data;
+//       localStorage.setItem(constants.JWT_TOKEN, token);
+//       setAuthToken(token);
+//       const decoded = jwt_decode(token);
+//       setCurrentUser(decoded);
+//       // dispatch(setCurrentUser(decoded));
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       // dispatch({
+//       //   type: GET_ERRORS,
+//       //   payload: err.response.data,
+//       // });
+//     });
+// };
+
 export const signInUser = (userData) => {
   axios
     .post(constants.api.SIGN_IN, userData)
@@ -24,8 +44,8 @@ export const signInUser = (userData) => {
       localStorage.setItem(constants.JWT_TOKEN, token);
       setAuthToken(token);
       const decoded = jwt_decode(token);
-      setCurrentUser(decoded);
       // dispatch(setCurrentUser(decoded));
+      setCurrentUser(decoded);
     })
     .catch((err) => {
       console.log(err);

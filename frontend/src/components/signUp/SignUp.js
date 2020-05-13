@@ -127,16 +127,14 @@ import styles from "./styles.module.css";
 
 // export default connect(mapStateToProps, { signUpUser })(withRouter(SignUp));
 
-function SignUp() {
-  const [userDetails, setUserDetails] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    password2: "",
-    address: "",
-    phone: "",
-  });
+function SignUp(props) {
+  const firstnameRef = useRef();
+  const lastnameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const password2Ref = useRef();
+  const addressRef = useRef();
+  const phoneRef = useRef();
   const [errors, setErrors] = useState({});
   // componentDidMount() {
   //   if (this.props.auth.isAuthenticated) {
@@ -152,30 +150,32 @@ function SignUp() {
   //     });
   //   }
   // }
-  const onChange = (e) => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const newUser = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2,
-      address: this.state.address,
-      phone: this.state.phone,
+      firstname: firstnameRef.current.value,
+      lastname: lastnameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      password2: password2Ref.current.value,
+      address: addressRef.current.value,
+      phone: phoneRef.current.value,
     };
-    this.props.signUpUser(newUser, this.props.history);
+    // console.log(props);
+    props.signUpUser(newUser, props.history);
   };
+
   const detailsArr = [
-    { id: "firstname", type: "text" },
-    { id: "lastname", type: "text" },
-    { id: "email", type: "email" },
-    { id: "password", type: "password" },
-    { id: "password2", type: "password" },
-    { id: "phone", type: "text" },
+    { id: "firstname", type: "text", ref: firstnameRef },
+    { id: "lastname", type: "text", ref: lastnameRef },
+    { id: "email", type: "email", ref: emailRef },
+    { id: "address", type: "address", ref: addressRef },
+    { id: "password", type: "password", ref: passwordRef },
+    { id: "password2", type: "password", ref: password2Ref },
+    { id: "phone", type: "text", ref: phoneRef },
   ];
+
   const getInputs = detailsArr.map((e) => {
     return (
       <div className={styles.inputWrapper}>
@@ -183,9 +183,7 @@ function SignUp() {
           <label htmlFor={e.id}>{strings[e.id]}</label>
         </div>
         <input
-          ref={e.id === "firstname" && this.firstNameRef}
-          onChange={onChange}
-          value={userDetails[e.id]}
+          ref={e.ref}
           error={errors[e.id]}
           id={e.id}
           type={e.type}
@@ -197,6 +195,7 @@ function SignUp() {
       </div>
     );
   });
+
   return (
     <div className={styles.masterWrapper}>
       <div className={styles.contentWrapper}>
@@ -227,6 +226,8 @@ SignUp.propTypes = {
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
 };
+
+// export default SignUp;
 
 const mapStateToProps = (state) => ({
   auth: state.auth,

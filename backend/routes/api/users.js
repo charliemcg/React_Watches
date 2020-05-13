@@ -23,6 +23,8 @@ router.post("/signUp", (req, res) => {
         password: req.body.password,
         address: req.body.address,
         phone: req.body.phone,
+        //regular users mustn't be able to make themselves admins
+        admin: false,
       });
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
