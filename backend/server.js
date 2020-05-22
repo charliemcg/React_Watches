@@ -1,10 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const app = express();
+const db = require("./config/constants").connectionString;
+const graphqlHttp = require("express-graphql");
+
+const graphQlSchema = require("./graphql/schema");
+const graphQlResolvers = require("./graphql/resolvers/index");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const watches = require("./routes/api/watches");
+
+const app = express();
 
 //setting 5mb upload image to allow for product images
 app.use(
@@ -13,8 +19,18 @@ app.use(
     limit: "5mb",
   })
 );
+
 app.use(bodyParser.json({ limit: "5mb" }));
-const db = require("./config/constants").connectionString;
+
+app.use(
+  "/graphql",
+  graphqlHttp({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
+    graphiql: true,
+  })
+);
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
