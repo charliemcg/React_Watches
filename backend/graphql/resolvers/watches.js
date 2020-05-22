@@ -20,4 +20,20 @@ module.exports = {
       return transformWatch(watch);
     });
   },
+
+  createWatch: (args, req) => {
+    return new Watch({
+      brand: args.watchInput.brand,
+      model: args.watchInput.model,
+      case: args.watchInput.case,
+      bracelet: args.watchInput.bracelet,
+      dial: args.watchInput.dial,
+      diameter: args.watchInput.diameter,
+      movement: args.watchInput.movement,
+      price: args.watchInput.price,
+      description: args.watchInput.description,
+      inStock: args.watchInput.inStock,
+      image: args.watchInput.image,
+    }).save();
+  },
 };
