@@ -16,6 +16,7 @@ module.exports = {
       });
   },
   createUser: (args, req) => {
+    console.log("In the backend");
     return new User({
       firstname: args.userInput.firstname,
       lastname: args.userInput.lastname,

@@ -5,15 +5,58 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 import constants from "../constants";
 
 export const signUpUser = (userData, history) => (dispatch) => {
-  axios
-    .post(constants.api.SIGN_UP, userData)
-    .then((res) => history.push(constants.routes.SIGN_UP_SUCCESS))
-    .catch((err) =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data,
-      })
-    );
+  console.log(`Attempting to create new user ${userData}`);
+  axios({
+    url: "http://localhost:5000/api/graphql",
+    method: "post",
+    data: userData,
+    // crossDomain: true,
+    headers: {
+      // "Access-Control-Allow-Origin": true,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((result) => {
+      console.log(`created user ${result.data}`);
+    })
+    .catch((err) => {
+      console.log(`Cannot create user ${err}`);
+    });
+  // axios
+  //   .post(constants.api.SIGN_UP, userData)
+  //   .then((res) => history.push(constants.routes.SIGN_UP_SUCCESS))
+  //   .catch((err) =>
+  //     dispatch({
+  //       type: GET_ERRORS,
+  //       payload: err.response.data,
+  //     })
+  //   );
+  // fetch("http://localhost:5000/graphql", {
+  //   method: "POST",
+  //   body: JSON.stringify(userData),
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // })
+  //   .then((res) => {
+  //     console.log(`Creating new user ${res}`);
+  //     if (res.status !== 200 && res.status !== 201) {
+  //       throw new Error("Failed!");
+  //     }
+  //     return res.json();
+  //   })
+  //   .then((resData) => {
+  //     if (resData.data.login.token) {
+  //       this.context.login(
+  //         resData.data.login.token,
+  //         resData.data.login.userId,
+  //         resData.data.login.tokenExpiration
+  //       );
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(`Could not create user ${err}`);
+  //   });
 };
 
 export const signInUser = (userData) => (dispatch) => {

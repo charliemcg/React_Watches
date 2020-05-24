@@ -32,14 +32,32 @@ function SignUp(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    // const newUser = {
+    //   firstname: firstnameRef.current.value,
+    //   lastname: lastnameRef.current.value,
+    //   email: emailRef.current.value,
+    //   password: passwordRef.current.value,
+    //   password2: password2Ref.current.value,
+    //   address: addressRef.current.value,
+    //   phone: phoneRef.current.value,
+    // };
     const newUser = {
-      firstname: firstnameRef.current.value,
-      lastname: lastnameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-      password2: password2Ref.current.value,
-      address: addressRef.current.value,
-      phone: phoneRef.current.value,
+      query: `
+        mutation CreateUser($firstname: String!, $lastname: String!, $email: String!, $password: String!, $password2: String!, address: String!, phone: String!) {
+          createUser(userInput: {firstname: $firstname, lastname: $lastname, email: $email, password: $password, password2: $password2, address: $address, phone: $phone}) {
+            _id
+          }
+        }
+      `,
+      variables: {
+        firstname: firstnameRef.current.value,
+        lastname: lastnameRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+        password2: password2Ref.current.value,
+        address: addressRef.current.value,
+        phone: phoneRef.current.value,
+      },
     };
     props.signUpUser(newUser, props.history);
   };
