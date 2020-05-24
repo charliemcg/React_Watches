@@ -42,22 +42,36 @@ function SignUp(props) {
     //   phone: phoneRef.current.value,
     // };
     const newUser = {
+      // query: `
+      //   mutation CreateUser($firstname: String!, $lastname: String!, $email: String!, $password: String!, $password2: String!, address: String!, phone: String!) {
+      //     createUser(userInput: {firstname: $firstname, lastname: $lastname, email: $email, password: $password, password2: $password2, address: $address, phone: $phone}) {
+      //       _id
+      //     }
+      //   }
+      // `,
+      // query: `
+      //   mutation
+      //     createUser(userInput: {firstname: ${firstnameRef.current.value}, lastname: ${lastnameRef.current.value}, email: ${emailRef.current.value}, password: ${passwordRef.current.value}, password2: ${password2Ref.current.value}, address: ${addressRef.current.value}, phone: ${phoneRef.current.value}}) {
+      //       _id
+      //     }
+      //   }
+      // `,
       query: `
-        mutation CreateUser($firstname: String!, $lastname: String!, $email: String!, $password: String!, $password2: String!, address: String!, phone: String!) {
-          createUser(userInput: {firstname: $firstname, lastname: $lastname, email: $email, password: $password, password2: $password2, address: $address, phone: $phone}) {
+        mutation {
+          createUser(userInput: {firstname: Test, lastname: User8, email: test@user8.com, password: testuser8, password2: testuser8, address: khlkajshdflksjhdfk, phone: 123456789}) {
             _id
           }
         }
       `,
-      variables: {
-        firstname: firstnameRef.current.value,
-        lastname: lastnameRef.current.value,
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-        password2: password2Ref.current.value,
-        address: addressRef.current.value,
-        phone: phoneRef.current.value,
-      },
+      // variables: {
+      //   firstname: firstnameRef.current.value,
+      //   lastname: lastnameRef.current.value,
+      //   email: emailRef.current.value,
+      //   password: passwordRef.current.value,
+      //   password2: password2Ref.current.value,
+      //   address: addressRef.current.value,
+      //   phone: phoneRef.current.value,
+      // },
     };
     props.signUpUser(newUser, props.history);
   };

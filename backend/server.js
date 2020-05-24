@@ -22,6 +22,15 @@ app.use(
 
 app.use(bodyParser.json({ limit: "5mb" }));
 
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+//   res.setHeader("Access-Control-Allow-Methods", "Content-Type, Authorization");
+//   if (req.method === "OPTIONS") {
+//     return res.sendStatus(200);
+//   }
+// });
+
 app.use(
   "/graphql",
   graphqlHttp({

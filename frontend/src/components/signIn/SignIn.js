@@ -26,9 +26,20 @@ function SignIn(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    // const userData = {
+    //   email: emailRef.current.value,
+    //   password: passwordRef.current.value,
+    // };
     const userData = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      query: `query User($email: String!, $password: String!) {
+        user(email: $email, password: $password) {
+          _id
+        }
+      }`,
+      variables: {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      },
     };
     props.signInUser(userData);
   };

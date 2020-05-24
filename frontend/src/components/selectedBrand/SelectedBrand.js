@@ -22,18 +22,40 @@ export default function SelectedBrand(props) {
   const { match } = props;
 
   useEffect(() => {
-    axios
-      .get(`${constants.api.WATCHES}/${match.params.brand}`)
-      .then((res) => {
-        setWatches(res.data);
+    //don't want it to keep requesting data if it's already been received
+    if (watches.length === 0) {
+      const getThisBrand = {
+        query: `
+        query { 
+          watches(watchBrand: "${match.params.brand}"){
+            _id
+            brand
+            model
+            price
+            inStock
+            image
+          }
+        }
+      `,
+      };
+      axios({
+        url: "/graphql",
+        method: "post",
+        data: JSON.stringify(getThisBrand),
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((err) => {
-        console.log(`error: ${err}`);
-        // dispatch({
-        //   type: GET_ERRORS,
-        //   payload: err.response.data,
-        // });
-      });
+        .then((res) => {
+          console.log(
+            `got watches ${JSON.stringify(res.data.data.watches[0].model)}`
+          );
+          setWatches(res.data.data.watches);
+        })
+        .catch((err) => {
+          console.log(`Cannot get watches ${err}`);
+        });
+    }
   });
 
   //TODO do something more elegant than this
