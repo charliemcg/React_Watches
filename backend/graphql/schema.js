@@ -43,7 +43,7 @@ module.exports = buildSchema(`
         email: String!
         address: String!
         password: String!
-        confirmPassword: String!
+        password2: String!
         phone: String
     }
     input WatchInput {

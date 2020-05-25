@@ -31,15 +31,16 @@ function SignIn(props) {
     //   password: passwordRef.current.value,
     // };
     const userData = {
-      query: `query User($email: String!, $password: String!) {
-        user(email: $email, password: $password) {
+      // query: `query User($email: String!, $password: String!) {
+      //   user(email: $email, password: $password) {
+      //     _id
+      //   }
+      // }`,
+      query: `query {
+        user(email: "${emailRef.current.value}", password: "${passwordRef.current.value}") {
           _id
         }
       }`,
-      variables: {
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-      },
     };
     props.signInUser(userData);
   };

@@ -7,7 +7,6 @@ import constants from "../constants";
 export const signUpUser = (userData, history) => (dispatch) => {
   console.log(`Attempting to create new user ${JSON.stringify(userData)}`);
   axios({
-    // url: "http://localhost:5000/graphql",
     url: "/graphql",
     method: "post",
     data: JSON.stringify(userData),
@@ -15,11 +14,20 @@ export const signUpUser = (userData, history) => (dispatch) => {
       "Content-Type": "application/json",
     },
   })
-    .then((result) => {
-      console.log(`created user ${result.data}`);
+    .then((res) => {
+      // console.log(`created user ${JSON.stringify(res.data)}`);
+      if (res.data.errors) {
+        console.log(`Failed ${res.status}`);
+        throw new Error(res.data.errors.message);
+      }
+      history.push(constants.routes.SIGN_UP_SUCCESS);
     })
     .catch((err) => {
       console.log(`Cannot create user ${err}`);
+      //     dispatch({
+      //       type: GET_ERRORS,
+      //       payload: err.response.data,
+      //     })
     });
   // axios
   //   .post(constants.api.SIGN_UP, userData)
@@ -60,29 +68,16 @@ export const signUpUser = (userData, history) => (dispatch) => {
 };
 
 export const signInUser = (userData) => (dispatch) => {
-  fetch("http://localhost:3000/graphql", {
-    method: "POST",
-    body: JSON.stringify(userData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      console.log(`Getting user ${JSON.stringify(res)}`);
-    })
-    .then((resData) => {})
-    .catch((err) => {
-      console.log(`Could not get user ${err}`);
-    });
+  console.log(userData);
   // axios
-  //   .post("http://localhost:3000/graphql")
+  //   .post(constants.api.SIGN_IN, userData)
   //   .then((res) => {
-  //     console.log(`Getting user ${JSON.stringify(res)}`);
   //     const { token } = res.data;
+  //     console.log(res);
   //     localStorage.setItem(constants.JWT_TOKEN, token);
   //     setAuthToken(token);
   //     const decoded = jwt_decode(token);
-  //     dispatch(setCurrentUser(decoded));
+  //     // dispatch(setCurrentUser(decoded));
   //   })
   //   .catch((err) => {
   //     console.log(err);
@@ -91,6 +86,29 @@ export const signInUser = (userData) => (dispatch) => {
   //       payload: err.response.data,
   //     });
   //   });
+  axios({
+    url: "/graphql",
+    method: "post",
+    data: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      console.log(`Getting user ${JSON.stringify(res)}`);
+      const { token } = res.data;
+      localStorage.setItem(constants.JWT_TOKEN, token);
+      setAuthToken(token);
+      const decoded = jwt_decode(token);
+      // dispatch(setCurrentUser(decoded));
+    })
+    .catch((err) => {
+      console.log(`cannot get user ${err}`);
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      });
+    });
 };
 
 export const setCurrentUser = (decoded) => {
@@ -111,3 +129,35 @@ export const logoutUser = () => (dispatch) => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
 };
+
+// const blah = {
+//   data: { data: { user: { _id: "5ea251daa6140a0f0561fc79" } } },
+//   status: 200,
+//   statusText: "OK",
+//   headers: {
+//     connection: "close",
+//     "content-length": "52",
+//     "content-type": "application/json; charset=utf-8",
+//     date: "Mon, 25 May 2020 11:32:06 GMT",
+//     etag: 'W/"34-W2K5rQhc5E0k1k00CxV8jHbtT5o"',
+//     vary: "Accept-Encoding",
+//     "x-powered-by": "Express",
+//   },
+//   config: {
+//     url: "/graphql",
+//     method: "post",
+//     data:
+//       '{"query":"query User($email: String!, $password: String!) {\\n        user(email: $email, password: $password) {\\n          _id\\n        }\\n      }","variables":{"email":"test@user.com","password":"testuser"}}',
+//     headers: {
+//       Accept: "application/json, text/plain, */*",
+//       "Content-Type": "application/json",
+//     },
+//     transformRequest: [null],
+//     transformResponse: [null],
+//     timeout: 0,
+//     xsrfCookieName: "XSRF-TOKEN",
+//     xsrfHeaderName: "X-XSRF-TOKEN",
+//     maxContentLength: -1,
+//   },
+//   request: {},
+// };
