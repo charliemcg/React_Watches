@@ -8,9 +8,9 @@ export default function ProductPreview(props) {
   return (
     <div
       style={{ textDecoration: "none", cursor: "pointer" }}
-      onClick={() =>
-        (window.location.href = `${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`)
-      }
+      onClick={() => {
+        window.location.href = `${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`;
+      }}
     >
       <div style={styles.itemWrapper}>
         <img

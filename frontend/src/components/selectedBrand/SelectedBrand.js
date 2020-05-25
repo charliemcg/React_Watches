@@ -47,9 +47,6 @@ export default function SelectedBrand(props) {
         },
       })
         .then((res) => {
-          console.log(
-            `got watches ${JSON.stringify(res.data.data.watches[0].model)}`
-          );
           setWatches(res.data.data.watches);
         })
         .catch((err) => {

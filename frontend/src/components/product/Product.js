@@ -15,35 +15,78 @@ export default function Product(props) {
   const [zoom, toggleZoom] = useState(false);
 
   useEffect(function () {
-    const { params } = props.match;
-    axios
-      .get(`${constants.api.WATCHES}/${params.brand}/${params._id}`)
-      .then((res) => {
-        setWatch(res.data);
-        getOtherWatches();
+    if (Object.keys(watch).length === 0) {
+      const { params } = props.match;
+      const getThisWatch = {
+        query: `
+      query { 
+        watch(watchId: "${params._id}"){
+          _id
+          brand
+          model
+          case
+          bracelet
+          dial
+          diameter
+          movement
+          description
+          price
+          image
+        }
+      }
+    `,
+      };
+      axios({
+        url: "/graphql",
+        method: "post",
+        data: JSON.stringify(getThisWatch),
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((err) => {
-        console.log(`Error getting the product: ${err}`);
-        window.location.href = "../../404";
-        // dispatch({
-        //   type: GET_ERRORS,
-        //   payload: err.response.data,
-        // });
-      });
+        .then((res) => {
+          setWatch(res.data.data.watch);
+          getOtherWatches();
+        })
+        .catch((err) => {
+          console.log(`Cannot get watch ${err}`);
+          window.location.href = "../../404";
+          // dispatch({
+          //   type: GET_ERRORS,
+          //   payload: err.response.data,
+          // });
+        });
+    }
   });
 
   const getOtherWatches = () => {
-    axios
-      .get(`${constants.api.WATCHES}/${watch.brand}`)
+    const getThisBrand = {
+      query: `
+      query {
+        watches(watchBrand: "${props.match.params.brand}"){
+          _id
+          brand
+          model
+          price
+          inStock
+          image
+        }
+      }
+    `,
+    };
+    axios({
+      url: "/graphql",
+      method: "post",
+      data: JSON.stringify(getThisBrand),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
-        setOtherWatches(res.data);
+        setOtherWatches(res.data.data.watches);
       })
       .catch((err) => {
-        console.log(`error: ${err}`);
-        // dispatch({
-        //   type: GET_ERRORS,
-        //   payload: err.response.data,
-        // });
+        console.log(`Cannot get watches ${err}`);
       });
   };
 
