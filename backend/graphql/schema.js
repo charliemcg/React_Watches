@@ -11,6 +11,10 @@ module.exports = buildSchema(`
         phone: String
         admin: Boolean!
     }
+    type UserResponse {
+        success: Boolean!
+        token: String!
+    }
     type Watch {
         _id: ID!
         brand: String!
@@ -62,7 +66,7 @@ module.exports = buildSchema(`
     type RootQuery {
         watches(watchBrand: String!): [Watch!]!
         watch(watchId: String!): Watch!
-        user(email: String!, password: String!): User!
+        signIn(email: String!, password: String!): UserResponse!
     }
     type RootMutation {
         createWatch(watchInput: WatchInput): Watch

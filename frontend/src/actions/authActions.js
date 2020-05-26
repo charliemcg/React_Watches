@@ -3,6 +3,7 @@ import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 import constants from "../constants";
+import jwtDecode from "jwt-decode";
 
 export const signUpUser = (userData, history) => (dispatch) => {
   console.log(`Attempting to create new user ${JSON.stringify(userData)}`);
@@ -68,7 +69,6 @@ export const signUpUser = (userData, history) => (dispatch) => {
 };
 
 export const signInUser = (userData) => (dispatch) => {
-  console.log(userData);
   // axios
   //   .post(constants.api.SIGN_IN, userData)
   //   .then((res) => {
@@ -95,12 +95,12 @@ export const signInUser = (userData) => (dispatch) => {
     },
   })
     .then((res) => {
-      console.log(`Getting user ${JSON.stringify(res)}`);
-      const { token } = res.data;
+      console.log(`Getting user ${typeof res.data.data.signIn.token}`);
+      const { token } = res.data.data.signIn;
       localStorage.setItem(constants.JWT_TOKEN, token);
       setAuthToken(token);
       const decoded = jwt_decode(token);
-      // dispatch(setCurrentUser(decoded));
+      dispatch(setCurrentUser(decoded));
     })
     .catch((err) => {
       console.log(`cannot get user ${err}`);

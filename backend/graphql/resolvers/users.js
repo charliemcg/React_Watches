@@ -62,58 +62,115 @@ module.exports = {
   //       });
   //     });
   // },
-  user: ({ email, password }) => {
+
+  signIn: (args, req) => {
+    const { errors, isValid } = validateSignIn(args);
+    if (!isValid) {
+      return errors;
+    }
+    const email = args.email;
+    const password = args.password;
     return User.findOne({
       email,
     })
       .then((user) => {
         if (!user) {
-          // return res.status(404).json({ emailnotfound: "Email not found" });
-          throw new Error("User does not exist!");
+          return { emailnotfound: "Email not found" };
         }
         // return transformUser(user);
         return user;
       })
       .then((user) => {
-        bcrypt.compare(password, user.password).then((isMatch) => {
-          if (!isMatch) {
-            throw new Error("Password is incorrect!");
+        return bcrypt.compare(password, user.password).then((isMatch) => {
+          if (isMatch) {
+            const payload = {
+              id: user.id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              address: user.address,
+              phone: user.phone,
+              admin: user.admin,
+            };
+            return {
+              success: true,
+              token:
+                "Bearer " +
+                jwt.sign(payload, keys.secretOrKey, {
+                  expiresIn: 31556926,
+                }),
+            };
+            // jwt.sign(
+            //   payload,
+            //   keys.secretOrKey,
+            //   {
+            //     expiresIn: 31556926,
+            //   },
+            //   (err, token) => {
+            //     return { success: true, token: "Bearer " + token };
+            //   }
+            // );
+          } else {
+            return { passwordincorrect: "Password incorrect" };
           }
-          const token = jwt.sign(
-            { userId: user.id, email: user.email },
-            "somesupersecretkey",
-            {
-              expiresIn: "1h",
-            }
-          );
-          return { userId: user.id, token: token, tokenExpiration: 1 };
-          // const payload = {
-          //   id: user.id,
-          //   firstname: user.firstname,
-          //   lastname: user.lastname,
-          //   email: user.email,
-          //   address: user.address,
-          //   phone: user.phone,
-          //   admin: user.admin,
-          // };
-          // jwt.sign(
-          //   payload,
-          //   keys.secretOrKey,
-          //   {
-          //     expiresIn: 31556926,
-          //   },
-          //   (err, token) => {
-          //     console.log(`Got this far ${token}`);
-          //     // res.json({
-          //     //   success: true,
-          //     //   token: "Bearer " + token,
-          //     // });
-          //     return { success: true, token: "Bearer " + token };
-          //   }
-          // );
         });
       });
   },
+
+  // user: ({ email, password }) => {
+  //   User.findOne({
+  //     email,
+  //   })
+  //     .then((user) => {
+  //       if (!user) {
+  //         throw new Error("User does not exist!");
+  //       }
+  //       return user;
+  //     })
+  //     .then((user) => {
+  //       bcrypt.compare(password, user.password).then((isMatch) => {
+  //         if (!isMatch) {
+  //           throw new Error("Password is incorrect!");
+  //         }
+  //         const token = jwt.sign(
+  //           { userId: user.id, email: user.email },
+  //           "somesupersecretkey",
+  //           {
+  //             expiresIn: "1h",
+  //           }
+  //         );
+  //         return { userId: user.id, token: token, tokenExpiration: 1 };
+  //         // const payload = {
+  //         //   id: user.id,
+  //         //   firstname: user.firstname,
+  //         //   lastname: user.lastname,
+  //         //   email: user.email,
+  //         //   address: user.address,
+  //         //   phone: user.phone,
+  //         //   admin: user.admin,
+  //         // };
+  //         // jwt.sign(
+  //         //   payload,
+  //         //   keys.secretOrKey,
+  //         //   {
+  //         //     expiresIn: 31556926,
+  //         //   },
+  //         //   (err, token) => {
+  //         //     console.log(`Got this far ${token}`);
+  //         //     // res.json({
+  //         //     //   success: true,
+  //         //     //   token: "Bearer " + token,
+  //         //     // });
+  //         //     return { success: true, token: "Bearer " + token };
+  //         //   }
+  //         // );
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(`Error detected ${err}`);
+  //       throw err;
+  //     });
+  // },
   createUser: (args, req) => {
     return (
       User.findOne({ email: args.userInput.email })
