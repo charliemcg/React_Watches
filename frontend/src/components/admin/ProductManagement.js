@@ -109,25 +109,52 @@ function Admin(props) {
     for (let [key, value] of Object.entries(complications)) {
       value && complicationsArr.push(strings[key]);
     }
-    const newWatch = {
-      brand,
-      model,
-      //cannot use 'case' in the backend because it's a keyword. Using 'housing' instead
-      housing,
-      bracelet,
-      dial,
-      diameter,
-      movement,
-      complications,
-      price,
-      description,
-      inStock,
-      image,
+    const createThisWatch = {
+      query: `
+        mutation { 
+          createWatch(watchInput: {
+            brand: "${brand}" ,
+            model: "${model}",
+            housing: "${housing}",
+            bracelet: "${bracelet}",
+            dial: "${dial}",
+            diameter: "${diameter}",
+            movement: "${movement}",
+            price: "${price}",
+            description: "${description}",
+            inStock: ${inStock},
+            image: "${image}"
+          }){
+            success
+            errors {
+              brand
+              model
+              housing
+              bracelet
+              dial
+              diameter
+              movement
+              price
+              description
+              image
+            }
+          }
+        }
+      `,
     };
-    axios
-      .post(`${constants.api.WATCHES}${constants.api.NEW_WATCH}`, newWatch)
+    axios({
+      url: "/graphql",
+      method: "post",
+      data: JSON.stringify(createThisWatch),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
-        console.log(`Watch posted successfully`);
+        const { success, errors } = res.data.data.createWatch;
+        if (!success) {
+          throw new Error(JSON.stringify(errors));
+        }
         setBrand(brands[0]);
         setModel("");
         setHousing("");
@@ -156,13 +183,15 @@ function Admin(props) {
         toggleStock(true);
         setImage(null);
         setErrors({});
+        //Inform user that upload was successful
       })
       .catch((err) => {
-        console.log(`error: ${err}`);
-        // dispatch({
-        //   type: GET_ERRORS,
-        //   payload: err.response.data,
-        // });
+        console.log(`Cannot create watch ${err}`);
+        //TODO Display errors to user
+        //     dispatch({
+        //       type: GET_ERRORS,
+        //       payload: err.response.data,
+        //     })
       });
   };
 

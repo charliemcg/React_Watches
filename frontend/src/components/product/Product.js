@@ -50,7 +50,7 @@ export default function Product(props) {
         })
         .catch((err) => {
           console.log(`Cannot get watch ${err}`);
-          window.location.href = "../../404";
+          // window.location.href = "../../404";
           // dispatch({
           //   type: GET_ERRORS,
           //   payload: err.response.data,

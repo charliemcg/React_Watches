@@ -26,15 +26,15 @@ function SignIn(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // const userData = {
-    //   email: emailRef.current.value,
-    //   password: passwordRef.current.value,
-    // };
     const userData = {
       query: `query {
         signIn(email: "${emailRef.current.value}", password: "${passwordRef.current.value}") {
           success
-            token
+          token
+          errors {
+            email
+            password
+          }
         }
       }`,
     };
@@ -57,7 +57,7 @@ function SignIn(props) {
           error={errors !== undefined && errors[e.id]}
           id={e.id}
           type={e.type}
-          //Give input a red border in input invalid
+          //Give input a red border if input invalid
           style={
             errors !== undefined && errors[e.id]
               ? styles.inputWithError

@@ -11,20 +11,53 @@ module.exports = buildSchema(`
         phone: String
         admin: Boolean!
     }
-    type UserResponse {
+    type SignInErrors {
+        email: String
+        password: String
+    }
+    type SignUpErrors {
+        firstname: String
+        lastname: String
+        email: String
+        password: String
+        address: String
+        phone: String
+    }
+    type SignInResponse {
         success: Boolean!
-        token: String!
+        token: String
+        errors: SignInErrors!
+    }
+    type SignUpResponse {
+        success: Boolean!
+        errors: SignUpErrors!
+    }
+    type WatchErrors {
+        brand: String
+        model: String
+        housing: String
+        bracelet: String
+        dial: String
+        diameter: String
+        movement: String
+        price: String
+        description: String
+        image: String
+    }
+    type WatchResponse {
+        success: Boolean!
+        errors: WatchErrors!
     }
     type Watch {
         _id: ID!
         brand: String!
         model: String!
-        case: String
+        housing: String
         bracelet: String
         dial: String
         diameter: String
         movement: String
-        price: Float!
+        price: String!
         description: String
         inStock: Boolean!
         image: String!
@@ -53,12 +86,12 @@ module.exports = buildSchema(`
     input WatchInput {
         brand: String!
         model: String!
-        case: String
+        housing: String
         bracelet: String
         dial: String
         diameter: String
         movement: String
-        price: Float!
+        price: String!
         description: String
         inStock: Boolean!
         image: String!
@@ -66,11 +99,11 @@ module.exports = buildSchema(`
     type RootQuery {
         watches(watchBrand: String!): [Watch!]!
         watch(watchId: String!): Watch!
-        signIn(email: String!, password: String!): UserResponse!
+        signIn(email: String!, password: String!): SignInResponse!
     }
     type RootMutation {
-        createWatch(watchInput: WatchInput): Watch
-        createUser(userInput: UserInput): User
+        createWatch(watchInput: WatchInput): WatchResponse!
+        signUp(userInput: UserInput): SignUpResponse!
     }
     schema {
         query: RootQuery

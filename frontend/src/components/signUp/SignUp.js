@@ -35,8 +35,25 @@ function SignUp(props) {
     const newUser = {
       query: `
         mutation {
-          createUser(userInput: {firstname: "${firstnameRef.current.value}", lastname: "${lastnameRef.current.value}", email: "${emailRef.current.value}", password: "${passwordRef.current.value}", password2: "${password2Ref.current.value}", address: "${addressRef.current.value}", phone: "${phoneRef.current.value}"}) {
-            _id
+          signUp(userInput: {
+            firstname: "${firstnameRef.current.value}",
+            lastname: "${lastnameRef.current.value}",
+            email: "${emailRef.current.value}",
+            password: "${passwordRef.current.value}",
+            password2: "${password2Ref.current.value}",
+            address: "${addressRef.current.value}",
+            phone: "${phoneRef.current.value}"
+          }) 
+          {
+            success
+            errors {
+              firstname
+              lastname
+              email
+              password
+              address
+              phone
+            }
           }
         }
       `,
