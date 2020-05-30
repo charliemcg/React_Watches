@@ -9,7 +9,7 @@ const WatchSchema = new Schema({
     type: String,
     required: true,
   },
-  housing: {
+  case: {
     type: String,
     required: false,
   },

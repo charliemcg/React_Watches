@@ -35,7 +35,7 @@ module.exports = buildSchema(`
     type WatchErrors {
         brand: String
         model: String
-        housing: String
+        case: String
         bracelet: String
         dial: String
         diameter: String
@@ -52,7 +52,7 @@ module.exports = buildSchema(`
         _id: ID!
         brand: String!
         model: String!
-        housing: String
+        case: String
         bracelet: String
         dial: String
         diameter: String
@@ -86,7 +86,7 @@ module.exports = buildSchema(`
     input WatchInput {
         brand: String!
         model: String!
-        housing: String
+        case: String
         bracelet: String
         dial: String
         diameter: String
