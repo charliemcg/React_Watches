@@ -34,7 +34,7 @@ module.exports = {
     return new Watch({
       brand: args.watchInput.brand,
       model: args.watchInput.model,
-      houseing: args.watchInput.housing,
+      housing: args.watchInput.housing,
       bracelet: args.watchInput.bracelet,
       dial: args.watchInput.dial,
       diameter: args.watchInput.diameter,

@@ -46,6 +46,7 @@ export default function Product(props) {
       })
         .then((res) => {
           setWatch(res.data.data.watch);
+          console.log(res.data.data.watch);
           getOtherWatches();
         })
         .catch((err) => {
