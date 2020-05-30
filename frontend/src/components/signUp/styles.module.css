@@ -60,4 +60,6 @@
   border-radius: 10px;
   font-size: 13px;
   cursor: pointer;
+  background-color: #f7e7ce;
+  border: 1px solid #e3c09a;
 }

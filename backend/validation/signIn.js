@@ -3,10 +3,8 @@ const isEmpty = require("is-empty");
 
 module.exports = function validateSignIn(data) {
   let errors = {};
-  console.log(data);
   data.email = !isEmpty(data.email) ? data.email : "";
   data.password = !isEmpty(data.password) ? data.password : "";
-  console.log(data);
   if (Validator.isEmpty(data.email)) {
     errors.email = "Email field is required";
   } else if (!Validator.isEmail(data.email)) {

@@ -23,10 +23,10 @@ export const signUpUser = (userData, history) => (dispatch) => {
     })
     .catch((err) => {
       console.log(`Cannot create user ${err}`);
-      //     dispatch({
-      //       type: GET_ERRORS,
-      //       payload: err.response.data,
-      //     })
+      dispatch({
+        type: GET_ERRORS,
+        payload: JSON.parse(err.message),
+      });
     });
 };
 
