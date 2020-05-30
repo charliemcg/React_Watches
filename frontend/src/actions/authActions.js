@@ -50,11 +50,11 @@ export const signInUser = (userData) => (dispatch) => {
       dispatch(setCurrentUser(decoded));
     })
     .catch((err) => {
-      console.log(`cannot get user ${err}`);
-      // dispatch({
-      //   type: GET_ERRORS,
-      //   payload: err,
-      // });
+      console.log(`cannot get user ${err.message}`);
+      dispatch({
+        type: GET_ERRORS,
+        payload: JSON.parse(err.message),
+      });
     });
 };
 

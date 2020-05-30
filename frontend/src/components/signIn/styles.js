@@ -65,8 +65,10 @@ export default {
   btn: {
     height: "30px",
     width: "100px",
+    border: `1px solid ${colors.btnBorder}`,
     borderRadius: "10px",
     fontSize: "13px",
     cursor: "pointer",
+    backgroundColor: colors.champagne,
   },
 };
