@@ -6,7 +6,8 @@ import { signUpUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
 // import styles from "./styles";
-import styles from "./styles.module.css";
+// import styles from "./styles.module.css";
+import "./styles/styles.css";
 
 function SignUp(props) {
   const firstnameRef = useRef();
@@ -73,8 +74,14 @@ function SignUp(props) {
 
   const getInputs = detailsArr.map((e) => {
     return (
-      <div className={styles.inputWrapper}>
-        <div className={styles.label}>
+      <div
+        id="signup-input-wrapper"
+        // className={styles.inputWrapper}
+      >
+        <div
+          id="signup-label"
+          // className={styles.label}
+        >
           <label htmlFor={e.id}>{strings[e.id]}</label>
         </div>
         <input
@@ -82,30 +89,73 @@ function SignUp(props) {
           error={errors[e.id]}
           id={e.id}
           type={e.type}
-          className={styles.input}
+          // className={styles.input}
           //Give input a red border in input invalid
-          style={errors[e.id] && { border: "2px solid red" }}
+          // style={errors[e.id] && { border: "2px solid red" }}
+          //Give input a red border if input invalid
+          id={
+            errors !== undefined && errors[e.id]
+              ? "signup-input-with-error"
+              : "signup-input"
+          }
         />
-        <div className={styles.error}>{errors[e.id]}</div>
+        <div
+          id="signup-error"
+          // className={styles.error}
+        >
+          {errors[e.id]}
+        </div>
       </div>
     );
   });
 
   return (
-    <div className={styles.masterWrapper}>
-      <div className={styles.contentWrapper}>
-        <div className={styles.title}>{strings.signUpBelow}</div>
-        <div className={styles.signIn}>
+    <div
+      id="signup-master-wrapper"
+      // className={styles.masterWrapper}
+    >
+      <div
+        id="signup-content-wrapper"
+        // className={styles.contentWrapper}
+      >
+        <div
+          id="signup-title"
+          // className={styles.title}
+        >
+          {strings.signUpBelow}
+        </div>
+        <div
+          id="signup-signin"
+          // className={styles.signIn}
+        >
           {strings.alreadyHaveAnAccount}{" "}
-          <Link to={constants.routes.SIGN_IN} className={styles.signInBtn}>
+          <Link
+            to={constants.routes.SIGN_IN}
+            id="signup-signin-btn"
+            // className={styles.signInBtn}
+          >
             {strings.signIn}
           </Link>
         </div>
-        <div classname={styles.form}>
+        <div
+          id="signup-form"
+          // classname={styles.form}
+        >
           {getInputs}
-          <div className={styles.inputWrapper}>
-            <div className={styles.btnWrapper}>
-              <button type="submit" className={styles.btn} onClick={onSubmit}>
+          <div
+            id="signup-input-wrapper"
+            // className={styles.inputWrapper}
+          >
+            <div
+              id="signup-btn-wrapper"
+              // className={styles.btnWrapper}
+            >
+              <button
+                type="submit"
+                id="signup-btn"
+                // className={styles.btn}
+                onClick={onSubmit}
+              >
                 {strings.signUp}
               </button>
             </div>

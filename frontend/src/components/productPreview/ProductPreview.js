@@ -1,6 +1,6 @@
 import React from "react";
 import constants from "../../constants";
-import styles from "./styles";
+import "./styles/styles.css";
 import strings from "./strings";
 
 export default function ProductPreview(props) {
@@ -12,9 +12,9 @@ export default function ProductPreview(props) {
         window.location.href = `${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`;
       }}
     >
-      <div style={styles.itemWrapper}>
+      <div id="product-preview-item-wrapper">
         <img
-          style={styles.thumbnail}
+          id="product-preview-thumbnail"
           src={`data:image/jpeg;base64,${watch.image}`}
           alt={strings.accessibility.productImage}
         />

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Dots } from "react-activity";
 import "react-activity/dist/react-activity.css";
 import axios from "axios";
-import constants from "../../constants";
-import styles from "./styles";
+import "./styles/styles.css";
 import bannerRolex from "./graphics/bannerRolex2.png";
 import bannerOmega from "./graphics/bannerOmega2.png";
 import bannerPatek from "./graphics/bannerPatek2.png";
@@ -90,21 +89,21 @@ export default function SelectedBrand(props) {
     });
 
   const activityIndicator = (
-    <div style={styles.activityIndicator}>
+    <div id="brand-activity-indicator">
       <Dots />
     </div>
   );
 
   return (
-    <div style={styles.masterWrapper}>
-      <div style={styles.banner}>
+    <div id="brand-master-wrapper">
+      <div id="brand-banner">
         <img
           alt={`${strings.accessibility.banner} ${match.params.brand}`}
           src={getBanner()}
           style={{ width: "100%" }}
         />
       </div>
-      <div style={styles.watchesScrollWrapper}>
+      <div id="brand-watches-scroll-wrapper">
         {watches.length > 0 ? renderedWatches : activityIndicator}
       </div>
     </div>

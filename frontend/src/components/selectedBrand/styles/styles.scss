@@ -1,0 +1,48 @@
+@import "../../../colors.scss";
+
+#brand-master-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#brand-banner {
+  width: 75%;
+  min-width: 500px;
+}
+#brand-title {
+  color: $darkText;
+  margin: 10px;
+  padding-left: 20px;
+  width: 75%;
+  min-width: 500px;
+  font-size: 50px;
+}
+#brand-watches-scroll-wrapper {
+  display: flex;
+  overflow: auto;
+  background-color: white;
+  width: 75%;
+  min-width: 500px;
+  height: 270px;
+  margin-bottom: 20px;
+}
+#brand-activity-indicator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#brand-item-wrapper {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 230px;
+  color: $darkText;
+}
+#brand-thumbnail {
+  height: 200px;
+  width: 200px;
+}

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { signInUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
-import styles from "./styles";
+import "./styles/styles.css";
 
 function SignIn(props) {
   const emailRef = useRef();
@@ -48,8 +48,8 @@ function SignIn(props) {
 
   const getInputs = detailsArr.map((e) => {
     return (
-      <div style={styles.inputWrapper}>
-        <div style={styles.label}>
+      <div className="signin-input-wrapper">
+        <div id="signin-label">
           <label htmlFor={e.id}>{strings[e.id]}</label>
         </div>
         <input
@@ -58,31 +58,31 @@ function SignIn(props) {
           id={e.id}
           type={e.type}
           //Give input a red border if input invalid
-          style={
+          id={
             errors !== undefined && errors[e.id]
-              ? styles.inputWithError
-              : styles.input
+              ? "signin-input-with-error"
+              : "signin-input"
           }
         />
-        <div style={styles.error}>{errors !== undefined && errors[e.id]}</div>
+        <div id="signin-error">{errors !== undefined && errors[e.id]}</div>
       </div>
     );
   });
   return (
-    <div style={styles.masterWrapper}>
-      <div style={styles.contentWrapper}>
-        <div style={styles.title}>{strings.signInBelow}</div>
-        <div style={styles.signUp}>
+    <div id="signin-master-wrapper">
+      <div id="signin-content-wrapper">
+        <div id="signin-title">{strings.signInBelow}</div>
+        <div id="signin-signup">
           {strings.dontHaveAnAccount}{" "}
-          <Link to={constants.routes.SIGN_UP} style={styles.signUpBtn}>
+          <Link to={constants.routes.SIGN_UP} id="signin-signup-btn">
             {strings.signUp}
           </Link>
         </div>
-        <div style={styles.form}>
+        <div id="signin-form">
           {getInputs}
-          <div style={styles.inputWrapper}>
-            <div style={styles.btnWrapper}>
-              <button type="submit" style={styles.btn} onClick={onSubmit}>
+          <div className="signin-input-wrapper">
+            <div id="signin-btn-wrapper">
+              <button type="submit" id="signin-btn" onClick={onSubmit}>
                 {strings.signIn}
               </button>
             </div>
