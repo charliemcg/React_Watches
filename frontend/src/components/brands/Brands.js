@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "./styles";
+import "./styles/styles.css";
 import constants from "../../constants";
 import logoRolex from "./graphics/logo_rolex3.png";
 import imgRolex from "./graphics/rolex.png";
@@ -134,7 +134,7 @@ export default function Brands() {
     const brandProperties = getProperties(item);
     return (
       brandProperties !== undefined && (
-        <div style={styles.itemWrapper}>
+        <div id="item-wrapper">
           <Link to={`${constants.routes.BRANDS}${brandProperties.route}`}>
             <img
               alt={brandProperties.accessibility}
@@ -150,17 +150,17 @@ export default function Brands() {
   };
 
   return (
-    <div style={styles.masterWrapper}>
-      <div style={styles.title}>{strings.brands}</div>
-      <div style={styles.brandsWrapper}>
-        <div style={styles.row}>
+    <div id="master-brands-wrapper">
+      <div id="title">{strings.brands}</div>
+      <div id="brands-wrapper">
+        <div className="brands-row">
           {getRenderedItem(strings.keys.rolex)}
           {getRenderedItem(strings.keys.omega)}
           {getRenderedItem(strings.keys.patek)}
           {getRenderedItem(strings.keys.audemars)}
           {getRenderedItem(strings.keys.cartier)}
         </div>
-        <div style={styles.row}>
+        <div className="brands-row">
           {getRenderedItem(strings.keys.vacheron)}
           {getRenderedItem(strings.keys.breguet)}
           {getRenderedItem(strings.keys.chopard)}

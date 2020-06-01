@@ -1,0 +1,143 @@
+@import "../../../colors.scss";
+
+#master-product-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#top-wrapper {
+  display: flex;
+  width: 75%;
+  min-width: 500px;
+}
+#image-wrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $lightText;
+}
+#product-image {
+  width: 80%;
+  margin-top: 30px;
+  cursor: pointer;
+}
+#zoom {
+  height: 30px;
+  width: 50%;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#zoom-icon {
+  height: 50%;
+  margin-left: 10px;
+}
+#full-image-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(52, 52, 52, 0.8);
+}
+#full-image-close {
+  position: absolute;
+  top: 10;
+  right: 10;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+#details-wrapper {
+  flex: 3;
+  color: $darkText;
+}
+#title {
+  font-size: 50px;
+}
+#model {
+  font-size: 30px;
+}
+#buy-wrapper {
+  display: flex;
+}
+#price-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  width: 100%;
+}
+#btn-wrapper {
+  display: flex;
+  align-items: flex-end;
+  height: 75%;
+  color: $darkText;
+  text-decoration: none;
+}
+#buy-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $champagne;
+  border-radius: 6px;
+  border: 1px solid $btnBorder;
+  width: 110px;
+  height: 100%;
+}
+#finance-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  width: 110px;
+  height: 100%;
+  color: $darkText;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 13px;
+  background-color: #ddd;
+}
+#divider {
+  background-color: $darkText;
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+}
+#specs {
+  display: flex;
+  margin-left: 20px;
+}
+#properties {
+  flex: 1;
+}
+#values {
+  flex: 3;
+}
+#activity-indicator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#others {
+  width: 75%;
+  min-width: 500px;
+  color: $darkText;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+#bottom-wrapper {
+  display: flex;
+  overflow: auto;
+  background-color: white;
+  width: 75%;
+  min-width: 500px;
+  height: 270px;
+  margin-bottom: 20px;
+}

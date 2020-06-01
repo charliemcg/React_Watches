@@ -4,7 +4,7 @@ import { Dots } from "react-activity";
 import "react-activity/dist/react-activity.css";
 import axios from "axios";
 import constants from "../../constants";
-import styles from "./styles";
+import "./styles/styles.css";
 import strings from "./strings";
 import ProductPreview from "../productPreview/ProductPreview";
 import zoomImg from "./graphics/zoom.png";
@@ -98,14 +98,14 @@ export default function Product(props) {
       return <ProductPreview watch={watch} />;
     });
   const activityIndicator = (
-    <div style={styles.activityIndicator}>
+    <div id="activity-indicator">
       <Dots />
     </div>
   );
   const imageFullSize = (
-    <div style={styles.fullImageWrapper}>
+    <div id="full-image-wrapper">
       {/* Change this to an actual icon instead of just text */}
-      <div style={styles.fullImageClose} onClick={() => toggleZoom(false)}>
+      <div id="full-image-close" onClick={() => toggleZoom(false)}>
         x
       </div>
       <img
@@ -129,26 +129,26 @@ export default function Product(props) {
     });
 
   return (
-    <div style={styles.masterWrapper}>
+    <div id="master-product-wrapper">
       {zoom && imageFullSize}
-      <div style={styles.topWrapper}>
-        <div style={styles.imageWrapper}>
+      <div id="top-wrapper">
+        <div id="image-wrapper">
           <img
             alt={strings.accessibility.productImage}
             src={watchImage}
-            style={styles.image}
+            id="image"
             onClick={() => toggleZoom(true)}
           />
-          <div style={styles.zoom}>
+          <div id="zoom">
             {strings.clickToZoom}
-            <img alt="" src={zoomImg} style={styles.zoomIcon} />
+            <img alt="" src={zoomImg} id="zoom-icon" />
           </div>
         </div>
-        <div style={styles.detailsWrapper}>
-          <div style={styles.title}>{watch.brand}</div>
-          <div style={styles.model}>{watch.model}</div>
-          <div style={styles.buyWrapper}>
-            <div style={styles.priceWrapper}>${watch.price}</div>
+        <div id="details-wrapper">
+          <div id="title">{watch.brand}</div>
+          <div id="model">{watch.model}</div>
+          <div id="buy-wrapper">
+            <div id="price-wrapper">${watch.price}</div>
             <div
               style={{
                 display: "flex",
@@ -156,24 +156,18 @@ export default function Product(props) {
                 alignItems: "center",
               }}
             >
-              <Link
-                to={constants.routes.UNDER_CONSTRUCTION}
-                style={styles.btnWrapper}
-              >
-                <div style={styles.buyBtn}>{strings.buy}</div>
+              <Link to={constants.routes.UNDER_CONSTRUCTION} id="btn-wrapper">
+                <div id="buy-btn">{strings.buy}</div>
               </Link>
-              <Link
-                to={constants.routes.UNDER_CONSTRUCTION}
-                style={styles.btnWrapper}
-              >
-                <div style={styles.financeBtn}>{strings.finance}</div>
+              <Link to={constants.routes.UNDER_CONSTRUCTION} id="btn-wrapper">
+                <div id="finance-btn">{strings.finance}</div>
               </Link>
             </div>
           </div>
-          <div style={styles.divider} />
+          <div id="divider" />
           <p>{watch.description}</p>
-          <div style={styles.specs}>
-            <div style={styles.properties}>
+          <div id="specs">
+            <div id="properties">
               {caseKey}
               {braceletKey}
               {dialKey}
@@ -181,7 +175,7 @@ export default function Product(props) {
               {movementKey}
               {complicationsKey}
             </div>
-            <div style={styles.values}>
+            <div id="values">
               <p>{watch.case}</p>
               <p>{watch.bracelet}</p>
               <p>{watch.dial}</p>
@@ -192,11 +186,11 @@ export default function Product(props) {
           </div>
         </div>
       </div>
-      <div style={styles.others}>
+      <div id="others">
         {strings.otherWatchesBy}
         {watch.brand}
       </div>
-      <div style={styles.bottomWrapper}>
+      <div id="bottom-wrapper">
         {otherWatches.length > 0 ? otherWatchesRendered : activityIndicator}
       </div>
     </div>

@@ -4,7 +4,7 @@ import youtube from "./graphics/icon_youtube.png";
 import instagram from "./graphics/icon_instagram.png";
 import facebook from "./graphics/icon_facebook.png";
 import twitter from "./graphics/icon_twitter.png";
-import styles from "./styles";
+import "./styles/styles.css";
 import strings from "./strings";
 import constants from "../../constants";
 
@@ -12,54 +12,63 @@ const year = new Date().getFullYear();
 
 export default function Cart() {
   return (
-    <div style={styles.background}>
-      <div style={styles.footerWrapper}>
-        <div style={styles.columnWrapper}>
+    <div id="background">
+      <div id="footer-wrapper">
+        <div className="footer-column-wrapper">
           <div>
             <div>{strings.addressLineOne}</div>
             <div>{strings.addressLineTwo}</div>
           </div>
           <div>{strings.phone}</div>
         </div>
-        <div style={styles.columnWrapper}>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+        <div className="footer-column-wrapper">
+          <Link
+            to={constants.routes.UNDER_CONSTRUCTION}
+            className="footer-link"
+          >
             {strings.contactUs}
           </Link>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+          <Link
+            to={constants.routes.UNDER_CONSTRUCTION}
+            className="footer-link"
+          >
             {strings.careers}
           </Link>
-          <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.link}>
+          <Link
+            to={constants.routes.UNDER_CONSTRUCTION}
+            className="footer-link"
+          >
             {strings.termsAndConditions}
           </Link>
         </div>
-        <div style={styles.columnWrapper}>
-          <div style={styles.socialWrapper}>
+        <div className="footer-column-wrapper">
+          <div id="social-wrapper">
             <Link to={constants.routes.UNDER_CONSTRUCTION}>
               <img
                 alt={strings.accessibility.youtube}
                 src={youtube}
-                style={styles.socialIcon}
+                className="footer-social-icon"
               />
             </Link>
             <Link to={constants.routes.UNDER_CONSTRUCTION}>
               <img
                 alt={strings.accessibility.instagram}
                 src={instagram}
-                style={styles.socialIcon}
+                className="footer-social-icon"
               />
             </Link>
             <Link to={constants.routes.UNDER_CONSTRUCTION}>
               <img
                 alt={strings.accessibility.facebook}
                 src={facebook}
-                style={styles.socialIcon}
+                className="footer-social-icon"
               />
             </Link>
             <Link to={constants.routes.UNDER_CONSTRUCTION}>
               <img
                 alt={strings.accessibility.twitter}
                 src={twitter}
-                style={styles.socialIcon}
+                className="footer-social-icon"
               />
             </Link>
           </div>

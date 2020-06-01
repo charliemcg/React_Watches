@@ -1,0 +1,65 @@
+@import "../../../colors.scss";
+@import "./covid-styles.scss";
+
+#master-home-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#sub-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  min-width: 750px;
+  padding: 8px;
+}
+#sub-nav-btn-wrapper {
+  display: flex;
+  max-width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-sub-nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 0px 10px;
+  color: $darkText;
+}
+#warranty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $lightText;
+  margin-right: 10px;
+}
+#carousel-wrapper {
+  width: 75%;
+  min-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+#description-title {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  min-width: 400px;
+  color: $darkText;
+  font-size: 30px;
+  margin-top: 15px;
+}
+#description-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  min-width: 500px;
+  color: $darkText;
+  text-align: center;
+  margin: 20px 0px;
+}

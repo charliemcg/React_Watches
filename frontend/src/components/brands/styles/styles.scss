@@ -1,0 +1,26 @@
+@import "../../../colors.scss";
+
+#master-brands-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#title {
+  width: 75%;
+  font-size: 40px;
+  color: $darkText;
+}
+#brands-wrapper {
+  margin: 10px 0px;
+  width: 75%;
+  min-width: 950px;
+}
+.brands-row {
+  display: flex;
+  justify-content: space-around;
+}
+#item-wrapper {
+  margin: 10px 0px;
+  background: $logoBlack;
+}

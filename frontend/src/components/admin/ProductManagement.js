@@ -7,7 +7,6 @@ import axios from "axios";
 import constants from "../../constants";
 import brands from "../../brands";
 import models from "../../models";
-// import styles from "./styles/";
 import "./styles/styles.css";
 import strings from "./strings";
 
@@ -219,9 +218,9 @@ function Admin(props) {
 
   const getDropdown = (watchAttribute) => {
     return (
-      <div className="dropdown-wrapper">
-        <div className="label">{strings[watchAttribute]}</div>
-        <div className="dropdown">
+      <div className="admin-dropdown-wrapper">
+        <div className="admin-label">{strings[watchAttribute]}</div>
+        <div id="dropdown">
           <Dropdown
             options={getOptions(watchAttribute)}
             onChange={(val) => {
@@ -236,8 +235,8 @@ function Admin(props) {
 
   const getComplication = (comp) => {
     return (
-      <div className="complication-wrapper">
-        <label htmlFor={comp} className="complication-label">
+      <div id="complication-wrapper">
+        <label htmlFor={comp} id="complication-label">
           {strings[comp]}
         </label>
         <input
@@ -253,9 +252,9 @@ function Admin(props) {
   };
 
   return isAdmin ? (
-    <div className="master-wrapper">
-      <div className="upload-form">
-        <div className="title">{strings.uploadNewWatch}</div>
+    <div id="master-admin-wrapper">
+      <div id="upload-form">
+        <div id="title">{strings.uploadNewWatch}</div>
         {/* Brand */}
         {getDropdown("brand")}
         {getDropdown("model")}
@@ -265,26 +264,26 @@ function Admin(props) {
         {getDropdown("diameter")}
         {getDropdown("movement")}
         {/* Complications */}
-        <div className="checkbox-wrapper">
-          <div className="label">{strings.complications}</div>
-          <div className="complication-options-wrapper">
-            <div className="complication-row-wrapper">
+        <div className="admin-checkbox-wrapper">
+          <div className="admin-label">{strings.complications}</div>
+          <div id="complication-options-wrapper">
+            <div className="admin-complication-row-wrapper">
               {getComplication("date")}
               {getComplication("annualCalendar")}
             </div>
-            <div className="complication-row-wrapper">
+            <div className="admin-complication-row-wrapper">
               {getComplication("perpetualCalendar")}
               {getComplication("chronograph")}
             </div>
-            <div className="complication-row-wrapper">
+            <div className="admin-complication-row-wrapper">
               {getComplication("gmt")}
               {getComplication("worldTime")}
             </div>
-            <div className="complication-row-wrapper">
+            <div className="admin-complication-row-wrapper">
               {getComplication("minuteRepeater")}
               {getComplication("moonPhase")}
             </div>
-            <div className="complication-row-wrapper">
+            <div className="admin-complication-row-wrapper">
               {getComplication("tourbillon")}
               {getComplication("powerReserve")}
             </div>
@@ -292,8 +291,8 @@ function Admin(props) {
           <span>{errors.complications}</span>
         </div>
         {/* Price */}
-        <div className="dropdown-wrapper">
-          <div className="label">{strings.price}</div>
+        <div className="admin-dropdown-wrapper">
+          <div className="admin-label">{strings.price}</div>
           $
           <input
             ref={priceRef}
@@ -307,8 +306,8 @@ function Admin(props) {
           <span>{errors.price}</span>
         </div>
         {/* Description */}
-        <div className="dropdown-wrapper">
-          <div className="label">{strings.description}</div>
+        <div className="admin-dropdown-wrapper">
+          <div className="admin-label">{strings.description}</div>
           <textarea
             ref={descriptionRef}
             onChange={() => {
@@ -320,12 +319,11 @@ function Admin(props) {
             value={description}
             error={errors.description}
             id="description"
-            className="description"
           />
           <span>{errors.description}</span>
         </div>
         {/* In stock */}
-        <div className="checkbox-wrapper">
+        <div className="admin-checkbox-wrapper">
           <div className="label">{strings.inStock}</div>
           <input
             type="checkbox"
@@ -338,18 +336,13 @@ function Admin(props) {
           <span>{errors.inStock}</span>
         </div>
         {/* Image */}
-        <div className="dropdown-wrapper">
-          <div
-            // style={styles.label}
-            className="label"
-          >
-            {strings.image}
-          </div>
+        <div className="admin-dropdown-wrapper">
+          <div className="admin-label">{strings.image}</div>
           <input onChange={onChangeImage} type="file" className="file" />
         </div>
-        <div className="dropdown-wrapper">
-          <div className="submit-wrapper">
-            <button type="submit" className="submit-btn" onClick={onSubmit}>
+        <div className="admin-dropdown-wrapper">
+          <div id="submit-wrapper">
+            <button type="submit" id="submit-btn" onClick={onSubmit}>
               {strings.submit}
             </button>
           </div>

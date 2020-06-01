@@ -1,0 +1,26 @@
+@import "../../../colors.scss";
+
+#banner-wrapper {
+  background-color: $champagne;
+  padding: 10px;
+  width: 75%;
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#message-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $darkText;
+}
+#info-icon {
+  width: 23px;
+  margin: 5px;
+}
+#x {
+  padding: 5px 10px;
+  color: $darkText;
+  cursor: pointer;
+}

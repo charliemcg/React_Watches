@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import constants from "../../constants";
 import strings from "./strings";
-import styles from "./styles";
+import "./styles/styles.css";
 import Carousel from "./Carousel";
 import Covid from "./Covid";
 
@@ -14,51 +14,51 @@ export default function Landing() {
   );
 
   return (
-    <div style={styles.masterWrapper}>
+    <div id="master-home-wrapper">
       {banner}
-      <div style={styles.subNav}>
-        <div style={styles.subNavBtnWrapper}>
+      <div id="sub-nav">
+        <div id="sub-nav-btn-wrapper">
           <Link
             to={`${constants.routes.BRANDS}${constants.routes.ROLEX}`}
-            style={styles.subNavBtn}
+            className="home-sub-nav-btn"
           >
             {constants.brands.ROLEX}
           </Link>
           <Link
             to={`${constants.routes.BRANDS}${constants.routes.OMEGA}`}
-            style={styles.subNavBtn}
+            className="home-sub-nav-btn"
           >
             {constants.brands.OMEGA}
           </Link>
           <Link
             to={`${constants.routes.BRANDS}${constants.routes.PATEK_PHILIPPE}`}
-            style={styles.subNavBtn}
+            className="home-sub-nav-btn"
           >
             {constants.brands.PATEK_PHILIPPE}
           </Link>
           <Link
             to={`${constants.routes.BRANDS}${constants.routes.AUDEMARS_PIGUET}`}
-            style={styles.subNavBtn}
+            className="home-sub-nav-btn"
           >
             {constants.brands.AUDEMARS_PIGUET}
           </Link>
           <Link
             to={`${constants.routes.BRANDS}${constants.routes.CARTIER}`}
-            style={styles.subNavBtn}
+            className="home-sub-nav-btn"
           >
             {constants.brands.CARTIER}
           </Link>
-          <Link to={constants.routes.BRANDS} style={styles.subNavBtn}>
+          <Link to={constants.routes.BRANDS} className="home-sub-nav-btn">
             {strings.more}
           </Link>
         </div>
-        <div style={styles.warranty}>{strings.warranty}</div>
+        <div id="warranty">{strings.warranty}</div>
       </div>
-      <div style={styles.carouselWrapper}>
+      <div id="carousel-wrapper">
         <Carousel />
       </div>
-      <div style={styles.descriptionTitle}>{strings.descriptionTitle}</div>
-      <div style={styles.descriptionWrapper}>{strings.description}</div>
+      <div id="description-title">{strings.descriptionTitle}</div>
+      <div id="description-wrapper">{strings.description}</div>
     </div>
   );
 }

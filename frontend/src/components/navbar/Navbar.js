@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
-import styles from "./styles";
+import "./styles/styles.css";
 import iconPhone from "./graphics/phoneIcon.png";
 import iconLocation from "./graphics/locationIcon.png";
 import iconCart from "./graphics/cartIcon.png";
@@ -23,49 +23,49 @@ function Navbar(props) {
   //Admins do not need the cart functionality and regular users should not br able to access the admin section.
   //Getting the correct button accordingly.
   const cartOrAdminBtn = props.auth.user.admin ? (
-    <Link to={constants.routes.ADMIN} style={styles.btn}>
+    <Link to={constants.routes.ADMIN} className="nav-btn">
       {strings.admin}
     </Link>
   ) : (
-    <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
+    <Link to={constants.routes.UNDER_CONSTRUCTION} className="nav-btn">
       <div>{strings.cart}</div>
-      <img src={iconCart} alt="" style={styles.cartIcon} />
+      <img src={iconCart} alt="" id="cart-icon" />
     </Link>
   );
 
   return (
-    <div style={styles.masterWrapper}>
-      <div style={styles.btnWrapper}>
-        <div style={styles.leftWrapper}>
-          <div style={styles.phone}>
-            <img alt="" src={iconPhone} style={styles.icon} />
-            <div style={styles.phoneContent}>{strings.phone}</div>
+    <div id="master-nav-wrapper">
+      <div id="nav-btn-wrapper">
+        <div id="left-wrapper">
+          <div id="phone">
+            <img alt="" src={iconPhone} className="nav-icon" />
+            <div id="phone-content">{strings.phone}</div>
           </div>
-          <div style={styles.leftBtnWrapper}>
-            <Link to={constants.routes.BRANDS} style={styles.btn}>
+          <div id="left-btn-wrapper">
+            <Link to={constants.routes.BRANDS} className="nav-btn">
               {strings.watches}
             </Link>
-            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
+            <Link to={constants.routes.UNDER_CONSTRUCTION} className="nav-btn">
               {strings.about}
             </Link>
-            <Link to={constants.routes.UNDER_CONSTRUCTION} style={styles.btn}>
+            <Link to={constants.routes.UNDER_CONSTRUCTION} className="nav-btn">
               {strings.contact}
             </Link>
           </div>
         </div>
-        <div style={styles.logo}>
-          <Link to={constants.routes.HOME} style={styles.logoLink}>
+        <div id="logo">
+          <Link to={constants.routes.HOME} id="logo-link">
             {strings.watchShop}
           </Link>
         </div>
-        <div style={styles.rightWrapper}>
-          <div style={styles.address}>
-            <img alt="" src={iconLocation} style={styles.icon} />
-            <div style={styles.addressContent}>{strings.address}</div>
+        <div id="right-wrapper">
+          <div id="address">
+            <img alt="" src={iconLocation} className="nav-icon" />
+            <div id="address-content">{strings.address}</div>
           </div>
-          <div style={styles.rightBtnWrapper}>
+          <div id="right-btn-wrapper">
             {cartOrAdminBtn}
-            <div onClick={handleSignInOut} style={styles.signIn}>
+            <div onClick={handleSignInOut} id="sign-in">
               {props.auth.user.id !== undefined
                 ? strings.logOut
                 : strings.signIn}
