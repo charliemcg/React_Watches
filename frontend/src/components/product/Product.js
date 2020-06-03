@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Dots } from "react-activity";
-import "react-activity/dist/react-activity.css";
+// import "react-activity/dist/react-activity.css";
 import axios from "axios";
 import constants from "../../constants";
 import "./styles/styles.css";

@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { signUpUser } from "../../actions/authActions";
 import constants from "../../constants";
 import strings from "./strings";
-// import styles from "./styles";
-// import styles from "./styles.module.css";
 import "./styles/styles.css";
 
 function SignUp(props) {
@@ -74,24 +72,13 @@ function SignUp(props) {
 
   const getInputs = detailsArr.map((e) => {
     return (
-      <div
-        id="signup-input-wrapper"
-        // className={styles.inputWrapper}
-      >
-        <div
-          id="signup-label"
-          // className={styles.label}
-        >
+      <div id="signup-input-wrapper">
+        <div id="signup-label">
           <label htmlFor={e.id}>{strings[e.id]}</label>
         </div>
         <input
           ref={e.ref}
-          error={errors[e.id]}
-          id={e.id}
           type={e.type}
-          // className={styles.input}
-          //Give input a red border in input invalid
-          // style={errors[e.id] && { border: "2px solid red" }}
           //Give input a red border if input invalid
           id={
             errors !== undefined && errors[e.id]
@@ -99,63 +86,26 @@ function SignUp(props) {
               : "signup-input"
           }
         />
-        <div
-          id="signup-error"
-          // className={styles.error}
-        >
-          {errors[e.id]}
-        </div>
+        <div id="signup-error">{errors[e.id]}</div>
       </div>
     );
   });
 
   return (
-    <div
-      id="signup-master-wrapper"
-      // className={styles.masterWrapper}
-    >
-      <div
-        id="signup-content-wrapper"
-        // className={styles.contentWrapper}
-      >
-        <div
-          id="signup-title"
-          // className={styles.title}
-        >
-          {strings.signUpBelow}
-        </div>
-        <div
-          id="signup-signin"
-          // className={styles.signIn}
-        >
+    <div id="signup-master-wrapper">
+      <div id="signup-content-wrapper">
+        <div id="signup-title">{strings.signUpBelow}</div>
+        <div id="signup-signin">
           {strings.alreadyHaveAnAccount}{" "}
-          <Link
-            to={constants.routes.SIGN_IN}
-            id="signup-signin-btn"
-            // className={styles.signInBtn}
-          >
+          <Link to={constants.routes.SIGN_IN} id="signup-signin-btn">
             {strings.signIn}
           </Link>
         </div>
-        <div
-          id="signup-form"
-          // classname={styles.form}
-        >
+        <div id="signup-form">
           {getInputs}
-          <div
-            id="signup-input-wrapper"
-            // className={styles.inputWrapper}
-          >
-            <div
-              id="signup-btn-wrapper"
-              // className={styles.btnWrapper}
-            >
-              <button
-                type="submit"
-                id="signup-btn"
-                // className={styles.btn}
-                onClick={onSubmit}
-              >
+          <div id="signup-input-wrapper">
+            <div id="signup-btn-wrapper">
+              <button type="submit" id="signup-btn" onClick={onSubmit}>
                 {strings.signUp}
               </button>
             </div>

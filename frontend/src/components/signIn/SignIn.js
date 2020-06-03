@@ -54,8 +54,6 @@ function SignIn(props) {
         </div>
         <input
           ref={e.ref}
-          error={errors !== undefined && errors[e.id]}
-          id={e.id}
           type={e.type}
           //Give input a red border if input invalid
           id={
@@ -68,6 +66,7 @@ function SignIn(props) {
       </div>
     );
   });
+
   return (
     <div id="signin-master-wrapper">
       <div id="signin-content-wrapper">
