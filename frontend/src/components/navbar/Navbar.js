@@ -27,7 +27,7 @@ function Navbar(props) {
       {strings.admin}
     </Link>
   ) : (
-    <Link to={constants.routes.UNDER_CONSTRUCTION} className="nav-btn">
+    <Link to={constants.routes.CART} className="nav-btn">
       <div>{strings.cart}</div>
       <img src={iconCart} alt="" id="cart-icon" />
     </Link>

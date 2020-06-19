@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Dots } from "react-activity";
 // import "react-activity/dist/react-activity.css";
+import { connect } from "react-redux";
+import { addToCart } from "../../actions/cartActions.js";
 import axios from "axios";
 import constants from "../../constants";
 import "./styles/styles.css";
@@ -9,7 +11,8 @@ import strings from "./strings";
 import ProductPreview from "../productPreview/ProductPreview";
 import zoomImg from "./graphics/zoom.png";
 
-export default function Product(props) {
+// export default function Product(props) {
+function Product(props) {
   const [watch, setWatch] = useState({});
   const [otherWatches, setOtherWatches] = useState([]);
   const [zoom, toggleZoom] = useState(false);
@@ -59,6 +62,10 @@ export default function Product(props) {
     }
   });
 
+  const handleBuyClick = () => {
+    props.addToCart(watch);
+  };
+
   const getOtherWatches = () => {
     const getThisBrand = {
       query: `
@@ -105,7 +112,17 @@ export default function Product(props) {
   const imageFullSize = (
     <div id="full-image-wrapper">
       {/* Change this to an actual icon instead of just text */}
-      <div id="full-image-close" onClick={() => toggleZoom(false)}>
+      <div
+        onClick={() => toggleZoom(false)}
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          fontSize: "30px",
+          cursor: "pointer",
+          color: "white",
+        }}
+      >
         x
       </div>
       <img
@@ -156,9 +173,9 @@ export default function Product(props) {
                 alignItems: "center",
               }}
             >
-              <Link to={constants.routes.UNDER_CONSTRUCTION} id="btn-wrapper">
+              <div id="btn-wrapper" onClick={() => handleBuyClick()}>
                 <div id="buy-btn">{strings.buy}</div>
-              </Link>
+              </div>
               <Link to={constants.routes.UNDER_CONSTRUCTION} id="btn-wrapper">
                 <div id="finance-btn">{strings.finance}</div>
               </Link>
@@ -196,3 +213,20 @@ export default function Product(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addToCart: (product) => {
+//       dispatch(addToCart(product));
+//     },
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, { addToCart })(Product);

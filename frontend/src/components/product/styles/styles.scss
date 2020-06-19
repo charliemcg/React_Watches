@@ -44,14 +44,6 @@
   align-items: center;
   background-color: rgba(52, 52, 52, 0.8);
 }
-#full-image-close {
-  position: absolute;
-  top: 10;
-  right: 10;
-  font-size: 30px;
-  cursor: pointer;
-  color: white;
-}
 #details-wrapper {
   flex: 3;
   color: $darkText;
@@ -77,6 +69,7 @@
   height: 75%;
   color: $darkText;
   text-decoration: none;
+  cursor: pointer;
 }
 #buy-btn {
   display: flex;

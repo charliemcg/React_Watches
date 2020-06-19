@@ -32,6 +32,9 @@ export default {
     RICHARD_MILLE: "/Richard Mille",
     FOUR_OH_FOUR: "/404",
   },
+  actions: {
+    addToCart: "ADD_TO_CART",
+  },
   brands: {
     ROLEX: "Rolex",
     CARTIER: "Cartier",
