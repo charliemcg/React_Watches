@@ -29,6 +29,7 @@ function Navbar(props) {
   ) : (
     <Link to={constants.routes.CART} className="nav-btn">
       <div>{strings.cart}</div>
+      {props.cart.cart.length > 0 && <div>({props.cart.cart.length})</div>}
       <img src={iconCart} alt="" id="cart-icon" />
     </Link>
   );
@@ -84,6 +85,7 @@ Navbar.propTypes = {
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  cart: state.cart,
 });
 
 export default connect(mapStateToProps, { logoutUser })(Navbar);
