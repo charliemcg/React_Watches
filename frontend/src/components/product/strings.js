@@ -1,6 +1,7 @@
 export default {
   clickToZoom: "Click to zoom",
   buy: "Buy",
+  goToCart: "Go To Cart",
   finance: "24 Months Finance",
   case: "Case:",
   bracelet: "Bracelet:",

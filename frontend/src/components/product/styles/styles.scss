@@ -88,6 +88,16 @@
   width: 110px;
   height: 100%;
 }
+#go-to-cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  border-radius: 6px;
+  border: 1px solid $btnBorder;
+  width: 110px;
+  height: 100%;
+}
 #finance-btn {
   display: flex;
   justify-content: center;

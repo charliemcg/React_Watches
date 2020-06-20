@@ -108,6 +108,21 @@ function Product(props) {
       <Dots />
     </div>
   );
+  const buyBtn =
+    props.cart.cart.filter((e) => e._id === watch._id).length === 0 ? (
+      <div id="btn-wrapper" onClick={() => handleBuyClick()}>
+        <div id="buy-btn">{strings.buy}</div>
+      </div>
+    ) : (
+      <Link
+        to={constants.routes.CART}
+        // id="go-to-cart-btn"
+        id="btn-wrapper"
+        // className="nav-btn"
+      >
+        <div id="go-to-cart-btn">{strings.goToCart}</div>
+      </Link>
+    );
   const imageFullSize = (
     <div id="full-image-wrapper">
       {/* Change this to an actual icon instead of just text */}
@@ -176,9 +191,10 @@ function Product(props) {
                 alignItems: "center",
               }}
             >
-              <div id="btn-wrapper" onClick={() => handleBuyClick()}>
+              {/* <div id="btn-wrapper" onClick={() => handleBuyClick()}>
                 <div id="buy-btn">{strings.buy}</div>
-              </div>
+              </div> */}
+              {buyBtn}
               <Link to={constants.routes.UNDER_CONSTRUCTION} id="btn-wrapper">
                 <div id="finance-btn">{strings.finance}</div>
               </Link>
