@@ -1,16 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 function Cart(props) {
-  useEffect(function () {
-    console.log(props);
-  });
+  const getNoItems = () => {
+    return (
+      <div>
+        <p>There are no items</p>
+      </div>
+    );
+  };
 
-  return (
-    <div>
-      <p style={{ color: "pink" }}>{props.cart.cart[0].model}</p>
-    </div>
-  );
+  const getItems = () => {
+    return props.cart.cart.map((product) => {
+      return (
+        <div>
+          <p>{product.brand}</p>
+          <p>{product.model}</p>
+          <p>{product.price}</p>
+        </div>
+      );
+    });
+  };
+
+  return props.cart.cart.length === 0 ? getNoItems() : getItems();
 }
 
 const mapStateToProps = (state) => {
@@ -19,13 +31,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  // return {
-  // removeFromCart: (product) => {
-  //   dispatch(removeFromCart(product));
-  // },
-  // };
-  return null;
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//   removeFromCart: (product) => {
+//     dispatch(removeFromCart(product));
+//   },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, null)(Cart);

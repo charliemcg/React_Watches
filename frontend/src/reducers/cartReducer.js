@@ -7,10 +7,9 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case constants.actions.addToCart:
-      state.cart.push(action.payload);
       return {
         ...state,
-        cart: state.cart,
+        cart: [...state.cart, action.payload],
       };
     default:
       return state;

@@ -1,15 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import constants from "../../constants";
 import "./styles/styles.css";
 import strings from "./strings";
 
 export default function ProductPreview(props) {
-  const { watch } = props;
+  const { watch, changePath } = props;
   return (
-    <div
+    <Link
       style={{ textDecoration: "none", cursor: "pointer" }}
+      to={`${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`}
       onClick={() => {
-        window.location.href = `${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`;
+        if (changePath) {
+          changePath(`${constants.routes.PRODUCT}/${watch.brand}/${watch._id}`);
+        }
       }}
     >
       <div id="product-preview-item-wrapper">
@@ -21,6 +25,6 @@ export default function ProductPreview(props) {
         <div>{watch.model}</div>
         <div>${watch.price}</div>
       </div>
-    </div>
+    </Link>
   );
 }

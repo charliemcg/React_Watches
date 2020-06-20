@@ -11,7 +11,6 @@ import strings from "./strings";
 import ProductPreview from "../productPreview/ProductPreview";
 import zoomImg from "./graphics/zoom.png";
 
-// export default function Product(props) {
 function Product(props) {
   const [watch, setWatch] = useState({});
   const [otherWatches, setOtherWatches] = useState([]);
@@ -22,7 +21,7 @@ function Product(props) {
       const { params } = props.match;
       const getThisWatch = {
         query: `
-      query { 
+      query {
         watch(watchId: "${params._id}"){
           _id
           brand
@@ -66,6 +65,10 @@ function Product(props) {
     props.addToCart(watch);
   };
 
+  const changePath = (newPageKey) => {
+    setWatch({});
+  };
+
   const getOtherWatches = () => {
     const getThisBrand = {
       query: `
@@ -102,7 +105,7 @@ function Product(props) {
     .filter((product) => product.inStock)
     .filter((product) => product._id !== watch._id)
     .map((watch, i) => {
-      return <ProductPreview watch={watch} />;
+      return <ProductPreview watch={watch} changePath={changePath} />;
     });
   const activityIndicator = (
     <div id="activity-indicator">
@@ -220,13 +223,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addToCart: (product) => {
-//       dispatch(addToCart(product));
-//     },
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Product);
 export default connect(mapStateToProps, { addToCart })(Product);
