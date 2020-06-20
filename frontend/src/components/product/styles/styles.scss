@@ -1,5 +1,12 @@
 @import "../../../colors.scss";
 
+#product-loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
 #master-product-wrapper {
   display: flex;
   flex-direction: column;

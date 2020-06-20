@@ -53,10 +53,6 @@ function Product(props) {
         .catch((err) => {
           console.log(`Cannot get watch ${err}`);
           window.location.href = "../../404";
-          // dispatch({
-          //   type: GET_ERRORS,
-          //   payload: err.response.data,
-          // });
         });
     }
   });
@@ -65,7 +61,7 @@ function Product(props) {
     props.addToCart(watch);
   };
 
-  const changePath = (newPageKey) => {
+  const changePath = () => {
     setWatch({});
   };
 
@@ -148,7 +144,11 @@ function Product(props) {
       return i > 0 ? `, ${e}` : e;
     });
 
-  return (
+  return !watch._id ? (
+    <div id="product-loading-wrapper">
+      <Dots />
+    </div>
+  ) : (
     <div id="master-product-wrapper">
       {zoom && imageFullSize}
       <div id="top-wrapper">
