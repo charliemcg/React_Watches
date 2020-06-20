@@ -156,7 +156,7 @@ function Product(props) {
           <img
             alt={strings.accessibility.productImage}
             src={watchImage}
-            id="image"
+            id="product-image"
             onClick={() => toggleZoom(true)}
           />
           <div id="zoom">
