@@ -116,9 +116,7 @@ function Product(props) {
     ) : (
       <Link
         to={constants.routes.CART}
-        // id="go-to-cart-btn"
         id="btn-wrapper"
-        // className="nav-btn"
       >
         <div id="go-to-cart-btn">{strings.goToCart}</div>
       </Link>
