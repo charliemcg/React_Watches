@@ -11,8 +11,10 @@ function Cart(props) {
 
   const getNoItems = () => {
     return (
-      <div>
-        <p>There are no items</p>
+      <div id="cart-master-wrapper">
+        <div id="cart-content-wrapper">
+          <div id="cart-title">{strings.noItems}</div>
+        </div>
       </div>
     );
   };
@@ -35,7 +37,7 @@ function Cart(props) {
               id="cart-item-remove-btn"
               onClick={() => handleRemoval(product._id)}
             >
-              Remove
+              {strings.remove}
             </div>
           </div>
           <div id="cart-item-price">${product.price}</div>
@@ -44,13 +46,23 @@ function Cart(props) {
     });
   };
 
+  const getGrandTotal = () => {
+    let grandTotal = 0;
+    for (let i in props.cart.cart) {
+      grandTotal += parseInt(props.cart.cart[i].price);
+    }
+    return grandTotal;
+  };
+
   return props.cart.cart.length === 0 ? (
     getNoItems()
   ) : (
     <div id="cart-master-wrapper">
       <div id="cart-content-wrapper">
         <div id="cart-item-list">{getItems()}</div>
-        <div id="cart-user-details-wrapper">blah</div>
+        <div id="cart-user-details-wrapper">
+          Put user shipping details here. Total price: ${getGrandTotal()}
+        </div>
       </div>
     </div>
   );

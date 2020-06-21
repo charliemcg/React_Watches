@@ -18,6 +18,10 @@
   width: 80%;
 }
 
+#cart-title {
+  font-size: 30px;
+}
+
 #cart-item-list {
   display: -webkit-box;
   display: -ms-flexbox;
