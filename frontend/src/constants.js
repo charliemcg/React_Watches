@@ -34,6 +34,7 @@ export default {
   },
   actions: {
     addToCart: "ADD_TO_CART",
+    removeFromCart: "REMOVE_FROM_CART",
   },
   brands: {
     ROLEX: "Rolex",

@@ -1,9 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { removeFromCart } from "../../actions/cartActions.js";
 import "./styles/styles.css";
 import strings from "./strings";
 
 function Cart(props) {
+  const handleRemoval = (id) => {
+    props.removeFromCart(id);
+  };
+
   const getNoItems = () => {
     return (
       <div>
@@ -26,10 +31,14 @@ function Cart(props) {
             <div class="cart-name">{product.model}</div>
           </div>
           <div id="cart-item-remove-wrapper">
-            <div id="cart-item-remove-btn">Remove</div>
+            <div
+              id="cart-item-remove-btn"
+              onClick={() => handleRemoval(product._id)}
+            >
+              Remove
+            </div>
           </div>
           <div id="cart-item-price">${product.price}</div>
-          {/* use actual icon instead of text */}
         </div>
       );
     });
@@ -61,4 +70,4 @@ const mapStateToProps = (state) => {
 //   };
 // };
 
-export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, { removeFromCart })(Cart);
